@@ -26,7 +26,7 @@ the tests.
 
 from invenio.flaskshell import *
 
-import unittest
+from invenio.testutils import InvenioTestCase
 from invenio import dataciteutils
 from invenio import config
 from invenio.testutils import make_test_suite, run_test_suite
@@ -34,7 +34,7 @@ import random
 import string
 import os
 
-class DataCiteTestCase(unittest.TestCase):
+class DataCiteTestCase(InvenioTestCase):
 
     def setUp(self):
         # Force API in test mode
