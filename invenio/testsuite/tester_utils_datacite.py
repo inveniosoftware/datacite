@@ -26,13 +26,13 @@ the tests.
 
 from invenio.flaskshell import *
 
-from invenio.testutils import InvenioTestCase
 from invenio import dataciteutils
 from invenio import config
-from invenio.testutils import make_test_suite, run_test_suite
+from invenio.testutils import make_test_suite, run_test_suite, InvenioTestCase
 import random
 import string
 import os
+
 
 class DataCiteTestCase(InvenioTestCase):
 
