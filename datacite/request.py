@@ -23,7 +23,6 @@ from .errors import HttpError
 
 
 class DataCiteRequest(object):
-
     """Helper class for making requests.
 
     :param base_url: Base URL for all requests.

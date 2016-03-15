@@ -18,12 +18,10 @@ MDS error responses raises a subclass of
 
 
 class HttpError(Exception):
-
     """Exception raised when a connection problem happens."""
 
 
 class DataCiteError(Exception):
-
     """Exception raised when the server returns a known HTTP error code.
 
     Known HTTP error codes include:
@@ -58,7 +56,6 @@ class DataCiteError(Exception):
 
 
 class DataCiteServerError(DataCiteError):
-
     """An internal server error happened on the DataCite end. Try later.
 
     Base class for all 5XX-related HTTP error codes.
@@ -66,7 +63,6 @@ class DataCiteServerError(DataCiteError):
 
 
 class DataCiteRequestError(DataCiteError):
-
     """A DataCite request error. You made an invalid request.
 
     Base class for all 4XX-related HTTP error codes as well as 204.
@@ -74,7 +70,6 @@ class DataCiteRequestError(DataCiteError):
 
 
 class DataCiteNoContentError(DataCiteRequestError):
-
     """DOI is known to MDS, but not resolvable.
 
     This might be due to handle's latency.
@@ -82,7 +77,6 @@ class DataCiteNoContentError(DataCiteRequestError):
 
 
 class DataCiteBadRequestError(DataCiteRequestError):
-
     """Bad request error.
 
     Bad requests can include e.g. invalid XML, wrong domain, wrong prefix.
@@ -93,25 +87,20 @@ class DataCiteBadRequestError(DataCiteRequestError):
 
 
 class DataCiteUnauthorizedError(DataCiteRequestError):
-
     """Bad username or password."""
 
 
 class DataCiteForbiddenError(DataCiteRequestError):
-
     """Login problem, dataset belongs to another party or quota exceeded."""
 
 
 class DataCiteNotFoundError(DataCiteRequestError):
-
     """DOI does not exist in the database."""
 
 
 class DataCiteGoneError(DataCiteRequestError):
-
     """Requested dataset was marked inactive (using DELETE method)."""
 
 
 class DataCitePreconditionError(DataCiteRequestError):
-
     """Metadata must be uploaded first."""

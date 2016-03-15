@@ -56,6 +56,7 @@ with open(os.path.join('datacite', 'version.py'), 'rt') as f:
     ).group('version')
 
 tests_require = [
+    'pydocstyle>=1.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
@@ -75,7 +76,8 @@ setup(
     packages=['datacite'],
     zip_safe=False,
     extras_require={
-        "docs": ["sphinx_rtd_theme"],
+        'docs': ['sphinx_rtd_theme'],
+        'tests': tests_require,
     },
     tests_require=tests_require,
     install_requires=[

@@ -17,15 +17,11 @@ python:
   - "3.4"
 
 install:
-  - pip install --upgrade pip  --use-mirrors
-  - pip install coveralls pep257 --use-mirrors
-  - pip install pytest pytest-pep8 pytest-cov pytest-cache --use-mirrors
-  - pip install -e .[docs]
+  - pip install --upgrade pip
+  - pip install -e .[tests,docs]
 
 script:
-  - pep257 datacite
-  - "sphinx-build -qnNW docs docs/_build/html"
-  - python setup.py test
+  - ./run-tests.sh
 
 after_success:
   - coveralls

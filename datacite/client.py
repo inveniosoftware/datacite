@@ -21,7 +21,6 @@ from .request import DataCiteRequest
 
 
 class DataCiteMDSClient(object):
-
     """DataCite MDS API client wrapper."""
 
     def __init__(self, username=None, password=None, url=None, prefix=None,
