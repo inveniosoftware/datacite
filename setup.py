@@ -17,36 +17,30 @@ import sys
 from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
+install_requires = [
+        "requests>=2.3",
+]
 
-class PyTest(TestCommand):
+tests_require = [
+    'pydocstyle>=1.0',
+    'pytest-cache>=1.0',
+    'pytest-cov>=1.8.0',
+    'pytest-pep8>=1.0.6',
+    'pytest-runner>=2.6.2',
+    'pytest>=2.6.1',
+    'coverage<4.0a1',
+    'httpretty>=0.8.0',
+    'mock>=1.0',
+]
 
-    """Integration of PyTest with setuptools."""
+docs_require = {
+    'sphinx_rtd_theme',
+}
 
-    user_options = [('pytest-args=', 'a', 'Arguments to pass to py.test')]
-
-    def initialize_options(self):
-        """Initialize options."""
-        TestCommand.initialize_options(self)
-        try:
-            from ConfigParser import ConfigParser
-        except ImportError:
-            from configparser import ConfigParser
-        config = ConfigParser()
-        config.read("pytest.ini")
-        self.pytest_args = config.get("pytest", "addopts").split(" ")
-
-    def finalize_options(self):
-        """Finalize options."""
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        """Run tests."""
-        # import here, cause outside the eggs aren't loaded
-        import pytest
-        errno = pytest.main(self.pytest_args)
-        sys.exit(errno)
+extras_require = {
+        'docs': docs_require,
+        'tests': tests_require,
+}
 
 # Get the version string.  Cannot be done with import!
 with open(os.path.join('datacite', 'version.py'), 'rt') as f:
@@ -54,17 +48,6 @@ with open(os.path.join('datacite', 'version.py'), 'rt') as f:
         '__version__\s*=\s*"(?P<version>.*)"\n',
         f.read()
     ).group('version')
-
-tests_require = [
-    'pydocstyle>=1.0',
-    'pytest-cache>=1.0',
-    'pytest-cov>=1.8.0',
-    'pytest-pep8>=1.0.6',
-    'pytest>=2.6.1',
-    'coverage<4.0a1',
-    'httpretty>=0.8.0',
-    'mock>=1.0',
-]
 
 setup(
     name='datacite',
@@ -75,15 +58,9 @@ setup(
     url='https://github.com/inveniosoftware/datacite',
     packages=['datacite'],
     zip_safe=False,
-    extras_require={
-        'docs': ['sphinx_rtd_theme'],
-        'tests': tests_require,
-    },
+    extras_require=extras_require,
     tests_require=tests_require,
-    install_requires=[
-        "requests>=2.3",
-    ],
-    cmdclass={'test': PyTest},
+    install_requires=install_requires,
     classifiers=[
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
