@@ -18,19 +18,21 @@ from setuptools import setup
 from setuptools.command.test import test as TestCommand
 
 install_requires = [
-        "requests>=2.3",
+    'jsonschema>=2.5.1',
+    'lxml>=3.5.0',
+    'requests>=2.3',
 ]
 
 tests_require = [
+    'coverage<4.0a1',
+    'httpretty>=0.8.0',
+    'mock>=1.0',
     'pydocstyle>=1.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
     'pytest-runner>=2.6.2',
     'pytest>=2.6.1',
-    'coverage<4.0a1',
-    'httpretty>=0.8.0',
-    'mock>=1.0',
 ]
 
 docs_require = {
