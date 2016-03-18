@@ -10,12 +10,13 @@
 
 """Tests for /metadata DELETE."""
 
+from __future__ import absolute_import, print_function
+
 import pytest
+from helpers import APIURL, get_client, import_httpretty
 
 from datacite.errors import DataCiteForbiddenError, DataCiteNotFoundError, \
-    DataCiteUnauthorizedError, DataCiteServerError
-from helpers import get_client, APIURL, import_httpretty
-
+    DataCiteServerError, DataCiteUnauthorizedError
 
 httpretty = import_httpretty()
 

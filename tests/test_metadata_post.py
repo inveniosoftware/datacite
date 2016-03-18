@@ -10,13 +10,13 @@
 
 """Tests for /metadata POST."""
 
+from __future__ import absolute_import, print_function
+
 import pytest
+from helpers import APIURL, get_client, import_httpretty
 
-from datacite.errors import DataCiteForbiddenError, \
-    DataCiteUnauthorizedError, DataCiteBadRequestError, \
-    DataCiteServerError
-from helpers import get_client, APIURL, import_httpretty
-
+from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
+    DataCiteServerError, DataCiteUnauthorizedError
 
 httpretty = import_httpretty()
 

@@ -12,8 +12,9 @@
 
 from __future__ import absolute_import, print_function
 
-import requests
 import ssl
+
+import requests
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import RequestException
 

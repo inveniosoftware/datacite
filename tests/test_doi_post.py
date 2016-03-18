@@ -10,17 +10,15 @@
 
 """Tests for /doi POST."""
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function
 
 import pytest
+from helpers import APIURL, get_client, import_httpretty
 
 from datacite._compat import b
-from datacite.errors import DataCiteForbiddenError,\
-    DataCiteUnauthorizedError, \
-    DataCiteServerError, DataCiteBadRequestError, \
-    DataCitePreconditionError
-from helpers import get_client, APIURL, import_httpretty
-
+from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
+    DataCitePreconditionError, DataCiteServerError, \
+    DataCiteUnauthorizedError
 
 httpretty = import_httpretty()
 

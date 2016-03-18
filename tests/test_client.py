@@ -10,18 +10,18 @@
 
 """Test client."""
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function
 
 import socket
 import ssl
 
-from datacite import DataCiteMDSClient
-from datacite.errors import HttpError as DataCiteHttpError
-from helpers import get_client, APIURL, import_httpretty
+import pytest
+from helpers import APIURL, get_client, import_httpretty
 from mock import patch
 from requests import ConnectionError
-import pytest
 
+from datacite import DataCiteMDSClient
+from datacite.errors import HttpError as DataCiteHttpError
 
 httpretty = import_httpretty()
 

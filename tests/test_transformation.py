@@ -10,9 +10,9 @@
 
 """Tests for format transformations."""
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function, unicode_literals
 
-from datacite.transformation import to_xml, dump_xml
+from datacite.transformation import dump_xml, to_xml
 
 
 def test_example_json_validates(example_json, validator):
