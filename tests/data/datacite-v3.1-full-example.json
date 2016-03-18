@@ -1,120 +1,108 @@
 {
-    "identifier": {
-        "identifier": "10.5072/example-full",
-        "type": "DOI"
+  "identifier": {
+    "identifier": "10.5072/example-full",
+    "identifierType": "DOI"
+  },
+  "creators": [
+    {
+      "creatorName": "Miller, Elizabeth",
+      "nameIdentifier": {
+        "nameIdentifier": "0000-0001-5000-0007",
+        "nameIdentifierScheme": "ORCID",
+        "schemeURI": "http://orcid.org/"
+      },
+      "affiliation": "DataCite"
+    }
+  ],
+  "titles": [
+    {
+      "title": "Full DataCite XML Example",
+      "lang": "en-us"
     },
-    "creators": [
-        {
-            "name": "Miller, Elizabeth",
-            "identifier": {
-                "identifier": "0000-0001-5000-0007",
-                "scheme": {
-                    "name": "ORCID",
-                    "uri": "http://orcid.org/"
-                }
-            },
-            "affiliation": "DataCite"
-        }
-    ],
-    "titles": [
-        {
-            "title": "Full DataCite XML Example",
-            "language": "en-us"
-        },
-        {
-            "title": "Demonstration of DataCite Properties.",
-            "type": "Subtitle",
-            "language": "en-us"
-        }
-    ],
-    "descriptions": [
-        {
-            "type": "Abstract",
-            "language": "en-us",
-            "description": "XML example of all DataCite Metadata Schema v3.1 properties."
-        }
-    ],
-    "publisher": "DataCite",
-    "publicationYear": 2014,
-    "subjects": [
-        {
-            "subject": "000 computer science",
-            "scheme": {
-                "name": "dewey",
-                "uri": "http://dewey.info/"
-            },
-            "language": "en-us"
-        }
-    ],
-    "contributors": [
-        {
-            "name": "Starr, Joan",
-            "type": "ProjectLeader",
-            "identifier": {
-                "identifier": "0000-0002-7285-027X",
-                "scheme": {
-                    "name": "ORCID",
-                    "uri": "http://orcid.org/"
-                }
-            },
-            "affiliation": "California Digital Library"
-        }
-    ],
-    "language": "en-us",
-    "alternateIdentifiers": [
-        {
-            "identifier": "http://schema.datacite.org/schema/meta/kernel-3.1/example/datacite-example-full-v3.1.xml",
-            "type": "URL"
-        }
-    ],
-    "relatedIdentifiers": [
-        {
-        	"identifier": "http://data.datacite.org/application/citeproc+json/10.5072/example-full",
-            "type": "URL",
-            "relation": "HasMetadata",
-            "scheme": {
-                "name": "citeproc+json",
-                "uri": "https://github.com/citation-style-language/schema/raw/master/csl-data.json"
-            }
-        },
-        {
-        	"identifier": "arXiv:0706.0001",
-        	"type": "arXiv",
-        	"relation": "IsReviewedBy"
-        }
-    ],
-    "dates": [
-        {
-            "date": "2014-10-17",
-            "type": "Updated"
-        }
-    ],
-    "rights": [
-        {
-            "name": "CC0 1.0 Universal",
-            "uri": "http://creativecommons.org/publicdomain/zero/1.0/"
-        }
-    ],
-    "resourceType": {
-        "general": "Software",
-        "type": "XML"
+    {
+      "title": "Demonstration of DataCite Properties.",
+      "type": "Subtitle",
+      "lang": "en-us"
+    }
+  ],
+  "publisher": "DataCite",
+  "publicationYear": "2014",
+  "subjects": [
+    {
+      "subject": "000 computer science",
+      "subjectScheme": "dewey",
+      "schemeURI": "http://dewey.info/",
+      "lang": "en-us"
+    }
+  ],
+  "contributors": [
+    {
+      "contributorName": "Starr, Joan",
+      "contributorType": "ProjectLeader",
+      "nameIdentifier": {
+        "nameIdentifier": "0000-0002-7285-027X",
+        "nameIdentifierScheme": "ORCID",
+        "schemeURI": "http://orcid.org/"
+      },
+      "affiliation": "California Digital Library"
+    }
+  ],
+  "dates": [
+    {
+      "date": "2014-10-17",
+      "dateType": "Updated"
+    }
+  ],
+  "language": "en-us",
+  "resourceType": {
+    "resourceTypeGeneral": "Software",
+    "resourceType": "XML"
+  },
+  "alternateIdentifiers": [
+    {
+      "alternateIdentifier": "http://schema.datacite.org/schema/meta/kernel-3.1/example/datacite-example-full-v3.1.xml",
+      "alternateIdentifierType": "URL"
+    }
+  ],
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "http://data.datacite.org/application/citeproc+json/10.5072/example-full",
+      "relatedIdentifierType": "URL",
+      "relationType": "HasMetadata",
+      "relatedMetadataScheme": "citeproc+json",
+      "schemeURI": "https://github.com/citation-style-language/schema/raw/master/csl-data.json"
     },
-    "sizes": [ "3KB" ],
-    "formats": [ "application/xml" ],
-    "version": "3.1",
-    "geolocations": [
-        {
-            "point": {
-                "latitude": 31.233,
-                "longitude": -67.302
-            },
-            "box": {
-                "latitude1": 41.090,
-                "latitude2": 42.893,
-                "longitude1": -71.032,
-                "longitude2": -68.211
-            },
-            "place": "Atlantic Ocean"
-        }
-    ]
+    {
+      "relatedIdentifier": "arXiv:0706.0001",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "IsReviewedBy"
+    }
+  ],
+  "sizes": [
+    "3KB"
+  ],
+  "formats": [
+    "application/xml"
+  ],
+  "version": "3.1",
+  "rightsList": [
+    {
+      "rights": "CC0 1.0 Universal",
+      "rightsURI": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "descriptions": [
+    {
+      "descriptionType": "Abstract",
+      "lang": "en-us",
+      "description": "XML example of all DataCite Metadata Schema v3.1 properties."
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPoint": "31.233 -67.302",
+      "geoLocationBox": "41.090 -71.032  42.893 -68.211",
+      "geoLocationPlace": "Atlantic Ocean"
+    }
+  ]
 }
