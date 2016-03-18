@@ -1,18 +1,19 @@
-=============================
- DataCite v0.1.0 is released
-=============================
+=================
+ DataCite v0.2.0
+=================
 
-DataCite v0.1.0 was released on February 25, 2015.
+DataCite v0.2.0 was released on March 21, 2016.
 
 About
 -----
 
-Python API wrapper for the DataCite Metadata Store API.
+Python API wrapper for the DataCite Metadata Store API and DataCite XML
+generation.
 
 What's new
 ----------
 
-- Initial public release.
+- Adds DataCite XML generation capabilities.
 
 Installation
 ------------
@@ -22,7 +23,7 @@ Installation
 Documentation
 -------------
 
-   http://datacite.readthedocs.org/en/v0.1.0
+   http://pythonhosted.org/datacite/
 
 Homepage
 --------
