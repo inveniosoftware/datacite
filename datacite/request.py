@@ -10,15 +10,14 @@
 
 """Module for making requests to the DataCite MDS API."""
 
-from __future__ import absolute_import, unicode_literals, print_function
-
+from __future__ import absolute_import, print_function
 
 import requests
+import ssl
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import RequestException
-import ssl
 
-from ._compat import text_type, string_types
+from ._compat import string_types, text_type
 from .errors import HttpError
 
 

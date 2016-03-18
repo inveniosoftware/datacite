@@ -2,7 +2,7 @@
 #
 # This file is part of DataCite.
 #
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -13,18 +13,18 @@
 from __future__ import print_function
 
 import os
-import re
-import sys
+
+import sphinx.environment
+from docutils.utils import get_source_line
 
 
-_html_theme = "sphinx_rtd_theme"
-_html_theme_path = []
-try:
-    import sphinx_rtd_theme
-    _html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-except ImportError:
-    print("Template {0} not found, pip install it", file=sys.stderr)
-    _html_theme = "default"
+def _warn_node(self, msg, node):
+    """Do not warn on external images."""
+    if not msg.startswith('nonlocal image URI found:'):
+        self._warnfunc(msg, '{0}:{1}'.format(get_source_line(node)))
+
+sphinx.environment.BuildEnvironment.warn_node = _warn_node
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -41,7 +41,10 @@ except ImportError:
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.coverage',
     'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.viewcode',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -58,7 +61,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'datacite'
-copyright = u'2015, CERN'
+copyright = u'2015-2016, CERN'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -66,11 +69,10 @@ copyright = u'2015, CERN'
 #
 # The short X.Y version.
 
-with open(os.path.join('..', 'datacite', 'version.py'), 'rt') as f:
-    version = re.search(
-        '__version__\s*=\s*"(?P<version>.*)"\n',
-        f.read()
-    ).group('version')
+g = {}
+with open(os.path.join('..', 'datacite', 'version.py'), 'rt') as fp:
+    exec(fp.read(), g)
+    version = g['__version__']
 
 # The full version, including alpha/beta/rc tags.
 release = version
@@ -119,16 +121,36 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #html_theme = 'default'
-html_theme = _html_theme
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    'description': 'Python API wrapper for the DataCite Metadata Store API.',
+    'github_user': 'inveniosoftware',
+    'github_repo': 'datacite',
+    'github_button': False,
+    'github_banner': True,
+    'show_powered_by': False,
+    'extra_nav_links': {
+        'datacite@GitHub': 'http://github.com/inveniosoftware/datacite',
+        'datacite@PyPI': 'http://pypi.python.org/pypi/datacite/',
+    }
+}
+
+html_sidebars = {
+    '**': [
+        'about.html',
+        'navigation.html',
+        'relations.html',
+        'searchbox.html',
+        'donate.html',
+    ]
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
-html_theme_path = _html_theme_path
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -219,7 +241,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'DataCite.tex', u'DataCite Documentation',
-   u'Fatih Erikli', 'manual'),
+   u'Invenio Software', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -249,7 +271,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'datacite', u'DataCite Documentation',
-     [u'Fatih Erikli'], 1)
+     [u'Invenio Software'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -263,7 +285,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'DataCite', u'DataCite Documentation',
-   u'Fatih Erikli', 'DataCite', 'One line description of project.',
+   u'Invenio Software', 'DataCite', 'One line description of project.',
    'Miscellaneous'),
 ]
 

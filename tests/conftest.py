@@ -42,7 +42,7 @@ def validator():
 
 @pytest.fixture
 def example_json_file():
-    """Loads DataCite v3.1 full example JSON."""
+    """Load DataCite v3.1 full example JSON."""
     path = os.path.dirname(__file__)
     with open(os.path.join(
             path,
@@ -53,13 +53,13 @@ def example_json_file():
 
 @pytest.fixture
 def example_json(example_json_file):
-    """Loads the DataCite v3.1 full example into a dict."""
+    """Load the DataCite v3.1 full example into a dict."""
     return json.loads(example_json_file)
 
 
 @pytest.fixture
 def example_xml_file():
-    """Loads DataCite v3.1 full example XML."""
+    """Load DataCite v3.1 full example XML."""
     path = os.path.dirname(__file__)
     with open(os.path.join(
             path,
@@ -70,5 +70,5 @@ def example_xml_file():
 
 @pytest.fixture
 def example_xml(example_xml_file):
-    """Loads DataCite v3.1 full example as an etree."""
+    """Load DataCite v3.1 full example as an etree."""
     return etree.fromstring(example_xml_file.encode('utf-8'))

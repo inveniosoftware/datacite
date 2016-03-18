@@ -8,13 +8,12 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-
 """Python API client wrapper for the DataCite Metadata Store API.
 
 API documentation is available on https://mds.datacite.org/static/apidoc.
 """
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function
 
 from .errors import DataCiteError
 from .request import DataCiteRequest

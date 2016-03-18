@@ -24,7 +24,7 @@
         {
             "title": "Demonstration of DataCite Properties.",
             "type": "Subtitle",
-            "language": "en-us" 
+            "language": "en-us"
         }
     ],
     "descriptions": [
@@ -114,7 +114,7 @@
                 "longitude1": -71.032,
                 "longitude2": -68.211
             },
-            "place": "Atlantic Ocean"   
+            "place": "Atlantic Ocean"
         }
     ]
 }

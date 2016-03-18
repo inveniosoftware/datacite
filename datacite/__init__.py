@@ -11,8 +11,9 @@
 
 """Python API wrapper for the DataCite Metadata Store API."""
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function
 
 from .client import DataCiteMDSClient
+from .version import __version__
 
 __all__ = ('DataCiteMDSClient', )

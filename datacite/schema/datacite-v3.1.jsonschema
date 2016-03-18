@@ -1,4 +1,4 @@
-{   
+{
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "file:///Users/sami/invenio/src/datacite/datacite/schema/datacite-v3.1.jsonschema",
     "title": "DataCite v3.1",
@@ -144,7 +144,7 @@
                         "type": "string",
                         "description": "The type of the description.",
                         "enum": [
-                            "Abstract", "Methods", "SeriesInformation", 
+                            "Abstract", "Methods", "SeriesInformation",
                             "TableOfContents", "Other"
                         ]
                     },
@@ -154,13 +154,13 @@
             }
         },
 
-        "publisher": { 
+        "publisher": {
             "description": "The name of the entity that holds, archives, publishes prints, distributes, releases, issues, or produces the resource. This property will be used to formulate the citation, so consider the prominence of the role. In the case of datasets, \"publish\" is understood to mean making the data available to the community of researchers.",
             "type": "string",
             "minLength": 1
         },
-        "publicationYear": { 
-            "description": "Year when the data is made publicly available. If an embargo period has been in effect, use the date when the embargo period ends. In the case of datasets, \"publish\" is understood to mean making the data available on a specific date to the community of researchers. If there is no standard publication year value, use the date that would be preferred from a citation perspective.", 
+        "publicationYear": {
+            "description": "Year when the data is made publicly available. If an embargo period has been in effect, use the date when the embargo period ends. In the case of datasets, \"publish\" is understood to mean making the data available on a specific date to the community of researchers. If there is no standard publication year value, use the date that would be preferred from a citation perspective.",
             "$ref": "#/definitions/year"
         },
         "subjects": {
@@ -184,11 +184,11 @@
         "contributors": {
             "description": "The institution or person responsible for collecting, creating, or otherwise contributing to the developement of the dataset. The personal name format should be: Family, Given.",
             "type": "array",
-            "items": { 
+            "items": {
                 "$ref": "#/definitions/person",
                 "properties": {
                     "type": {
-                        "enum": [ 
+                        "enum": [
                             "ContactPerson", "DataCollector", "DataCurator", "DataManager",
                             "Distributor", "Editor", "Funder", "HostingInstitution", "Other",
                             "Producer", "ProjectLeader", "ProjectManager", "ProjectMember",
@@ -257,7 +257,7 @@
             "properties": {
                 "type": { "type": "string" },
                 "general": {
-                    "description": "The general type of a resource.", 
+                    "description": "The general type of a resource.",
                     "enum": [
                         "Audiovisual", "Collection", "Dataset", "Event", "Image",
                         "InteractiveResource", "Model", "PhysicalObject", "Service",
@@ -273,7 +273,7 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "date": { 
+                    "date": {
                         "description": "YYYY,YYYY-MM-DD, YYYY-MM-DDThh:mm:ssTZD or any other format or level of granularity described in W3CDTF. Use RKMS-ISO8601 standard for depicting date ranges.",
                         "$ref": "iso-8601.jsonschema#"
                     },

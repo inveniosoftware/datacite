@@ -10,13 +10,12 @@
 
 """DataCite JSON to XML transformations."""
 
-from __future__ import absolute_import, unicode_literals, print_function
+from __future__ import absolute_import, print_function
 
 import json
-
 from collections import OrderedDict
-from lxml import etree
 
+from lxml import etree
 
 rules = OrderedDict()
 

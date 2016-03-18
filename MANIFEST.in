@@ -1,15 +1,31 @@
 # This file is part of DataCite.
 #
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-include README.rst CHANGES.rst CONTRIBUTING.rst AUTHORS.rst LICENSE MANIFEST.in
-include .coveragerc pytest.ini
-include docs/*.rst docs/*.py docs/Makefile
-include *.py *.sh
-include tox.ini tests/*.py
+include *.py
+include *.rst
+include *.sh
+include *.yml
+include .coveragerc
+include .editorconfig
+include AUTHORS.rst
+include CHANGES.rst
+include CONTRIBUTING.rst
 include Dockerfile
+include docs/*.py
+include docs/*.rst
+include docs/Makefile
+include LICENSE
+include MANIFEST.in
+include pytest.ini
+include README.rst
+include tests/*.py
+include tox.ini
+recursive-include datacite *.jsonschema
+recursive-include tests *.json
 recursive-include tests *.py
+recursive-include tests *.xml

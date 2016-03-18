@@ -2,7 +2,7 @@
  DataCite
 ==========
 
-.. image:: https://travis-ci.org/inveniosoftware/datacite.png?branch=master
+.. image:: https://travis-ci.org/inveniosoftware/datacite.svg?branch=master
    :target: https://travis-ci.org/inveniosoftware/datacite
 .. image:: https://coveralls.io/repos/inveniosoftware/datacite/badge.svg?branch=master
    :target: https://coveralls.io/r/inveniosoftware/datacite?branch=master
@@ -28,7 +28,7 @@ The datacite package is on PyPI so all you need is: ::
 Documentation
 =============
 
-Documentation is readable at http://datacite.readthedocs.org or can be
+Documentation is readable at http://pythonhosted.org/datacite/ or can be
 built using Sphinx: ::
 
     pip install datacite[docs]
