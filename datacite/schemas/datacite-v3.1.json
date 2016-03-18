@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "file:///Users/sami/invenio/src/datacite/datacite/schema/datacite-v3.1.jsonschema",
+    "id": "datacite-v3.1.json",
     "title": "DataCite v3.1",
     "description": "JSON representation of the DataCite v3.1 schema.",
 
@@ -20,7 +20,7 @@
         "language": {
             "description": "Allowed values are taken from IETF BCP 47, ISO 639-1 language codes.",
             "anyOf": [
-                { "$ref": "ietf-bcp-47.jsonschema#"}
+                { "$ref": "ietf-bcp-47.json#"}
             ]
         },
         "geopoint": {
@@ -275,7 +275,7 @@
                 "properties": {
                     "date": {
                         "description": "YYYY,YYYY-MM-DD, YYYY-MM-DDThh:mm:ssTZD or any other format or level of granularity described in W3CDTF. Use RKMS-ISO8601 standard for depicting date ranges.",
-                        "$ref": "iso-8601.jsonschema#"
+                        "$ref": "iso-8601.json#"
                     },
                     "type": {
                         "enum": [

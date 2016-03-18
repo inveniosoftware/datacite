@@ -25,7 +25,7 @@ include pytest.ini
 include README.rst
 include tests/*.py
 include tox.ini
-recursive-include datacite *.jsonschema
+recursive-include datacite *.json
 recursive-include tests *.json
 recursive-include tests *.py
 recursive-include tests *.xml

@@ -8,23 +8,25 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+"""Pytest configuration."""
+
 from __future__ import absolute_import, print_function
 
 import json
-import jsonschema
 import os
+
+import jsonschema
 import pkg_resources
 import pytest
-
 from lxml import etree
 
 
 @pytest.fixture
 def validator():
-    """Provides a JSON schema validator for DataCite v3.1 schema."""
+    """Provide a JSON schema validator for DataCite v3.1 schema."""
     schema = pkg_resources.resource_filename(
         'datacite',
-        'schema/datacite-v3.1.jsonschema'
+        'schemas/datacite-v3.1.json'
     )
 
     schema_dir = os.path.dirname(os.path.abspath(schema))

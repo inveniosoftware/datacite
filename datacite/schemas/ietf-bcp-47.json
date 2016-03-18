@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "ietf-bcp-47.jsonschema",
+    "id": "ietf-bcp-47.json",
     "title": "IETF BCP 47 language tags.",
     "description": "Schema for validating IETF BCP 47 language tags. Regex from: http://stackoverflow.com/questions/7035825/regular-expression-for-a-language-tag-as-defined-by-bcp47",
     "additionalProperties": false,

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "iso-8601.jsonschema",
+    "id": "iso-8601.json",
     "title": "ISO 8601 date format.",
     "description": "Schema for validating ISO 8601 date format. Regexes from: https://gist.github.com/philipashlock/8830168",
     "additionalProperties": false,
