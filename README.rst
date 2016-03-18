@@ -15,7 +15,8 @@
 About
 =====
 
-Python API wrapper for the DataCite Metadata Store API.
+Python API wrapper for the DataCite Metadata Store API and DataCite XML
+generation.
 
 
 Installation
@@ -39,4 +40,5 @@ Testing
 =======
 Running the test suite is as simple as: ::
 
+    pip install -e .[all]
     ./run-tests.sh
