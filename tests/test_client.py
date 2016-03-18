@@ -15,15 +15,14 @@ from __future__ import absolute_import, print_function
 import socket
 import ssl
 
+import httpretty
 import pytest
-from helpers import APIURL, get_client, import_httpretty
+from helpers import APIURL, get_client
 from mock import patch
 from requests import ConnectionError
 
 from datacite import DataCiteMDSClient
 from datacite.errors import HttpError as DataCiteHttpError
-
-httpretty = import_httpretty()
 
 
 def test_api_url():

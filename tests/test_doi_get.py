@@ -12,14 +12,13 @@
 
 from __future__ import absolute_import, print_function
 
+import httpretty
 import pytest
-from helpers import APIURL, get_client, import_httpretty
+from helpers import APIURL, get_client
 
 from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
     DataCiteNoContentError, DataCiteNotFoundError, DataCiteServerError, \
     DataCiteUnauthorizedError
-
-httpretty = import_httpretty()
 
 
 @httpretty.activate

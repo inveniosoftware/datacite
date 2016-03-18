@@ -12,9 +12,7 @@
 
 from __future__ import absolute_import, print_function
 
-from helpers import import_httpretty
-
-httpretty = import_httpretty()
+import httpretty
 
 APIURL = "https://mds.datacite.org/"
 
