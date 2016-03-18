@@ -127,7 +127,8 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'description': 'Python API wrapper for the DataCite Metadata Store API.',
+    'description': 'Python API wrapper for the DataCite Metadata Store API and'
+                   ' DataCite XML generation.',
     'github_user': 'inveniosoftware',
     'github_repo': 'datacite',
     'github_button': False,

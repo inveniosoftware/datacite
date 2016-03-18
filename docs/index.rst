@@ -16,7 +16,7 @@
         </a>
     </p>
 
-Python API wrapper for the DataCite Metadata Store API.
+Python API wrapper for the DataCite Metadata Store API and DataCite XML generation.
 
 Installation
 ============
@@ -40,8 +40,8 @@ for further information on the API.
    :linenos:
 
 
-API
-===
+Metadata Store API
+===================
 
 .. automodule:: datacite
    :members:
@@ -51,6 +51,12 @@ Errors
 
 .. automodule:: datacite.errors
    :members:
+
+DataCite v3.1 XML generation
+============================
+
+.. automodule:: datacite.schema31
+   :members: dump_etree, tostring, validate
 
 .. include:: ../CHANGES.rst
 

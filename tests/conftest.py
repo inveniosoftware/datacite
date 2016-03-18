@@ -13,40 +13,18 @@
 from __future__ import absolute_import, print_function
 
 import json
-import os
+from os.path import dirname, join
 
-import jsonschema
-import pkg_resources
+import httpretty
 import pytest
 from lxml import etree
 
 
 @pytest.fixture
-def validator():
-    """Provide a JSON schema validator for DataCite v3.1 schema."""
-    schema = pkg_resources.resource_filename(
-        'datacite',
-        'schemas/datacite-v3.1.json'
-    )
-
-    schema_dir = os.path.dirname(os.path.abspath(schema))
-    schema_name = os.path.basename(schema)
-
-    with open(schema) as file:
-        schema_json = json.load(file)
-
-    resolver = jsonschema.RefResolver(
-        'file://'+'/'.join(os.path.split(schema_dir)) + '/', schema_name
-    )
-
-    return jsonschema.Draft4Validator(schema_json, resolver=resolver)
-
-
-@pytest.fixture
 def example_json_file():
     """Load DataCite v3.1 full example JSON."""
-    path = os.path.dirname(__file__)
-    with open(os.path.join(
+    path = dirname(__file__)
+    with open(join(
             path,
             'data',
             'datacite-v3.1-full-example.json')) as file:
@@ -62,8 +40,8 @@ def example_json(example_json_file):
 @pytest.fixture
 def example_xml_file():
     """Load DataCite v3.1 full example XML."""
-    path = os.path.dirname(__file__)
-    with open(os.path.join(
+    path = dirname(__file__)
+    with open(join(
             path,
             'data',
             'datacite-v3.1-full-example.xml')) as file:
@@ -74,3 +52,23 @@ def example_xml_file():
 def example_xml(example_xml_file):
     """Load DataCite v3.1 full example as an etree."""
     return etree.fromstring(example_xml_file.encode('utf-8'))
+
+
+@pytest.yield_fixture(scope='session')
+def xsd31():
+    """Load DataCite v3.1 full example as an etree."""
+    # Ensure the schema validator doesn't make any http requests.
+    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
+        xmlxsd = fp.read()
+
+    httpretty.enable()
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.w3.org/2009/01/xml.xsd',
+        body=xmlxsd)
+
+    yield etree.XMLSchema(
+        file='file://' + join(dirname(__file__), 'data', 'metadata31.xsd')
+    )
+
+    httpretty.disable()

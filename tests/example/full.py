@@ -1,24 +1,25 @@
-from datacite import DataCiteMDSClient
+from datacite import DataCiteMDSClient, schema31
 
-# Create a DataCite XML document.
-doc = '''<resource
-  xmlns="http://datacite.org/schema/kernel-3"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://datacite.org/schema/kernel-3
-  http://schema.datacite.org/meta/kernel-3/metadata.xsd">
-    <identifier identifierType="DOI">10.5072/test-doi</identifier>
-    <creators>
-        <creator>
-            <creatorName>Smith, John</creatorName>
-        </creator>
-    </creators>
-    <titles>
-        <title>DataCite PyPI Package</title>
-    </titles>
-    <publisher>CERN</publisher>
-    <publicationYear>2015</publicationYear>
-</resource>
-'''
+data = {
+    'identifier': {
+        'identifier': '10.5072/test-doi',
+        'identifierType': 'DOI',
+    },
+    'creators': [
+        {'creatorName': 'Smith, John'}
+    ],
+    'titles': [
+        {'title': 'DataCite PyPI Package'}
+    ],
+    'publisher': 'CERN',
+    'publicationYear': '2015',
+}
+
+# Validate dictionary
+assert schema31.validate(data)
+
+# Generate DataCite XML from dictionary.
+doc = schema31.tostring(data)
 
 # Initialize the MDS client.
 d = DataCiteMDSClient(
