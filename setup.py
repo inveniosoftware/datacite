@@ -69,6 +69,7 @@ setup(
     author='Invenio Collaboration',
     author_email='info@invenio-software.org',
     url='https://github.com/inveniosoftware/datacite',
+    include_package_data=True,
     packages=packages,
     zip_safe=False,
     extras_require=extras_require,
