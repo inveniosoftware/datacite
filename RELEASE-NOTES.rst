@@ -1,8 +1,8 @@
 =================
- DataCite v0.2.0
+ DataCite v0.2.1
 =================
 
-DataCite v0.2.0 was released on March 21, 2016.
+DataCite v0.2.1 was released on March 29, 2016.
 
 About
 -----
@@ -13,12 +13,12 @@ generation.
 What's new
 ----------
 
-- Adds DataCite XML generation capabilities.
+- Fixes issue with JSON schemas not being included when installing from PyPI.
 
 Installation
 ------------
 
-   $ pip install datacite
+   $ pip install datacite==0.2.1
 
 Documentation
 -------------
