@@ -1,4 +1,7 @@
-from datacite import DataCiteMDSClient, schema31
+from datacite import DataCiteMDSClient, schema40
+
+# If you want to generate XML for earlier version 3.1, you need to use
+# schema31 instead.
 
 data = {
     'identifier': {
@@ -13,13 +16,16 @@ data = {
     ],
     'publisher': 'CERN',
     'publicationYear': '2015',
+    'resourceType': {
+        'resourceTypeGeneral': 'Dataset'
+    }
 }
 
 # Validate dictionary
-assert schema31.validate(data)
+assert schema40.validate(data)
 
 # Generate DataCite XML from dictionary.
-doc = schema31.tostring(data)
+doc = schema40.tostring(data)
 
 # Initialize the MDS client.
 d = DataCiteMDSClient(

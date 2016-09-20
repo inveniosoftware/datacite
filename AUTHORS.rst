@@ -13,3 +13,4 @@ Contributors
 * Jiri Kuncar <jiri.kuncar@cern.ch>
 * Sami Hiltunen <sami.mikael.hiltunen@cern.ch>
 * Tibor Simko <tibor.simko@cern.ch>
+* Rémi Ducceschi <remi.ducceschi@gmail.com>

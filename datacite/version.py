@@ -20,4 +20,4 @@ from __future__ import absolute_import, print_function
 # Do not change the format of this next line. Doing so risks breaking
 # setup.py and docs/conf.py
 
-__version__ = "0.2.3.dev20160923"
+__version__ = "0.3.0.dev20161118"

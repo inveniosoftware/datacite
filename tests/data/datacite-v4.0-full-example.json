@@ -1,0 +1,170 @@
+{
+  "identifier": {
+    "identifier": "10.5072/example-full",
+    "identifierType": "DOI"
+  },
+  "creators": [
+    {
+      "creatorName": "Miller, Elizabeth",
+      "givenName": "Elizabeth",
+      "familyName": "Miller",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "0000-0001-5000-0007",
+          "nameIdentifierScheme": "ORCID",
+          "schemeURI": "http://orcid.org/"
+        },
+        {
+          "nameIdentifier": "0100-0101-5100-0107",
+          "nameIdentifierScheme": "ORCID",
+          "schemeURI": "http://orcid.org/"
+        }
+      ],
+      "affiliations": ["DataCite", "CERN", "TIND"]
+    }
+  ],
+  "titles": [
+    {
+      "title": "Full DataCite XML Example",
+      "lang": "en-us"
+    },
+    {
+      "title": "Demonstration of DataCite Properties.",
+      "type": "Subtitle",
+      "lang": "en-us"
+    }
+  ],
+  "publisher": "DataCite",
+  "publicationYear": "2014",
+  "subjects": [
+    {
+      "subject": "000 computer science",
+      "subjectScheme": "dewey",
+      "valueURI": "https://cern.ch",
+      "schemeURI": "http://dewey.info/",
+      "lang": "en-us"
+    }
+  ],
+  "contributors": [
+    {
+      "contributorName": "Starr, Joan",
+      "contributorType": "ProjectLeader",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "0000-0002-7285-027X",
+          "nameIdentifierScheme": "ORCID",
+          "schemeURI": "http://orcid.org/"
+        }
+      ],
+      "affiliations": ["California Digital Library"]
+    }
+  ],
+  "dates": [
+    {
+      "date": "2014-10-17",
+      "dateType": "Updated"
+    }
+  ],
+  "language": "en-us",
+  "resourceType": {
+    "resourceTypeGeneral": "Software",
+    "resourceType": "XML"
+  },
+  "alternateIdentifiers": [
+    {
+      "alternateIdentifier": "http://schema.datacite.org/schema/meta/kernel-4.0/example/datacite-example-full-v4.0.xml",
+      "alternateIdentifierType": "URL"
+    }
+  ],
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "http://data.datacite.org/application/citeproc+json/10.5072/example-full",
+      "relatedIdentifierType": "URL",
+      "relationType": "HasMetadata",
+      "relatedMetadataScheme": "citeproc+json",
+      "schemeURI": "https://github.com/citation-style-language/schema/raw/master/csl-data.json"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0001",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "IsReviewedBy"
+    }
+  ],
+  "sizes": [
+    "3KB"
+  ],
+  "formats": [
+    "application/xml"
+  ],
+  "version": "4.0",
+  "rightsList": [
+    {
+      "rights": "CC0 1.0 Universal",
+      "rightsURI": "http://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ],
+  "descriptions": [
+    {
+      "descriptionType": "Abstract",
+      "lang": "en-us",
+      "description": "XML example of all DataCite Metadata Schema v4.0 properties."
+    }
+  ],
+  "fundingReferences": [
+    {
+      "funderName": "European Commission",
+      "funderIdentifier": {
+        "funderIdentifier": "http://doi.org/10.13039/501100000780",
+        "funderIdentifierType": "Crossref Funder ID"
+      },
+      "awardNumber": {
+        "awardNumber": "282625",
+        "awardURI": "http://cordis.europa.eu/project/rcn/100180_en.html"
+      },
+      "awardTitle": "MOTivational strength of ecosystem services and alternative ways to express the value of BIOdiversity"
+    },
+    {
+      "funderName": "European Commission",
+      "funderIdentifier": {
+        "funderIdentifier": "http://doi.org/10.13039/501100000780",
+        "funderIdentifierType": "Crossref Funder ID"
+      },
+      "awardNumber": {
+        "awardNumber": "284382",
+        "awardURI": "http://cordis.europa.eu/project/rcn/100603_en.html"
+      },
+      "awardTitle": "Institutionalizing global genetic-resource commons. Global Strategies for accessingand using essential public knowledge assets in the life science"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPoint": {
+        "pointLongitude": 31.233,
+        "pointLatitude": -67.302
+      },
+      "geoLocationBox": {
+        "westBoundLongitude": -71.032,
+        "eastBoundLongitude": -68.211,
+        "southBoundLatitude": 41.090,
+        "northBoundLatitude": 42.893
+      },
+      "geoLocationPlace": "Atlantic Ocean",
+      "geoLocationPolygon": {
+        "polygonPoints": [
+          {
+            "pointLongitude": -71.032,
+            "pointLatitude": 41.090
+          },
+          {
+            "pointLongitude": -68.211,
+            "pointLatitude": 42.893
+          },
+          {
+            "pointLongitude": -71.032,
+            "pointLatitude": 41.090
+          }
+        ]
+      }
+    }
+  ]
+}
