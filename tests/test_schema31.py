@@ -37,9 +37,7 @@ def test_example_json_validates(example_json):
 def test_json_to_xml(example_xml_file, example_json, xsd31):
     """Test that example XML converts to example JSON."""
     xsd31.assertValid(etree.XML(example_xml_file.encode('utf8')))
-    assert ET.dump(ET.XML(example_xml_file)) == \
-        ET.dump(ET.XML(tostring(example_json)))
-    # xsd31.assertValid(etree.XML(tostring(example_json).encode('utf8')))
+    xsd31.assertValid(etree.XML(tostring(example_json).encode('utf8')))
 
 
 def test_identifier():

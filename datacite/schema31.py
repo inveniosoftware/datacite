@@ -93,8 +93,8 @@ def creators(path, values):
             E.creatorName(value['creatorName'])
         )
 
-        affiliation(creator, value)
         nameidentifier(creator, value)
+        affiliation(creator, value)
         root.append(creator)
 
     return root
@@ -161,8 +161,8 @@ def contributors(path, values):
             E.contributorName(value['contributorName']),
             contributorType=value['contributorType']
         )
-        affiliation(contributor, value)
         nameidentifier(contributor, value)
+        affiliation(contributor, value)
         root.append(contributor)
 
     return root
