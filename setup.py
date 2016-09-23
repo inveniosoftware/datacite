@@ -29,8 +29,6 @@ tests_require = [
     'pytest-pep8>=1.0.6',
     'pytest-runner>=2.6.2',
     'pytest>=2.8.0',
-    'testresources>=2.0.1',
-    'testscenarios>=0.5.0',
 ]
 
 extras_require = {
