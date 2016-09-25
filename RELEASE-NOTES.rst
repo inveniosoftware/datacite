@@ -23,7 +23,7 @@ Installation
 Documentation
 -------------
 
-   http://pythonhosted.org/datacite/
+   http://datacite.readthedocs.io/
 
 Homepage
 --------
