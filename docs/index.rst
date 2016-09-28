@@ -7,11 +7,11 @@
 
     <p style="height:22px; margin:0 0 0 2em; float:right">
         <a href="https://travis-ci.org/inveniosoftware/datacite">
-            <img src="https://travis-ci.org/inveniosoftware/datacite.svg?branch=master"
+            <img src="https://img.shields.io/travis/inveniosoftware/datacite.svg"
                  alt="travis-ci badge"/>
         </a>
         <a href="https://coveralls.io/r/inveniosoftware/datacite">
-            <img src="https://coveralls.io/repos/inveniosoftware/datacite/badge.svg?branch=master"
+            <img src="https://img.shields.io/coveralls/inveniosoftware/datacite.svg"
                  alt="coveralls.io badge"/>
         </a>
     </p>
