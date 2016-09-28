@@ -2,9 +2,9 @@
  DataCite
 ==========
 
-.. image:: https://travis-ci.org/inveniosoftware/datacite.svg?branch=master
+.. image:: https://img.shields.io/travis/inveniosoftware/datacite.svg
    :target: https://travis-ci.org/inveniosoftware/datacite
-.. image:: https://coveralls.io/repos/inveniosoftware/datacite/badge.svg?branch=master
+.. image:: https://img.shields.io/coveralls/inveniosoftware/datacite.svg
    :target: https://coveralls.io/r/inveniosoftware/datacite?branch=master
 .. image:: https://img.shields.io/pypi/v/datacite.svg?maxAge=2592000   
    :target: https://pypi.python.org/pypi/datacite/
