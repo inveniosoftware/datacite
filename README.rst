@@ -4,12 +4,23 @@
 
 .. image:: https://img.shields.io/travis/inveniosoftware/datacite.svg
    :target: https://travis-ci.org/inveniosoftware/datacite
+   
 .. image:: https://img.shields.io/coveralls/inveniosoftware/datacite.svg
    :target: https://coveralls.io/r/inveniosoftware/datacite?branch=master
+   
 .. image:: https://img.shields.io/pypi/v/datacite.svg?maxAge=2592000   
    :target: https://pypi.python.org/pypi/datacite/
+   
 .. image:: https://img.shields.io/pypi/dm/datacite.svg?maxAge=2592000   
    :target: https://pypi.python.org/pypi/datacite/
+   
+.. image:: https://img.shields.io/github/license/inveniosoftware/datacite.svg
+   :target: https://github.com/inveniosoftware/datacite/blob/master/LICENSE
+   
+.. image:: https://img.shields.io/github/tag/inveniosoftware/datacite.svg
+   :target: https://github.com/inveniosoftware/datacite/releases/
+
+
 
 
 About
