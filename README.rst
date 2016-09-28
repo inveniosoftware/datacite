@@ -6,9 +6,9 @@
    :target: https://travis-ci.org/inveniosoftware/datacite
 .. image:: https://coveralls.io/repos/inveniosoftware/datacite/badge.svg?branch=master
    :target: https://coveralls.io/r/inveniosoftware/datacite?branch=master
-.. image:: https://pypip.in/v/datacite/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/datacite.svg?maxAge=2592000   
    :target: https://pypi.python.org/pypi/datacite/
-.. image:: https://pypip.in/d/datacite/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/dm/datacite.svg?maxAge=2592000   
    :target: https://pypi.python.org/pypi/datacite/
 
 
