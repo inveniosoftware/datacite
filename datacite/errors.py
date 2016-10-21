@@ -37,24 +37,24 @@ class DataCiteError(Exception):
     """
 
     @staticmethod
-    def factory(err_code):
+    def factory(err_code, *args):
         """Factory for creating exceptions based on the HTTP error code."""
         if err_code == 204:
-            return DataCiteNoContentError()
+            return DataCiteNoContentError(*args)
         elif err_code == 400:
-            return DataCiteBadRequestError()
+            return DataCiteBadRequestError(*args)
         elif err_code == 401:
-            return DataCiteUnauthorizedError()
+            return DataCiteUnauthorizedError(*args)
         elif err_code == 403:
-            return DataCiteForbiddenError()
+            return DataCiteForbiddenError(*args)
         elif err_code == 404:
-            return DataCiteNotFoundError()
+            return DataCiteNotFoundError(*args)
         elif err_code == 410:
-            return DataCiteGoneError()
+            return DataCiteGoneError(*args)
         elif err_code == 412:
-            return DataCitePreconditionError()
+            return DataCitePreconditionError(*args)
         else:
-            return DataCiteServerError()
+            return DataCiteServerError(*args)
 
 
 class DataCiteServerError(DataCiteError):

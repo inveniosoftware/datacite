@@ -81,7 +81,7 @@ class DataCiteMDSClient(object):
         if r.code == 200:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def doi_post(self, new_doi, location):
         """Mint new DOI.
@@ -100,7 +100,7 @@ class DataCiteMDSClient(object):
         if r.code == 201:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def metadata_get(self, doi):
         """Get the XML metadata associated to a DOI name.
@@ -116,7 +116,7 @@ class DataCiteMDSClient(object):
         if r.code == 200:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def metadata_post(self, metadata):
         """Set new metadata for an existing DOI.
@@ -135,7 +135,7 @@ class DataCiteMDSClient(object):
         if r.code == 201:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def metadata_delete(self, doi):
         """Mark as 'inactive' the metadata set of a DOI resource.
@@ -149,7 +149,7 @@ class DataCiteMDSClient(object):
         if r.code == 200:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def media_get(self, doi):
         """Get list of pairs of media type and URLs associated with a DOI.
@@ -166,7 +166,7 @@ class DataCiteMDSClient(object):
                 values[mimetype] = url
             return values
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
 
     def media_post(self, doi, media):
         """Add/update media type/urls pairs to a DOI.
@@ -187,4 +187,4 @@ class DataCiteMDSClient(object):
         if r.code == 200:
             return r.data
         else:
-            raise DataCiteError.factory(r.code)
+            raise DataCiteError.factory(r.code, r.data)
