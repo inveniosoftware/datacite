@@ -1,8 +1,8 @@
 =================
- DataCite v0.2.2
+ DataCite v0.3.0
 =================
 
-DataCite v0.2.2 was released on September 23, 2016.
+DataCite v0.3.0 was released on November 18, 2016.
 
 About
 -----
@@ -13,12 +13,14 @@ generation.
 What's new
 ----------
 
-- Fixes issue with generated order of nameIdentifier and affiliation tags.
+- Adds full support for DataCite Metadata Schema v4.0 XML generation.
+
+- Adds the message from the server in the error exceptions.
 
 Installation
 ------------
 
-   $ pip install datacite==0.2.2
+   $ pip install datacite==0.3.0
 
 Documentation
 -------------

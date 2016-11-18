@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version v0.3.0 (released 2016-11-18):
+
+- Adds full support for DataCite Metadata Schema v4.0 XML generation.
+
+- Adds the message from the server in the error exceptions.
+
 Version v0.2.2 (released 2016-09-23):
 
 - Fixes issue with generated order of nameIdentifier and affiliation tags.
