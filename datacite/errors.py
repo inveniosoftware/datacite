@@ -38,7 +38,7 @@ class DataCiteError(Exception):
 
     @staticmethod
     def factory(err_code, *args):
-        """Factory for creating exceptions based on the HTTP error code."""
+        """Create exceptions through a Factory based on the HTTP error code."""
         if err_code == 204:
             return DataCiteNoContentError(*args)
         elif err_code == 400:
