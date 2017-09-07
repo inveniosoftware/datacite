@@ -98,6 +98,14 @@
             "minLength": 1
           },
           "type": {
+            "description": "WARNING: This field has been superseded by 'titleType'.",
+            "enum": [
+              "AlternativeTitle",
+              "Subtitle",
+              "TranslatedTitle"
+            ]
+          },
+          "titleType": {
             "enum": [
               "AlternativeTitle",
               "Subtitle",
