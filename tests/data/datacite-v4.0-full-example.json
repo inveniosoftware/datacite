@@ -30,7 +30,7 @@
     },
     {
       "title": "Demonstration of DataCite Properties.",
-      "type": "Subtitle",
+      "titleType": "Subtitle",
       "lang": "en-us"
     }
   ],
