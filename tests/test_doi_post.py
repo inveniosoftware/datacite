@@ -12,9 +12,9 @@
 
 from __future__ import absolute_import, print_function
 
-import httpretty
 import pytest
 from helpers import APIURL, get_client
+from httpretty_mock import httpretty
 
 from datacite._compat import b
 from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \

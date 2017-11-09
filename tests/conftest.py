@@ -15,8 +15,8 @@ from __future__ import absolute_import, print_function
 import json
 from os.path import dirname, join
 
-import httpretty
 import pytest
+from httpretty_mock import httpretty
 from lxml import etree
 
 
