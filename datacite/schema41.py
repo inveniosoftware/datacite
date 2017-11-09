@@ -8,7 +8,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""DataCite v4.0 JSON to XML transformations."""
+"""DataCite v4.1 JSON to XML transformations."""
 
 from __future__ import absolute_import, print_function
 
@@ -36,22 +36,22 @@ root_attribs = {
 
 validator = validator_factory(pkg_resources.resource_filename(
     'datacite',
-    'schemas/datacite-v4.0.json'
+    'schemas/datacite-v4.1.json'
 ))
 
 
 def dump_etree(data):
-    """Convert JSON dictionary to DataCite v4.0 XML as ElementTree."""
+    """Convert JSON dictionary to DataCite v4.1 XML as ElementTree."""
     return dump_etree_helper(data, rules, ns, root_attribs)
 
 
 def tostring(data, **kwargs):
-    """Convert JSON dictionary to DataCite v4.0 XML as string."""
+    """Convert JSON dictionary to DataCite v4.1 XML as string."""
     return etree_to_string(dump_etree(data), **kwargs)
 
 
 def validate(data):
-    """Validate DataCite v4.0 JSON dictionary."""
+    """Validate DataCite v4.1 JSON dictionary."""
     return validator.is_valid(data)
 
 
@@ -85,6 +85,13 @@ def givenname(root, value):
         root.append(E.givenName(val))
 
 
+def person_or_org_name(root, value, tagname):
+    """Extract creator/contributor name and it's 'nameType' attribute."""
+    elem = E(tagname, value[tagname])
+    set_elem_attr(elem, 'nameType', value)
+    root.append(elem)
+
+
 def nameidentifiers(root, values):
     """Extract nameidentifier."""
     vals = values.get('nameIdentifiers', [])
@@ -104,10 +111,8 @@ def creators(path, values):
 
     root = E.creators()
     for value in values:
-        creator = E.creator(
-            E.creatorName(value['creatorName'])
-        )
-
+        creator = E.creator()
+        person_or_org_name(creator, value, 'creatorName')
         givenname(creator, value)
         familyname(creator, value)
         nameidentifiers(creator, value)
@@ -128,8 +133,8 @@ def titles(path, values):
         elem = etree.Element('title', nsmap=ns)
         elem.text = value['title']
         set_non_empty_attr(elem, '{xml}lang', value.get('lang'))
-        # FIXME: 'type' was in initial 4.0 version, which is now supported
-        # for backwards compatibility until version 5 is released.
+        # 'type' was a mistake in 4.0 serializer, which is supported
+        # for backwards compatibility until kernel 5 is released.
         set_non_empty_attr(elem, 'titleType', value.get('type'))
         # 'titleType' will supersede 'type' if available
         set_non_empty_attr(elem, 'titleType', value.get('titleType'))
@@ -179,10 +184,9 @@ def contributors(path, values):
 
     root = E.contributors()
     for value in values:
-        contributor = E.contributor(
-            E.contributorName(value['contributorName']),
-            contributorType=value['contributorType']
-        )
+        contributor = E.contributor()
+        person_or_org_name(contributor, value, 'contributorName')
+        set_elem_attr(contributor, 'contributorType', value)
         givenname(contributor, value)
         familyname(contributor, value)
         nameidentifiers(contributor, value)
@@ -200,7 +204,9 @@ def dates(path, values):
 
     root = E.dates()
     for value in values:
-        root.append(E.date(value['date'], dateType=value['dateType']))
+        elem = E.date(value['date'], dateType=value['dateType'])
+        set_elem_attr(elem, 'dateInformation', value)
+        root.append(elem)
 
     return root
 
@@ -253,6 +259,7 @@ def related_identifiers(path, values):
         set_elem_attr(elem, 'relatedMetadataScheme', value)
         set_elem_attr(elem, 'schemeURI', value)
         set_elem_attr(elem, 'schemeType', value)
+        set_elem_attr(elem, 'resourceTypeGeneral', value)
         root.append(elem)
     return root
 
@@ -297,6 +304,7 @@ def rights(path, values):
     for value in values:
         elem = E.rights(value['rights'])
         set_elem_attr(elem, 'rightsURI', value)
+        set_non_empty_attr(elem, '{xml}lang', value.get('lang'))
         root.append(elem)
 
     return root
@@ -387,6 +395,8 @@ def geolocations(path, values):
             elem.append(E.northBoundLatitude(str(box['northBoundLatitude'])))
             element.append(elem)
 
+        # Single-polygon supported for backwards compatibility.
+        # FIXME: should no longer be accepted in kernel 5.
         polygon = value.get('geoLocationPolygon')
         if polygon:
             elem = E.geoLocationPolygon()
@@ -396,6 +406,23 @@ def geolocations(path, values):
             for p in points:
                 e = E.polygonPoint()
                 geopoint(e, p)
+                elem.append(e)
+            element.append(elem)
+
+        polygons = value.get('geoLocationPolygons', [])
+        for polygon in polygons:
+            elem = E.geoLocationPolygon()
+            points = polygon["polygonPoints"]
+            if points[-1] != points[0]:
+                points.append(points[0])
+            for p in points:
+                e = E.polygonPoint()
+                geopoint(e, p)
+                elem.append(e)
+            inPoint = polygon.get("inPolygonPoint")
+            if inPoint:
+                e = E.inPolygonPoint()
+                geopoint(e, inPoint)
                 elem.append(e)
             element.append(elem)
 

@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "datacite-v4.0.json",
-  "title": "DataCite v4.0",
-  "description": "JSON representation of the DataCite v4.0 schema.",
+  "id": "datacite-v4.1.json",
+  "title": "DataCite v4.1",
+  "description": "JSON representation of the DataCite v4.1 schema.",
   "additionalProperties": false,
   "definitions": {
     "doi": {
@@ -71,6 +71,12 @@
       "items": {
         "creatorName": {
           "type": "string"
+        },
+        "nameType": {
+          "enum": [
+            "Organisational",
+            "Personal"
+          ]
         },
         "nameIdentifiers": {
           "$ref": "#/definitions/nameIdentifiers"
@@ -199,6 +205,12 @@
           "contributorName": {
             "type": "string"
           },
+          "nameType": {
+            "enum": [
+              "Organisational",
+              "Personal"
+            ]
+          },
           "nameIdentifiers": {
             "$ref": "#/definitions/nameIdentifiers"
           },
@@ -242,8 +254,13 @@
               "Issued",
               "Submitted",
               "Updated",
-              "Valid"
+              "Valid",
+              "Other"
             ]
+          },
+          "dateInformation": {
+            "description": "Specific information about the date.",
+            "type": "string"
           }
         },
         "additionalProperties": false,
@@ -266,6 +283,7 @@
           "enum": [
             "Audiovisual",
             "Collection",
+            "DataPaper",
             "Dataset",
             "Event",
             "Image",
@@ -343,6 +361,12 @@
               "IsSupplementedBy",
               "IsContinuedBy",
               "Continues",
+              "IsDescribedBy",
+              "Describes",
+              "HasMetadata",
+              "IsMetadataFor",
+              "HasVersion",
+              "IsVersionOf",
               "IsNewVersionOf",
               "IsPreviousVersionOf",
               "IsPartOf",
@@ -356,12 +380,32 @@
               "IsVariantFormOf",
               "IsOriginalFormOf",
               "IsIdenticalTo",
-              "HasMetadata",
-              "IsMetadataFor",
               "Reviews",
               "IsReviewedBy",
               "IsDerivedFrom",
-              "IsSourceOf"
+              "IsSourceOf",
+              "IsRequiredBy",
+              "Requires"
+            ]
+          },
+          "resourceTypeGeneral": {
+            "description": "The general type of a resource.",
+            "enum": [
+              "Audiovisual",
+              "Collection",
+              "DataPaper",
+              "Dataset",
+              "Event",
+              "Image",
+              "InteractiveResource",
+              "Model",
+              "PhysicalObject",
+              "Service",
+              "Software",
+              "Sound",
+              "Text",
+              "Workflow",
+              "Other"
             ]
           },
           "relatedMetadataScheme": {
@@ -408,6 +452,9 @@
           },
           "rights": {
             "type": "string"
+          },
+          "lang": {
+            "$ref": "#/definitions/language"
           }
         },
         "additionalProperties": false,
@@ -562,11 +609,11 @@
             "type": "string"
           },
           "geoLocationPolygon": {
-            "description": "A drawn polygon area, defined by a set of points and lines connecting the points in a closed chain.",
+            "description": "WARNING: This field has been superseded by 'geoLocationPolygons'.",
             "type": "object",
             "properties": {
               "polygonPoints": {
-                "description": "A point location in a polygon.",
+                "description": "A point location in a polygon. WARNING: Last point will be automatically added.",
                 "type": "array",
                 "minItems": 3,
                 "items": {
@@ -588,9 +635,55 @@
                   ]
                 }
               }
-            },
-            "additionalProperties": false,
-            "required": ["polygonPoints"]
+            }
+          },
+          "geoLocationPolygons": {
+            "description": "A drawn polygon area, defined by a set of points and lines connecting the points in a closed chain.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "polygonPoints": {
+                  "description": "A point location in a polygon.",
+                  "type": "array",
+                  "minItems": 3,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "pointLongitude": {
+                        "description": "Longitudinal dimension of point.",
+                        "type": "number"
+                      },
+                      "pointLatitude": {
+                        "description": "Latitudinal dimension of point.",
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                      "pointLongitude",
+                      "pointLatitude"
+                    ]
+                  }
+                },
+                "inPolygonPoint": {
+                  "description": "For any bound area that is larger than half the earth, define a (random) point inside.",
+                  "type": "object",
+                  "properties": {
+                    "pointLongitude": {
+                      "description": "Longitudinal dimension of point.",
+                      "type": "number"
+                    },
+                    "pointLatitude": {
+                      "description": "Latitudinal dimension of point.",
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "additionalProperties": false,
+              "required": ["polygonPoints"]
+            }
           }
         }
       }
