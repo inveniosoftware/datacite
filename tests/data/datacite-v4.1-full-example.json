@@ -6,6 +6,7 @@
   "creators": [
     {
       "creatorName": "Miller, Elizabeth",
+      "nameType": "Personal",
       "givenName": "Elizabeth",
       "familyName": "Miller",
       "nameIdentifiers": [
@@ -48,6 +49,7 @@
   "contributors": [
     {
       "contributorName": "Starr, Joan",
+      "nameType": "Personal",
       "contributorType": "ProjectLeader",
       "nameIdentifiers": [
         {
@@ -62,7 +64,8 @@
   "dates": [
     {
       "date": "2014-10-17",
-      "dateType": "Updated"
+      "dateType": "Updated",
+      "dateInformation": "Date of the first publishing."
     }
   ],
   "language": "en-us",
@@ -72,7 +75,7 @@
   },
   "alternateIdentifiers": [
     {
-      "alternateIdentifier": "http://schema.datacite.org/schema/meta/kernel-4.0/example/datacite-example-full-v4.0.xml",
+      "alternateIdentifier": "http://schema.datacite.org/schema/meta/kernel-4.1/example/datacite-example-full-v4.1.xml",
       "alternateIdentifierType": "URL"
     }
   ],
@@ -88,6 +91,37 @@
       "relatedIdentifier": "arXiv:0706.0001",
       "relatedIdentifierType": "arXiv",
       "relationType": "IsReviewedBy"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0002",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "IsDescribedBy",
+      "resourceTypeGeneral": "Text"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0003",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "Describes"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0004",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "IsVersionOf"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0005",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "HasVersion"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0006",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "IsRequiredBy"
+    },
+    {
+      "relatedIdentifier": "arXiv:0706.0007",
+      "relatedIdentifierType": "arXiv",
+      "relationType": "Requires"
     }
   ],
   "sizes": [
@@ -96,18 +130,19 @@
   "formats": [
     "application/xml"
   ],
-  "version": "4.0",
+  "version": "4.1",
   "rightsList": [
     {
       "rights": "CC0 1.0 Universal",
-      "rightsURI": "http://creativecommons.org/publicdomain/zero/1.0/"
+      "rightsURI": "http://creativecommons.org/publicdomain/zero/1.0/",
+      "lang": "en-us"
     }
   ],
   "descriptions": [
     {
       "descriptionType": "Abstract",
       "lang": "en-us",
-      "description": "XML example of all DataCite Metadata Schema v4.0 properties."
+      "description": "XML example of all DataCite Metadata Schema v4.1 properties."
     }
   ],
   "fundingReferences": [
@@ -149,22 +184,48 @@
         "northBoundLatitude": 42.893
       },
       "geoLocationPlace": "Atlantic Ocean",
-      "geoLocationPolygon": {
-        "polygonPoints": [
-          {
-            "pointLongitude": -71.032,
-            "pointLatitude": 41.090
-          },
-          {
-            "pointLongitude": -68.211,
-            "pointLatitude": 42.893
-          },
-          {
-            "pointLongitude": -71.032,
-            "pointLatitude": 40.090
+      "geoLocationPolygons": [
+        {
+          "polygonPoints": [
+            {
+              "pointLongitude": -71.032,
+              "pointLatitude": 41.090
+            },
+            {
+              "pointLongitude": -68.211,
+              "pointLatitude": 42.893
+            },
+            {
+              "pointLongitude": -72.032,
+              "pointLatitude": 39.090
+            }
+          ]
+        },
+        {
+          "polygonPoints": [
+            {
+              "pointLongitude": -72.032,
+              "pointLatitude": 42.090
+            },
+            {
+              "pointLongitude": -69.211,
+              "pointLatitude": 43.893
+            },
+            {
+              "pointLongitude": -73.032,
+              "pointLatitude": 41.090
+            },
+            {
+              "pointLongitude": -72.032,
+              "pointLatitude": 42.090
+            }
+          ],
+          "inPolygonPoint": {
+            "pointLongitude": -52.032,
+            "pointLatitude": 12.090
           }
-        ]
-      }
+        }
+      ]
     }
   ]
 }

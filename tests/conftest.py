@@ -43,6 +43,17 @@ def example_json_file40():
 
 
 @pytest.fixture
+def example_json_file41():
+    """Load DataCite v4.1 full example JSON."""
+    path = dirname(__file__)
+    with open(join(
+            path,
+            'data',
+            'datacite-v4.1-full-example.json')) as file:
+        return file.read()
+
+
+@pytest.fixture
 def example_json(example_json_file):
     """Load the DataCite v3.1 full example into a dict."""
     return json.loads(example_json_file)
@@ -55,25 +66,35 @@ def example_json40(example_json_file40):
 
 
 @pytest.fixture
+def example_json41(example_json_file41):
+    """Load the DataCite v4.1 full example into a dict."""
+    return json.loads(example_json_file41)
+
+
+def load_xml(filename):
+    """Helper method for loading the XML example file."""
+    path = dirname(__file__)
+    with open(join(path, 'data', filename)) as file:
+        content = file.read()
+    return content
+
+
+@pytest.fixture
 def example_xml_file():
     """Load DataCite v3.1 full example XML."""
-    path = dirname(__file__)
-    with open(join(
-            path,
-            'data',
-            'datacite-v3.1-full-example.xml')) as file:
-        return file.read()
+    return load_xml('datacite-v3.1-full-example.xml')
 
 
 @pytest.fixture
 def example_xml_file40():
     """Load DataCite v4.0 full example XML."""
-    path = dirname(__file__)
-    with open(join(
-            path,
-            'data',
-            'datacite-v4.0-full-example.xml')) as file:
-        return file.read()
+    return load_xml('datacite-v4.0-full-example.xml')
+
+
+@pytest.fixture
+def example_xml_file41():
+    """Load DataCite v4.1 full example XML."""
+    return load_xml('datacite-v4.1-full-example.xml')
 
 
 @pytest.fixture
@@ -86,6 +107,12 @@ def example_xml(example_xml_file):
 def example_xml40(example_xml_file40):
     """Load DataCite v4.0 full example as an etree."""
     return etree.fromstring(example_xml_file40.encode('utf-8'))
+
+
+@pytest.fixture
+def example_xml41(example_xml_file41):
+    """Load DataCite v4.1 full example as an etree."""
+    return etree.fromstring(example_xml_file41.encode('utf-8'))
 
 
 @pytest.yield_fixture(scope='session')
@@ -123,6 +150,26 @@ def xsd40():
 
     yield etree.XMLSchema(
         file='file://' + join(dirname(__file__), 'data', 'metadata40.xsd')
+    )
+
+    httpretty.disable()
+
+
+@pytest.yield_fixture(scope='session')
+def xsd41():
+    """Load DataCite v4.1 full example as an etree."""
+    # Ensure the schema validator doesn't make any http requests.
+    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
+        xmlxsd = fp.read()
+
+    httpretty.enable()
+    httpretty.register_uri(
+        httpretty.GET,
+        'https://www.w3.org/2009/01/xml.xsd',
+        body=xmlxsd)
+
+    yield etree.XMLSchema(
+        file='file://' + join(dirname(__file__), 'data', 'metadata41.xsd')
     )
 
     httpretty.disable()
