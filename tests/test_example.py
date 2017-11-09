@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import, print_function
 
-import httpretty
+from httpretty_mock import httpretty
 
 APIURL = "https://mds.datacite.org/"
 
