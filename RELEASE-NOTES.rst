@@ -1,8 +1,8 @@
 =================
- DataCite v0.3.0
+ DataCite v1.0.0
 =================
 
-DataCite v0.3.0 was released on November 18, 2016.
+DataCite v1.0.0 was released on February 28, 2018.
 
 About
 -----
@@ -13,14 +13,12 @@ generation.
 What's new
 ----------
 
-- Adds full support for DataCite Metadata Schema v4.0 XML generation.
-
-- Adds the message from the server in the error exceptions.
+- Adds full support for DataCite Metadata Schema v4.1 XML generation.
 
 Installation
 ------------
 
-   $ pip install datacite==0.3.0
+   $ pip install datacite==1.0.0
 
 Documentation
 -------------
