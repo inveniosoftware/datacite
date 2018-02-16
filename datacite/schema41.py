@@ -401,8 +401,6 @@ def geolocations(path, values):
         if polygon:
             elem = E.geoLocationPolygon()
             points = polygon["polygonPoints"]
-            if points[-1] != points[0]:
-                points.append(points[0])
             for p in points:
                 e = E.polygonPoint()
                 geopoint(e, p)
@@ -413,8 +411,6 @@ def geolocations(path, values):
         for polygon in polygons:
             elem = E.geoLocationPolygon()
             points = polygon["polygonPoints"]
-            if points[-1] != points[0]:
-                points.append(points[0])
             for p in points:
                 e = E.polygonPoint()
                 geopoint(e, p)
