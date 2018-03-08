@@ -31,7 +31,7 @@ ns = {
 root_attribs = {
     '{http://www.w3.org/2001/XMLSchema-instance}schemaLocation':
     'http://datacite.org/schema/kernel-4 '
-    'http://schema.datacite.org/meta/kernel-4/metadata.xsd',
+    'http://schema.datacite.org/meta/kernel-4.1/metadata.xsd',
 }
 
 validator = validator_factory(pkg_resources.resource_filename(
