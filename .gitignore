@@ -1,6 +1,7 @@
 # This file is part of DataCite.
 #
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2018 Center for Open Science.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -48,6 +49,7 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+.pytest_cache
 
 # Translations
 *.mo
