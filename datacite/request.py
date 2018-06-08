@@ -2,7 +2,8 @@
 #
 # This file is part of DataCite.
 #
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2018 Center for Open Science.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -35,15 +36,15 @@ class DataCiteRequest(object):
     """
 
     def __init__(self, base_url=None, username=None, password=None,
-                 default_params={}, timeout=None):
+                 default_params=None, timeout=None):
         """Initialize request object."""
         self.base_url = base_url
         self.username = username
         self.password = password
-        self.default_params = default_params
+        self.default_params = default_params or {}
         self.timeout = timeout
 
-    def request(self, url, method='GET', body=None, params={}, headers={}):
+    def request(self, url, method='GET', body=None, params=None, headers=None):
         """Make a request.
 
         If the request was successful (i.e no exceptions), you can find the
@@ -55,6 +56,9 @@ class DataCiteRequest(object):
         :param params: Request parameters
         :param headers: Request headers
         """
+        params = params or {}
+        headers = headers or {}
+
         self.data = None
         self.code = None
 
@@ -90,16 +94,22 @@ class DataCiteRequest(object):
         except ssl.SSLError as e:
             raise HttpError(e)
 
-    def get(self, url, params={}, headers={}):
+    def get(self, url, params=None, headers=None):
         """Make a GET request."""
+        params = params or {}
+        headers = headers or {}
         return self.request(url, params=params, headers=headers)
 
-    def post(self, url, body=None, params={}, headers={}):
+    def post(self, url, body=None, params=None, headers=None):
         """Make a POST request."""
+        params = params or {}
+        headers = headers or {}
         return self.request(url, method="POST", body=body, params=params,
                             headers=headers)
 
-    def delete(self, url, params={}, headers={}):
+    def delete(self, url, params=None, headers=None):
         """Make a DELETE request."""
+        params = params or {}
+        headers = headers or {}
         return self.request(url, method="DELETE", params=params,
                             headers=headers)
