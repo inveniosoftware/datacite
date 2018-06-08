@@ -1,6 +1,7 @@
 # This file is part of DataCite.
 #
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2018 Center for Open Science.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -20,6 +21,7 @@ cache:
 python:
   - "2.7"
   - "3.5"
+  - "3.6"
 
 env:
   - REQUIREMENTS=lowest
