@@ -78,7 +78,7 @@ class Rules(object):
         def register(f):
             if key in self.rules:
                 raise ValueError(
-                    'Rule for "{0}" already registerd'.format(key))
+                    'Rule for "{0}" already registered'.format(key))
             self.rules[key] = f
             return f
         return register
