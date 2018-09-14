@@ -24,14 +24,14 @@ from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
 def test_metadata_post_201():
     """Test."""
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
-        body="OK",
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
+        body="CREATED",
         status=201,
     )
 
     d = get_client(test_mode=True)
-    assert "OK" == d.metadata_post("<resource></resource>")
+    assert "CREATED" == d.metadata_post("<resource></resource>")
     assert responses.calls[0].request.headers['content-type'] == \
         "application/xml;charset=UTF-8"
     assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
@@ -41,8 +41,8 @@ def test_metadata_post_201():
 def test_metadata_post_400():
     """Test."""
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
         body="Bad Request",
         status=400,
     )
@@ -56,8 +56,8 @@ def test_metadata_post_400():
 def test_metadata_post_401():
     """Test."""
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
         body="Unauthorized",
         status=401,
     )
@@ -71,8 +71,8 @@ def test_metadata_post_401():
 def test_metadata_post_403():
     """Test."""
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
         body="Forbidden",
         status=403,
     )
@@ -86,8 +86,8 @@ def test_metadata_post_403():
 def test_metadata_post_500():
     """Test."""
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
         body="Internal Server Error",
         status=500,
     )

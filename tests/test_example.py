@@ -25,8 +25,8 @@ def test_example():
 
     # metadata post
     responses.add(
-        responses.POST,
-        "{0}metadata".format(APIURL),
+        responses.PUT,
+        "{0}metadata/10.5072".format(APIURL),
         body="CREATED",
         status=201,
     )

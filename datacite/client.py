@@ -119,18 +119,21 @@ class DataCiteMDSClient(object):
             raise DataCiteError.factory(r.code, r.data)
 
     def metadata_post(self, metadata):
-        """Set new metadata for an existing DOI.
+        """Set new metadata for a new or existing DOI.
 
         Metadata should follow the DataCite Metadata Schema:
         http://schema.datacite.org/
 
+        If you want DataCite to create the full identifier for you, 
+        put just the prefix in the identifier section of the XML.
+
         :param metadata: XML format of the metadata.
-        :return: "CREATED" or "HANDLE_ALREADY_EXISTS"
+        :return: "OK (PREFIX/SUFFIX)" or "HANDLE_ALREADY_EXISTS"
         """
         headers = {'Content-Type': 'application/xml;charset=UTF-8', }
 
         r = self._request_factory()
-        r.post("metadata", body=metadata, headers=headers)
+        r.put("metadata/" + self.prefix, body=metadata, headers=headers)
 
         if r.code == 201:
             return r.data
