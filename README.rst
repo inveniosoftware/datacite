@@ -11,10 +11,10 @@
 .. image:: https://img.shields.io/pypi/v/datacite.svg?maxAge=2592000
    :target: https://pypi.python.org/pypi/datacite/
 
-.. image:: https://img.shields.io/pypi/dm/datacite.svg?maxAge=2592000
+.. image:: https://pepy.tech/badge/datacite?maxAge=2592000
    :target: https://pypi.python.org/pypi/datacite/
 
-.. image:: https://img.shields.io/github/license/inveniosoftware/datacite.svg
+.. image:: https://img.shields.io/pypi/l/datacite.svg
    :target: https://github.com/inveniosoftware/datacite/blob/master/LICENSE
 
 .. image:: https://img.shields.io/github/tag/inveniosoftware/datacite.svg
