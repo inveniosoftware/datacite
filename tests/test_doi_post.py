@@ -13,8 +13,8 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite._compat import b
 from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
@@ -22,14 +22,14 @@ from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
     DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_200():
     """Test."""
     doi = "10.1234/1"
     url = "http://example.org"
 
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="CREATED",
         status=201,
@@ -37,17 +37,17 @@ def test_doi_post_200():
 
     d = get_client()
     assert "CREATED" == d.doi_post(doi, url)
-    assert httpretty.last_request().headers['content-type'] == \
+    assert responses.calls[0].request.headers['content-type'] == \
         "text/plain;charset=UTF-8"
-    assert httpretty.last_request().body == \
+    assert responses.calls[0].request.body == \
         b("doi={0}\r\nurl={1}".format(doi, url))
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_400():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="Bad Request",
         status=400,
@@ -58,11 +58,11 @@ def test_doi_post_400():
         d.doi_post("baddoi", "http://invaliddomain.org")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -73,11 +73,11 @@ def test_doi_post_401():
         d.doi_post("10.1234/1", "http://example.org")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="Forbidden",
         status=403,
@@ -88,11 +88,11 @@ def test_doi_post_403():
         d.doi_post("10.1234/1", "http://example.org")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_412():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="Precondition failed",
         status=412,
@@ -102,14 +102,14 @@ def test_doi_post_412():
     with pytest.raises(DataCitePreconditionError):
         d.doi_post("10.1234/1", "http://example.org")
 
-    assert httpretty.last_request().querystring['testMode'] == ["1"]
+    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_post_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="Internal Server Error",
         status=500,

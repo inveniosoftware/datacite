@@ -11,21 +11,20 @@
 """JSON utilities."""
 
 import json
-from os.path import abspath, basename, dirname, split
 
-import jsonschema
+from jsonschema import RefResolver, validate
+from jsonschema.validators import validator_for
 
 
 def validator_factory(schema_filename):
     """Provide a JSON schema validator for a given schema file."""
-    schema_dir = dirname(abspath(schema_filename))
-    schema_name = basename(schema_filename)
+    with open(schema_filename, 'r') as fp:
+        schema = json.load(fp)
 
-    with open(schema_filename) as fp:
-        schema_json = json.load(fp)
+    validator_cls = validator_for(schema)
+    validator_cls.check_schema(schema)
 
-    resolver = jsonschema.RefResolver(
-        'file://'+'/'.join(split(schema_dir)) + '/', schema_name
+    return validator_cls(
+        schema,
+        resolver=RefResolver('file:{}'.format(schema_filename), schema)
     )
-
-    return jsonschema.Draft4Validator(schema_json, resolver=resolver)

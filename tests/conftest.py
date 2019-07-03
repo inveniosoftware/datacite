@@ -16,7 +16,7 @@ import json
 from os.path import dirname, join
 
 import pytest
-from httpretty_mock import httpretty
+import responses
 from lxml import etree
 
 
@@ -54,6 +54,17 @@ def example_json_file41():
 
 
 @pytest.fixture
+def example_json_file42():
+    """Load DataCite v4.2 full example JSON."""
+    path = dirname(__file__)
+    with open(join(
+            path,
+            'data',
+            'datacite-v4.2-full-example.json')) as file:
+        return file.read()
+
+
+@pytest.fixture
 def example_json(example_json_file):
     """Load the DataCite v3.1 full example into a dict."""
     return json.loads(example_json_file)
@@ -69,6 +80,12 @@ def example_json40(example_json_file40):
 def example_json41(example_json_file41):
     """Load the DataCite v4.1 full example into a dict."""
     return json.loads(example_json_file41)
+
+
+@pytest.fixture
+def example_json42(example_json_file42):
+    """Load the DataCite v4.2 full example into a dict."""
+    return json.loads(example_json_file42)
 
 
 def load_xml(filename):
@@ -98,6 +115,12 @@ def example_xml_file41():
 
 
 @pytest.fixture
+def example_xml_file42():
+    """Load DataCite v4.2 full example XML."""
+    return load_xml('datacite-v4.2-full-example.xml')
+
+
+@pytest.fixture
 def example_xml(example_xml_file):
     """Load DataCite v3.1 full example as an etree."""
     return etree.fromstring(example_xml_file.encode('utf-8'))
@@ -115,61 +138,71 @@ def example_xml41(example_xml_file41):
     return etree.fromstring(example_xml_file41.encode('utf-8'))
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture
+def example_xml42(example_xml_file41):
+    """Load DataCite v4.2 full example as an etree."""
+    return etree.fromstring(example_xml_file42.encode('utf-8'))
+
+
+def _load_xsd(xsd_filename):
+    """Load one of the XSD schemas."""
+    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
+        xmlxsd = fp.read()
+
+    # Ensure the schema validator doesn't make any http requests.
+    responses.add(
+        responses.GET,
+        'https://www.w3.org/2009/01/xml.xsd',
+        body=xmlxsd)
+
+    return etree.XMLSchema(
+        file='file://' + join(dirname(__file__), 'data', xsd_filename)
+    )
+
+
+@pytest.fixture(scope='session')
 def xsd31():
     """Load DataCite v3.1 full example as an etree."""
-    # Ensure the schema validator doesn't make any http requests.
-    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
-        xmlxsd = fp.read()
-
-    httpretty.enable()
-    httpretty.register_uri(
-        httpretty.GET,
-        'https://www.w3.org/2009/01/xml.xsd',
-        body=xmlxsd)
-
-    yield etree.XMLSchema(
-        file='file://' + join(dirname(__file__), 'data', 'metadata31.xsd')
-    )
-
-    httpretty.disable()
+    return _load_xsd('metadata31.xsd')
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture(scope='session')
 def xsd40():
     """Load DataCite v4.0 full example as an etree."""
-    # Ensure the schema validator doesn't make any http requests.
-    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
-        xmlxsd = fp.read()
-
-    httpretty.enable()
-    httpretty.register_uri(
-        httpretty.GET,
-        'https://www.w3.org/2009/01/xml.xsd',
-        body=xmlxsd)
-
-    yield etree.XMLSchema(
-        file='file://' + join(dirname(__file__), 'data', 'metadata40.xsd')
-    )
-
-    httpretty.disable()
+    return _load_xsd('metadata40.xsd')
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture(scope='session')
 def xsd41():
     """Load DataCite v4.1 full example as an etree."""
-    # Ensure the schema validator doesn't make any http requests.
-    with open(join(dirname(__file__), 'data', 'xml.xsd')) as fp:
-        xmlxsd = fp.read()
+    return _load_xsd('metadata41.xsd')
 
-    httpretty.enable()
-    httpretty.register_uri(
-        httpretty.GET,
-        'https://www.w3.org/2009/01/xml.xsd',
-        body=xmlxsd)
 
-    yield etree.XMLSchema(
-        file='file://' + join(dirname(__file__), 'data', 'metadata41.xsd')
-    )
+@pytest.fixture(scope='session')
+def xsd42():
+    """Load DataCite v4.2 full example as an etree."""
+    return _load_xsd('4.2/metadata.xsd')
 
-    httpretty.disable()
+
+@pytest.fixture(scope='function')
+def minimal_json42():
+    """Minimal valid JSON for DataCite 4.2."""
+    return {
+        'identifier': {
+            'identifierType': 'DOI',
+            'identifier': '10.1234/foo.bar',
+        },
+        'creators': [
+            {'name': 'Nielsen, Lars Holm'},
+        ],
+        'titles': [
+            {'title': 'Minimal Test Case'}
+        ],
+        'publisher': 'Invenio Software',
+        'publicationYear': '2016',
+        'types': {
+            'resourceType': '',
+            'resourceTypeGeneral': 'Software'
+        },
+        'schemaVersion': 'http://datacite.org/schema/kernel-4'
+    }

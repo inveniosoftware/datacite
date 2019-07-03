@@ -13,18 +13,18 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite.errors import DataCiteForbiddenError, DataCiteNotFoundError, \
     DataCiteServerError, DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_media_get_200():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="application/json=http://example.org/json\r\n"
              "text/plain=http://example.org/text\r\n",
@@ -37,11 +37,11 @@ def test_media_get_200():
          u'text/plain': u'http://example.org/text'}
 
 
-@httpretty.activate
+@responses.activate
 def test_media_get_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -52,11 +52,11 @@ def test_media_get_401():
         d.media_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_media_get_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="login problem or dataset belongs to another party",
         status=403,
@@ -67,11 +67,11 @@ def test_media_get_403():
         d.media_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_media_get_404():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="Not Found",
         status=404,
@@ -82,11 +82,11 @@ def test_media_get_404():
         d.media_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_media_get_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="Internal Server Error",
         status=500,
@@ -96,4 +96,4 @@ def test_media_get_500():
     with pytest.raises(DataCiteServerError):
         d.media_get("10.1234/1")
 
-    assert httpretty.last_request().querystring['testMode'] == ["1"]
+    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'

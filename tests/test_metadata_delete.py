@@ -13,18 +13,18 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite.errors import DataCiteForbiddenError, DataCiteNotFoundError, \
     DataCiteServerError, DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_delete_200():
     """Test."""
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/10.1234/example".format(APIURL),
         body="OK",
         status=200,
@@ -32,14 +32,14 @@ def test_metadata_delete_200():
 
     d = get_client(test_mode=True)
     assert "OK" == d.metadata_delete("10.1234/example")
-    assert httpretty.last_request().querystring['testMode'] == ["1"]
+    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_delete_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/10.1234/example".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -50,11 +50,11 @@ def test_metadata_delete_401():
         d.metadata_delete("10.1234/example")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_delete_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/10.1234/example".format(APIURL),
         body="Forbidden",
         status=403,
@@ -65,11 +65,11 @@ def test_metadata_delete_403():
         d.metadata_delete("10.1234/example")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_delete_404():
     """Test."""
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/10.1234/example".format(APIURL),
         body="Not found",
         status=404,
@@ -80,11 +80,11 @@ def test_metadata_delete_404():
         d.metadata_delete("10.1234/example")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_delete_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/10.1234/example".format(APIURL),
         body="Internal Server Error",
         status=500,

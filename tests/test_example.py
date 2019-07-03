@@ -12,52 +12,52 @@
 
 from __future__ import absolute_import, print_function
 
-from httpretty_mock import httpretty
+import responses
 
 APIURL = "https://mds.datacite.org/"
 
 
-@httpretty.activate
+@responses.activate
 def test_example():
     """Test documentation example."""
     doi = "10.5072/test-doi"
     url = "http://example.org/test-doi"
 
     # metadata post
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}metadata".format(APIURL),
         body="CREATED",
         status=201,
     )
 
     # doi post
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}doi".format(APIURL),
         body="CREATED",
         status=201,
     )
 
     # doi get
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/{1}".format(APIURL, doi),
         body=url,
         status=200,
     )
 
     # media post
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/{1}".format(APIURL, doi),
         body="OK",
         status=200,
     )
 
     # media get
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}media/{1}".format(APIURL, doi),
         body="application/json=http://example.org/test-doi/json/\r\n"
              "application/xml=http://example.org/test-doi/xml/\r\n",
@@ -65,8 +65,8 @@ def test_example():
     )
 
     # metadata get
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/{1}".format(APIURL, doi),
         body="<resource>...</resource>",
         status=200,
@@ -74,8 +74,8 @@ def test_example():
     )
 
     # metadata delete
-    httpretty.register_uri(
-        httpretty.DELETE,
+    responses.add(
+        responses.DELETE,
         "{0}metadata/{1}".format(APIURL, doi),
         body="OK",
         status=200,

@@ -503,7 +503,7 @@
           "funderName": {
             "description": "Name of the funding provider.",
             "type": "string"
-            },
+          },
           "funderIdentifier": {
             "description": "Uniquely identifies a funding entity, according to various types.",
             "type": "object",

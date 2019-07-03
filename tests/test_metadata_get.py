@@ -13,19 +13,19 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
     DataCiteNotFoundError, DataCiteServerError, DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_200():
     """Test."""
     doc = "<resource></resource>"
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body=doc,
         status=200,
@@ -36,11 +36,11 @@ def test_metadata_get_200():
     assert doc == d.metadata_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -51,11 +51,11 @@ def test_metadata_get_401():
         d.metadata_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body="Forbidden",
         status=403,
@@ -66,11 +66,11 @@ def test_metadata_get_403():
         d.metadata_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_404():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body="Not Found",
         status=404,
@@ -81,11 +81,11 @@ def test_metadata_get_404():
         d.metadata_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_410():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body="Gone",
         status=410,
@@ -96,11 +96,11 @@ def test_metadata_get_410():
         d.metadata_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_metadata_get_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}metadata/10.1234/1".format(APIURL),
         body="Internal Server Error",
         status=500,
