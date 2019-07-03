@@ -13,18 +13,18 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
     DataCiteServerError, DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_media_post_200():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/10.1234/1".format(APIURL),
         body="OK",
         status=200,
@@ -35,20 +35,20 @@ def test_media_post_200():
         'text/plain': 'http://example.org/text',
         'application/json': 'http://example.org/json',
         })
-    assert httpretty.last_request().headers['content-type'] == \
+    assert responses.calls[0].request.headers['content-type'] == \
         "text/plain;charset=UTF-8"
     lines = filter(
         lambda x: x,
-        httpretty.last_request().body.splitlines()
+        responses.calls[0].request.body.splitlines()
     )
     assert len(list(lines)) == 2
 
 
-@httpretty.activate
+@responses.activate
 def test_media_post_400():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/10.1234/1".format(APIURL),
         body="Bad Request",
         status=400,
@@ -58,14 +58,14 @@ def test_media_post_400():
     with pytest.raises(DataCiteBadRequestError):
         d.media_post("10.1234/1", {'text/plain': 'http://invaliddomain.org'})
 
-    assert httpretty.last_request().querystring['testMode'] == ["1"]
+    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
-@httpretty.activate
+@responses.activate
 def test_media_post_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/10.1234/1".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -76,11 +76,11 @@ def test_media_post_401():
         d.media_post("10.1234/1", {'text/plain': 'http://example.org'})
 
 
-@httpretty.activate
+@responses.activate
 def test_media_post_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/10.1234/1".format(APIURL),
         body="Forbidden",
         status=403,
@@ -91,11 +91,11 @@ def test_media_post_403():
         d.media_post("10.1234/1", {'text/plain': 'http://example.org'})
 
 
-@httpretty.activate
+@responses.activate
 def test_media_post_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.POST,
+    responses.add(
+        responses.POST,
         "{0}media/10.1234/1".format(APIURL),
         body="Internal Server Error",
         status=500,

@@ -13,20 +13,20 @@
 from __future__ import absolute_import, print_function
 
 import pytest
+import responses
 from helpers import APIURL, get_client
-from httpretty_mock import httpretty
 
 from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
     DataCiteNoContentError, DataCiteNotFoundError, DataCiteServerError, \
     DataCiteUnauthorizedError
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_200():
     """Test."""
     url = "http://example.org"
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body=url,
         status=200,
@@ -36,11 +36,11 @@ def test_doi_get_200():
     assert url == d.doi_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_204():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="No Content",
         status=204,
@@ -50,14 +50,14 @@ def test_doi_get_204():
     with pytest.raises(DataCiteNoContentError):
         d.doi_get("10.1234/1")
 
-    assert httpretty.last_request().querystring['testMode'] == ["1"]
+    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_401():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="Unauthorized",
         status=401,
@@ -68,11 +68,11 @@ def test_doi_get_401():
         d.doi_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_403():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="Forbidden",
         status=403,
@@ -83,11 +83,11 @@ def test_doi_get_403():
         d.doi_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_404():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="Not Found",
         status=404,
@@ -98,11 +98,11 @@ def test_doi_get_404():
         d.doi_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_410():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="Gone",
         status=410,
@@ -113,11 +113,11 @@ def test_doi_get_410():
         d.doi_get("10.1234/1")
 
 
-@httpretty.activate
+@responses.activate
 def test_doi_get_500():
     """Test."""
-    httpretty.register_uri(
-        httpretty.GET,
+    responses.add(
+        responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
         body="Internal Server Error",
         status=500,

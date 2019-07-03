@@ -1,38 +1,39 @@
-from datacite import DataCiteMDSClient, schema40
+from datacite import DataCiteMDSClient, schema42
 
-# If you want to generate XML for earlier version 3.1, you need to use
-# schema31 instead.
+# If you want to generate XML for earlier versions, you need to use either the
+# schema31, schema40 or schema41 instead.
 
 data = {
     'identifier': {
-        'identifier': '10.5072/test-doi',
         'identifierType': 'DOI',
+        'identifier': '10.1234/foo.bar',
     },
     'creators': [
-        {'creatorName': 'Smith, John'}
+        {'name': 'Smith, John'},
     ],
     'titles': [
-        {'title': 'DataCite PyPI Package'}
+        {'title': 'Minimal Test Case', }
     ],
-    'publisher': 'CERN',
+    'publisher': 'Invenio Software',
     'publicationYear': '2015',
-    'resourceType': {
+    'types': {
+        'resourceType': 'Dataset',
         'resourceTypeGeneral': 'Dataset'
-    }
+    },
+    'schemaVersion': 'http://datacite.org/schema/kernel-4',
 }
 
 # Validate dictionary
-assert schema40.validate(data)
+assert schema42.validate(data)
 
 # Generate DataCite XML from dictionary.
-doc = schema40.tostring(data)
+doc = schema42.tostring(data)
 
 # Initialize the MDS client.
 d = DataCiteMDSClient(
     username='MYDC.MYACCOUNT',
     password='mypassword',
     prefix='10.5072',
-    test_mode=True
 )
 
 # Set metadata for DOI
@@ -44,7 +45,7 @@ d.doi_post('10.5072/test-doi', 'http://example.org/test-doi')
 # Get DOI location
 location = d.doi_get("10.5072/test-doi")
 
-# Set alternate URL for content type (availble through content negotiation)
+# Set alternate URL for content type (available through content negotiation)
 d.media_post(
     "10.5072/test-doi",
     {"application/json": "http://example.org/test-doi/json/",

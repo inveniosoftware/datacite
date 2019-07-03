@@ -20,7 +20,7 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
-    'httpretty>=0.8.14',
+    'responses>=0.10.6',
     'isort>=4.2.2',
     'mock>=1.3.0',
     'pydocstyle>=1.0',
@@ -28,7 +28,7 @@ tests_require = [
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
     'pytest-runner>=2.6.2',
-    'pytest>=2.8.0',
+    'pytest>=3.6.0',
 ]
 
 extras_require = {
@@ -47,9 +47,9 @@ setup_requires = [
 ]
 
 install_requires = [
-    'jsonschema>=2.5.1',
+    'jsonschema>=3.0.0',
     'lxml>=3.5.0',
-    'requests>=2.3',
+    'requests>=2.4.1',
 ]
 
 packages = find_packages()
