@@ -70,6 +70,12 @@ DataCite v4.1 XML generation
 .. automodule:: datacite.schema41
    :members: dump_etree, tostring, validate
 
+DataCite v4.2 XML generation
+============================
+
+.. automodule:: datacite.schema42
+   :members: dump_etree, tostring, validate
+
 .. include:: ../CHANGES.rst
 
 .. include:: ../CONTRIBUTING.rst
