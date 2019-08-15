@@ -9,12 +9,11 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Module for making requests to the DataCite MDS API."""
-
-from __future__ import absolute_import, print_function
+"""Module for making requests to the DataCite API."""
 
 import ssl
 
+import json
 import requests
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import RequestException
@@ -80,6 +79,8 @@ class DataCiteRequest(object):
 
         if method == 'POST':
             kwargs['data'] = body
+        if method == 'PUT':
+            kwargs['data'] = body
         if self.timeout is not None:
             kwargs['timeout'] = self.timeout
 
@@ -89,6 +90,10 @@ class DataCiteRequest(object):
             self.data = res.content
             if not isinstance(body, string_types):
                 self.data = self.data.decode('utf8')
+            try:
+                self.json = json.loads(self.data)
+            except ValueError as e:
+                self.json = None
         except RequestException as e:
             raise HttpError(e)
         except ssl.SSLError as e:
@@ -105,6 +110,13 @@ class DataCiteRequest(object):
         params = params or {}
         headers = headers or {}
         return self.request(url, method="POST", body=body, params=params,
+                            headers=headers)
+
+    def put(self, url, body=None, params=None, headers=None):
+        """Make a PUT request."""
+        params = params or {}
+        headers = headers or {}
+        return self.request(url, method="PUT", body=body, params=params,
                             headers=headers)
 
     def delete(self, url, params=None, headers=None):
