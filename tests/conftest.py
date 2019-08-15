@@ -64,6 +64,17 @@ def example_json_file42():
 
 
 @pytest.fixture
+def example_json_file43():
+    """Load DataCite v4.3 full example JSON."""
+    path = dirname(__file__)
+    with open(join(
+            path,
+            'data',
+            'datacite-v4.3-full-example.json')) as file:
+        return file.read()
+
+
+@pytest.fixture
 def example_json(example_json_file):
     """Load the DataCite v3.1 full example into a dict."""
     return json.loads(example_json_file)
@@ -85,6 +96,12 @@ def example_json41(example_json_file41):
 def example_json42(example_json_file42):
     """Load the DataCite v4.2 full example into a dict."""
     return json.loads(example_json_file42)
+
+
+@pytest.fixture
+def example_json43(example_json_file43):
+    """Load the DataCite v4.3 full example into a dict."""
+    return json.loads(example_json_file43)
 
 
 def load_xml(filename):
@@ -120,6 +137,12 @@ def example_xml_file42():
 
 
 @pytest.fixture
+def example_xml_file43():
+    """Load DataCite v4.3 full example XML."""
+    return load_xml('datacite-v4.3-full-example.xml')
+
+
+@pytest.fixture
 def example_xml(example_xml_file):
     """Load DataCite v3.1 full example as an etree."""
     return etree.fromstring(example_xml_file.encode('utf-8'))
@@ -141,6 +164,12 @@ def example_xml41(example_xml_file41):
 def example_xml42(example_xml_file41):
     """Load DataCite v4.2 full example as an etree."""
     return etree.fromstring(example_xml_file42.encode('utf-8'))
+
+
+@pytest.fixture
+def example_xml43(example_xml_file41):
+    """Load DataCite v4.3 full example as an etree."""
+    return etree.fromstring(example_xml_file43.encode('utf-8'))
 
 
 def _load_xsd(xsd_filename):
@@ -183,9 +212,39 @@ def xsd42():
     return _load_xsd('4.2/metadata.xsd')
 
 
+@pytest.fixture(scope='session')
+def xsd43():
+    """Load DataCite v4.3 full example as an etree."""
+    return _load_xsd('4.3/metadata.xsd')
+
+
 @pytest.fixture(scope='function')
 def minimal_json42():
     """Minimal valid JSON for DataCite 4.2."""
+    return {
+        'identifiers': [{
+            'identifierType': 'DOI',
+            'identifier': '10.1234/foo.bar',
+        }],
+        'creators': [
+            {'name': 'Nielsen, Lars Holm'},
+        ],
+        'titles': [
+            {'title': 'Minimal Test Case'}
+        ],
+        'publisher': 'Invenio Software',
+        'publicationYear': '2016',
+        'types': {
+            'resourceType': '',
+            'resourceTypeGeneral': 'Software'
+        },
+        'schemaVersion': 'http://datacite.org/schema/kernel-4'
+    }
+
+
+@pytest.fixture(scope='function')
+def minimal_json43():
+    """Minimal valid JSON for DataCite 4.3."""
     return {
         'identifiers': [{
             'identifierType': 'DOI',
