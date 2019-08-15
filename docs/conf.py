@@ -10,10 +10,7 @@
 
 """Sphinx configuration."""
 
-from __future__ import print_function
-
 import os
-
 import sphinx.environment
 from docutils.utils import get_source_line
 

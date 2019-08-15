@@ -9,11 +9,10 @@
 # more details.
 
 
-"""Python API wrapper for the DataCite Metadata Store API."""
-
-from __future__ import absolute_import, print_function
+"""Python API wrapper for the DataCite API."""
 
 from .client import DataCiteMDSClient
+from .rest_client import DataCiteRESTClient
 from .version import __version__
 
-__all__ = ('DataCiteMDSClient', '__version__')
+__all__ = ('DataCiteMDSClient', 'DataCiteRESTClient', '__version__')

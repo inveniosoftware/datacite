@@ -10,7 +10,8 @@
 
 """Python API client wrapper for the DataCite Metadata Store API.
 
-API documentation is available on https://support.datacite.org/docs/mds-api-guide.
+API documentation is available at
+https://support.datacite.org/docs/mds-api-guide.
 """
 
 from __future__ import absolute_import, print_function

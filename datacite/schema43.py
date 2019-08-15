@@ -58,8 +58,8 @@ def validate(data):
 
 @rules.rule('identifiers')
 def identifiers(path, values):
-    """Transform identifiers to alternateIdentifiers and identifier."""
-    """
+    """Transform identifiers to alternateIdentifiers and identifier.
+
     We assume there will only be 1 DOI identifier for the record.
     Any other identifiers are alternative identifiers.
     """
