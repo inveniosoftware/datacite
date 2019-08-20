@@ -68,6 +68,7 @@ TEST_JSON_FILES = [
     'data/4.2/datacite-example-GeoLocation-v4.json',
     'data/4.2/datacite-example-relationTypeIsIdenticalTo-v4.json',
     'data/4.2/datacite-example-software-v4.json',
+    'data/4.2/datacite-example-DateRange-v4.json',
     'data/datacite-v4.2-full-example.json',
 ]
 
@@ -110,6 +111,8 @@ FILE_PAIRS = [
      'data/4.2/datacite-example-relationTypeIsIdenticalTo-v4.json'),
     ('data/4.2/datacite-example-software-v4.xml',
      'data/4.2/datacite-example-software-v4.json'),
+    ('data/4.2/datacite-example-DateRange-v4.xml',
+     'data/4.2/datacite-example-DateRange-v4.json'),
     ('data/datacite-v4.2-full-example.xml',
      'data/datacite-v4.2-full-example.json'),
 ]
@@ -135,10 +138,10 @@ def test_json_eq_xml(example_xml_file42, example_json42, xsd42):
 def test_identifier(minimal_json42):
     """Test identifier."""
     data = {
-        'identifier': {
+        'identifiers': [{
             'identifierType': 'DOI',
             'identifier': '10.1234/foo.bar',
-        }
+        }]
     }
     validate_json(minimal_json42, data)
     tree = dump_etree(data)
