@@ -187,10 +187,10 @@ def xsd42():
 def minimal_json42():
     """Minimal valid JSON for DataCite 4.2."""
     return {
-        'identifier': {
+        'identifiers': [{
             'identifierType': 'DOI',
             'identifier': '10.1234/foo.bar',
-        },
+        }],
         'creators': [
             {'name': 'Nielsen, Lars Holm'},
         ],

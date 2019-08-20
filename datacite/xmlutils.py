@@ -29,7 +29,12 @@ def dump_etree_helper(data, rules, nsmap, attrib):
 
         element = rules[rule](rule, data[rule])
         if element is not None:
-            output.append(element)
+            # Handle multiple elements coming from a rule
+            if isinstance(element, tuple):
+                for e in element:
+                    output.append(e)
+            else:
+                output.append(element)
 
     return output
 

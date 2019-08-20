@@ -364,27 +364,55 @@ def test_resourcetype(minimal_json42):
     assert elem.text == 'Science Software'
 
 
-def test_alternateidentifiers(minimal_json42):
-    """Test alternate identifiers."""
-    pytest.raises(TypeError, dump_etree, {'alternateIdentifiers': {
+def test_identifiers(minimal_json42):
+    """Test identifiers."""
+    pytest.raises(TypeError, dump_etree, {'identifiers': {
         'invalid': 'data'
     }})
 
-    tree = dump_etree({'alternateIdentifiers': []})
-    assert len(tree.xpath('/resource/alternateIdentifiers')) == 0
-
-    data = {'alternateIdentifiers': [
+    data = {'identifiers': [
         {
-            'alternateIdentifier': '10.1234/foo',
-            'alternateIdentifierType': 'DOI',
+            'identifier': '10.1234/foo',
+            'identifierType': 'DOI'
+        }
+    ]}
+    validate_json(minimal_json42, data)
+    tree = dump_etree(data)
+    elem = dump_etree(data).xpath('/resource/identifier')[0]
+    assert elem.get('identifierType') == 'DOI'
+    assert elem.text == '10.1234/foo'
+
+    data = {'identifiers': [
+        {
+            'identifier': '10.1234/foo',
+            'identifierType': 'DOI',
         },
+        {
+            'identifierType': 'internal ID',
+            'identifier': 'da|ra.14.103'
+        }
     ]}
     validate_json(minimal_json42, data)
 
-    elem = dump_etree(
-        data).xpath('/resource/alternateIdentifiers/alternateIdentifier')[0]
-    assert elem.get('alternateIdentifierType') == 'DOI'
+    elem = dump_etree(data).xpath(
+            '/resource/alternateIdentifiers/alternateIdentifier')[0]
+    assert elem.get('alternateIdentifierType') == 'internal ID'
+    assert elem.text == 'da|ra.14.103'
+    elem = dump_etree(data).xpath('/resource/identifier')[0]
+    assert elem.get('identifierType') == 'DOI'
     assert elem.text == '10.1234/foo'
+
+    data = {'identifiers': [
+        {
+            'identifier': '13682',
+            'identifierType': 'Eprint_ID'}
+        ]}
+
+    xml = tostring(data)
+    elem = dump_etree(data).xpath(
+            '/resource/alternateIdentifiers/alternateIdentifier')[0]
+    assert elem.get('alternateIdentifierType') == 'Eprint_ID'
+    assert elem.text == '13682'
 
 
 def test_relatedidentifiers(minimal_json42):
@@ -672,7 +700,6 @@ FIELD_NAMES = [
     'dates',
     'subjects',
     'contributors',
-    'alternateIdentifiers',
     'relatedIdentifiers',
     'sizes',
     'formats',
