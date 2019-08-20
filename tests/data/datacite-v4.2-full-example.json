@@ -3,10 +3,10 @@
     "resourceTypeGeneral": "Software",
     "resourceType": "XML"
   },
-  "identifier": {
+  "identifiers": [{
     "identifierType": "DOI",
     "identifier": "10.5072/example-full"
-  },
+  }],
   "creators": [{
     "nameType": "Personal",
     "name": "Miller, Elizabeth",
