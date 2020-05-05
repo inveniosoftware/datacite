@@ -19,9 +19,13 @@ cache:
     - $HOME/.cache/pip
 
 python:
-  - "2.7"
-  - "3.5"
   - "3.6"
+  - "3.7"
+  - "3.8"
+
+matrix:
+  allow_failures:
+    - python: 3.8
 
 env:
   - REQUIREMENTS=lowest
@@ -49,7 +53,6 @@ deploy:
   password:
     secure: "iFwYlgl8UsWnh+oxvl4pmW9eBB3JrLC0hyPDfurxZIUaAHolTazbWhEPLmp4rh6WF3WlfVzCIgQJ+VX2up3kJk6i/JJE2RyhTYCMwLb8jtJWhH0KUoaD1LqP0kpos6keyuyG1Y3n5OxVYWXObVsVgo0i0IAw4xp+/YFFQImK4dc="
   distributions: "sdist bdist_wheel"
+  skip_existing: true
   on:
     tags: true
-    python: "2.7"
-    condition: $REQUIREMENTS = release

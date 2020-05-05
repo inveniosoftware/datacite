@@ -48,7 +48,7 @@ setup_requires = [
 
 install_requires = [
     'jsonschema>=3.0.0',
-    'lxml>=3.5.0',
+    'lxml>=4.3.5',
     'requests>=2.4.1',
 ]
 
@@ -77,11 +77,9 @@ setup(
     setup_requires=setup_requires,
     tests_require=tests_require,
     classifiers=[
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
