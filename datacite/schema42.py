@@ -87,7 +87,7 @@ def givenname(root, value):
         root.append(E.givenName(val))
 
 
-def person_or_org_name(root, value, xml_tagname,json_tagname):
+def person_or_org_name(root, value, xml_tagname, json_tagname):
     """Extract creator/contributor name and it's 'nameType' attribute."""
     elem = E(xml_tagname, value[json_tagname])
     set_elem_attr(elem, 'nameType', value)
@@ -306,7 +306,7 @@ def rights(path, values):
     for value in values:
         if 'rights' in value:
             elem = E.rights(value['rights'])
-        #Handle the odd case where no rights text present
+        # Handle the odd case where no rights text present
         else:
             elem = E.rights()
         set_elem_attr(elem, 'rightsURI', value)

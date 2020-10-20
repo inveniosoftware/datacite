@@ -49,6 +49,7 @@ def validate_json(minimal_json, extra_json):
     data.update(extra_json)
     validator.validate(data)
 
+
 #
 # Tests on example files
 #
