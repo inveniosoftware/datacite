@@ -15,8 +15,6 @@ This file is imported by ``datacite.__init__``, and parsed by
 ``setup.py`` as well as ``docs/conf.py``.
 """
 
-from __future__ import absolute_import, print_function
-
 # Do not change the format of this next line. Doing so risks breaking
 # setup.py and docs/conf.py
 

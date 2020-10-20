@@ -10,14 +10,11 @@
 
 """Pytest configuration."""
 
-from __future__ import absolute_import, print_function
-
 import json
-from os.path import dirname, join
-
 import pytest
 import responses
 from lxml import etree
+from os.path import dirname, join
 
 
 @pytest.fixture

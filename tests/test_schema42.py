@@ -11,16 +11,13 @@
 
 """Tests for format transformations."""
 
-from __future__ import absolute_import, print_function, unicode_literals
-
 import glob
 import io
 import json
-import xml.etree.ElementTree as ET
-from os.path import dirname, join
-
 import pytest
+import xml.etree.ElementTree as ET
 from lxml import etree
+from os.path import dirname, join
 
 from datacite.schema42 import dump_etree, tostring, validate, validator
 from datacite.xmlutils import etree_to_string
