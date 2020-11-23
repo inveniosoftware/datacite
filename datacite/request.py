@@ -40,7 +40,7 @@ class DataCiteRequest(object):
         """Initialize request object."""
         self.base_url = base_url
         self.username = username
-        self.password = password
+        self.password = password.encode('utf8')
         self.default_params = default_params or {}
         self.timeout = timeout
 
