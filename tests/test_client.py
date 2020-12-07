@@ -12,11 +12,11 @@
 
 from __future__ import absolute_import, print_function
 
-import socket
 import ssl
 
 import pytest
 import responses
+import socket
 from helpers import APIURL, get_client
 from mock import patch
 from requests import ConnectionError

@@ -12,9 +12,8 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
-import xml.etree.ElementTree as ET
-
 import pytest
+import xml.etree.ElementTree as ET
 from lxml import etree
 
 from datacite.schema31 import dump_etree, tostring, validate

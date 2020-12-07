@@ -11,7 +11,6 @@
 """JSON utilities."""
 
 import json
-
 from jsonschema import RefResolver, validate
 from jsonschema.validators import validator_for
 
