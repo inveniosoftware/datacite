@@ -2,8 +2,8 @@
  DataCite
 ==========
 
-.. image:: https://img.shields.io/travis/inveniosoftware/datacite.svg
-   :target: https://travis-ci.org/inveniosoftware/datacite
+.. image:: https://github.com/inveniosoftware/datacite/workflows/CI/badge.svg
+        :target: https://github.com/inveniosoftware/datacite/actions
 
 .. image:: https://img.shields.io/coveralls/inveniosoftware/datacite.svg
    :target: https://coveralls.io/r/inveniosoftware/datacite?branch=master
