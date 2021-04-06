@@ -68,6 +68,7 @@ TEST_JSON_FILES = [
     'data/4.2/datacite-example-GeoLocation-v4.json',
     'data/4.2/datacite-example-relationTypeIsIdenticalTo-v4.json',
     'data/4.2/datacite-example-software-v4.json',
+    'data/4.2/datacite-example-DateRange-v4.json',
     'data/datacite-v4.2-full-example.json',
 ]
 
@@ -110,6 +111,8 @@ FILE_PAIRS = [
      'data/4.2/datacite-example-relationTypeIsIdenticalTo-v4.json'),
     ('data/4.2/datacite-example-software-v4.xml',
      'data/4.2/datacite-example-software-v4.json'),
+    ('data/4.2/datacite-example-DateRange-v4.xml',
+     'data/4.2/datacite-example-DateRange-v4.json'),
     ('data/datacite-v4.2-full-example.xml',
      'data/datacite-v4.2-full-example.json'),
 ]
@@ -135,10 +138,10 @@ def test_json_eq_xml(example_xml_file42, example_json42, xsd42):
 def test_identifier(minimal_json42):
     """Test identifier."""
     data = {
-        'identifier': {
+        'identifiers': [{
             'identifierType': 'DOI',
             'identifier': '10.1234/foo.bar',
-        }
+        }]
     }
     validate_json(minimal_json42, data)
     tree = dump_etree(data)
@@ -361,27 +364,55 @@ def test_resourcetype(minimal_json42):
     assert elem.text == 'Science Software'
 
 
-def test_alternateidentifiers(minimal_json42):
-    """Test alternate identifiers."""
-    pytest.raises(TypeError, dump_etree, {'alternateIdentifiers': {
+def test_identifiers(minimal_json42):
+    """Test identifiers."""
+    pytest.raises(TypeError, dump_etree, {'identifiers': {
         'invalid': 'data'
     }})
 
-    tree = dump_etree({'alternateIdentifiers': []})
-    assert len(tree.xpath('/resource/alternateIdentifiers')) == 0
-
-    data = {'alternateIdentifiers': [
+    data = {'identifiers': [
         {
-            'alternateIdentifier': '10.1234/foo',
-            'alternateIdentifierType': 'DOI',
+            'identifier': '10.1234/foo',
+            'identifierType': 'DOI'
+        }
+    ]}
+    validate_json(minimal_json42, data)
+    tree = dump_etree(data)
+    elem = dump_etree(data).xpath('/resource/identifier')[0]
+    assert elem.get('identifierType') == 'DOI'
+    assert elem.text == '10.1234/foo'
+
+    data = {'identifiers': [
+        {
+            'identifier': '10.1234/foo',
+            'identifierType': 'DOI',
         },
+        {
+            'identifierType': 'internal ID',
+            'identifier': 'da|ra.14.103'
+        }
     ]}
     validate_json(minimal_json42, data)
 
-    elem = dump_etree(
-        data).xpath('/resource/alternateIdentifiers/alternateIdentifier')[0]
-    assert elem.get('alternateIdentifierType') == 'DOI'
+    elem = dump_etree(data).xpath(
+            '/resource/alternateIdentifiers/alternateIdentifier')[0]
+    assert elem.get('alternateIdentifierType') == 'internal ID'
+    assert elem.text == 'da|ra.14.103'
+    elem = dump_etree(data).xpath('/resource/identifier')[0]
+    assert elem.get('identifierType') == 'DOI'
     assert elem.text == '10.1234/foo'
+
+    data = {'identifiers': [
+        {
+            'identifier': '13682',
+            'identifierType': 'Eprint_ID'}
+        ]}
+
+    xml = tostring(data)
+    elem = dump_etree(data).xpath(
+            '/resource/alternateIdentifiers/alternateIdentifier')[0]
+    assert elem.get('alternateIdentifierType') == 'Eprint_ID'
+    assert elem.text == '13682'
 
 
 def test_relatedidentifiers(minimal_json42):
@@ -669,7 +700,6 @@ FIELD_NAMES = [
     'dates',
     'subjects',
     'contributors',
-    'alternateIdentifiers',
     'relatedIdentifiers',
     'sizes',
     'formats',

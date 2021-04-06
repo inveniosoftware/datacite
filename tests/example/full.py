@@ -4,10 +4,10 @@ from datacite import DataCiteMDSClient, schema42
 # schema31, schema40 or schema41 instead.
 
 data = {
-    'identifier': {
+    'identifiers': [{
         'identifierType': 'DOI',
         'identifier': '10.1234/foo.bar',
-    },
+    }],
     'creators': [
         {'name': 'Smith, John'},
     ],

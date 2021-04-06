@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
+  <identifier identifierType="DOI">10.14291/TCCON.GGG2014.ASCENSION01.R0/1149285</identifier>
+  <creators>
+    <creator>
+      <creatorName>Feist, D. G.</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">0000-0002-5890-6687</nameIdentifier>
+      <nameIdentifier nameIdentifierScheme="ResearcherID">B-6489-2013</nameIdentifier>
+      <affiliation>Max Planck Institute for Biogeochemistry, Jena (DE)</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Arnold, S. G.</creatorName>
+      <affiliation>Max Planck Institute for Biogeochemistry, Jena (DE)</affiliation>
+    </creator>
+    <creator>
+      <creatorName>John, N.</creatorName>
+      <affiliation>Ariane Tracking Station, Ascension Island (SH)</affiliation>
+    </creator>
+    <creator>
+      <creatorName>Geibel, M. C.</creatorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">0000-0002-7369-0781</nameIdentifier>
+      <nameIdentifier nameIdentifierScheme="ResearcherID">B-8591-2015</nameIdentifier>
+      <affiliation>Stockholm University, Stockholm (SE)</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>TCCON data from Ascension Island (SH), Release GGG2014.R0</title>
+  </titles>
+  <publisher>CaltechDATA</publisher>
+  <publicationYear>2017</publicationYear>
+  <subjects>
+    <subject>atmospheric trace gases</subject>
+    <subject>CO2</subject>
+    <subject>CH4</subject>
+    <subject>CO</subject>
+    <subject>N2O</subject>
+    <subject>column-averaged dry-air mole fractions</subject>
+    <subject>remote sensing</subject>
+    <subject>FTIR spectroscopy</subject>
+    <subject>TCCON</subject>
+  </subjects>
+  <contributors>
+    <contributor contributorType="HostingInstitution">
+      <contributorName>California Institute of Techonolgy, Pasadena, CA (US)</contributorName>
+      <nameIdentifier nameIdentifierScheme="GRID">grid.20861.3d</nameIdentifier>
+    </contributor>
+    <contributor contributorType="DataCurator">
+      <contributorName>Roehl, C. M.</contributorName>
+      <nameIdentifier nameIdentifierScheme="ORCID">0000-0001-5383-8462</nameIdentifier>
+      <affiliation>California Institute of Technology, Pasadena, CA (US)</affiliation>
+    </contributor>
+    <contributor contributorType="ContactPerson">
+      <contributorName>Dietrich Feist</contributorName>
+    </contributor>
+    <contributor contributorType="ResearchGroup">
+      <contributorName>TCCON</contributorName>
+    </contributor>
+  </contributors>
+  <dates>
+    <date dateType="Created">2014-10-01</date>
+    <date dateType="Issued">2014-10-10</date>
+    <date dateType="Updated">2019-08-01</date>
+    <date dateType="Collected">2012-05-22/2018-10-31</date>
+    <date dateType="Submitted">2017-02-21</date>
+  </dates>
+  <language>eng</language>
+  <resourceType resourceTypeGeneral="Dataset"/>
+  <alternateIdentifiers>
+    <alternateIdentifier alternateIdentifierType="Software_Version">GGG2014</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="id">ae</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="longName">ascension01</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="Data_Revision">R0</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+    <alternateIdentifier alternateIdentifierType="CaltechDATA_Identifier">210</alternateIdentifier>
+  </alternateIdentifiers>
+  <relatedIdentifiers>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsDocumentedBy">10.14291/tccon.ggg2014.documentation.R0/1221662</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-9-683-2016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.1002/2015JD023389</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/acp-16-1653-2016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-9-3491-2016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-9-2381-2016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.1002/2015JD024157</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy">https://tccon-wiki.caltech.edu/Network_Policy/Data_Use_Policy/Data_Description</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="IsDocumentedBy">https://tccon-wiki.caltech.edu/Sites</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsPartOf">10.14291/TCCON.GGG2014</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="IsPartOf">http://tccondata.org</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.1038/s41598-017-13459-0</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.3390/rs9101033</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/acp-17-4781-2017</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-10-2209-2017</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-9-1415-2016</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-11-3111-2018</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="DOI" relationType="IsCitedBy">10.5194/amt-10-4135-2017</relatedIdentifier>
+  </relatedIdentifiers>
+  <formats>
+    <format>application/x-netcdf</format>
+  </formats>
+  <version>GGG2014.R0</version>
+  <rightsList>
+    <rights rightsURI="https://data.caltech.edu/tindfiles/serve/cb9b01e4-56ea-4b8c-9543-0c61d0c72148/">TCCON Data Use Policy</rights>
+  </rightsList>
+  <descriptions>
+    <description descriptionType="Abstract">The Total Carbon Column Observing Network (TCCON) is a network of ground-based Fourier Transform Spectrometers that record direct solar absorption spectra of the atmosphere in the near-infrared. From these spectra, accurate and precise column-averaged abundances of atmospheric constituents including CO2, CH4, N2O, HF, CO, H2O, and HDO, are retrieved. This data set contains observations from the TCCON station on Ascension Island.</description>
+    <description descriptionType="Other">&lt;br&gt;Cite this record as:&lt;br&gt;Feist, D. G., Arnold, S. G., John, N., &amp;amp; Geibel, M. C. (2017). &lt;i&gt;TCCON data from Ascension Island (SH), Release GGG2014.R0&lt;/i&gt; [Data set]. CaltechDATA. &lt;a href="https://doi.org/10.14291/tccon.ggg2014.ascension01.r0/1149285"&gt;https://doi.org/10.14291/tccon.ggg2014.ascension01.r0/1149285&lt;/a&gt;&lt;br&gt; or choose a &lt;a href="https://crosscite.org/?doi=10.14291/tccon.ggg2014.ascension01.R0/1149285"&gt; different citation style.&lt;/a&gt;&lt;br&gt;&lt;a href="https://data.datacite.org/application/x-bibtex/10.14291/tccon.ggg2014.ascension01.R0/1149285"&gt;Download Citation&lt;/a&gt;&lt;br&gt;</description>
+    <description descriptionType="Other">&lt;br&gt;Unique Views: 422&lt;br&gt;Unique Downloads: 93&lt;br&gt; between February 21, 2017 and July 19, 2019&lt;br&gt;&lt;a href="https://data.caltech.edu/stats"&gt;More info on how stats are collected&lt;/a&gt;&lt;br&gt;</description>
+  </descriptions>
+  <fundingReferences>
+    <fundingReference>
+      <funderName>Max Planck Society</funderName>
+      <funderIdentifier funderIdentifierType="GRID">grid.4372.2</funderIdentifier>
+    </fundingReference>
+    <fundingReference>
+      <funderName>Max Planck Institute for Biogeochemistry</funderName>
+      <funderIdentifier funderIdentifierType="GRID">grid.419500.9</funderIdentifier>
+    </fundingReference>
+  </fundingReferences>
+  <geoLocations>
+    <geoLocation>
+      <geoLocationPlace>Ariane Tracking Station (AC)</geoLocationPlace>
+      <geoLocationPoint>
+        <pointLongitude>-14.3325</pointLongitude>
+        <pointLatitude>-7.9165</pointLatitude>
+      </geoLocationPoint>
+    </geoLocation>
+  </geoLocations>
+</resource>
