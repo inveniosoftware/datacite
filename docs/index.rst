@@ -31,14 +31,25 @@ The datacite package is on PyPI so all you need is:
 Usage
 =====
 
-Below is full usage example of the DataCite MDS client API wrapper. Please see
-the `DataCite MDS API documentation <https://mds.datacite.org/static/apidoc>`_
-for further information on the API.
+The datacite package implements a Python client for DataCite MDS API and DataCite REST API.
+You can find below full usage example of the DataCite MDS client API wrapper. Please see
+the `DataCite MDS API documentation <https://support.datacite.org/docs/mds-api-guide>`_
+for further information.
 
 .. literalinclude:: ../tests/example/full.py
    :language: python
    :linenos:
 
+You can find below an usage example of the DataCite REST client API wrapper. Please see
+the `DataCite REST API documentation <https://support.datacite.org/docs/api>`_
+for further information.
+
+.. literalinclude:: ../tests/example/full_rest.py
+   :language: python
+   :linenos:
+
+Please see the `DataCite Testing guide <https://support.datacite.org/docs/testing-guide>`_ to
+know how to test this client with your test credentials.
 
 Metadata Store API
 ===================

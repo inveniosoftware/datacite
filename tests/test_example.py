@@ -10,17 +10,15 @@
 
 """Test documentation example."""
 
-from __future__ import absolute_import, print_function
-
 import responses
 
-APIURL = "https://mds.datacite.org/"
+APIURL = "https://mds.test.datacite.org/"
 
 
 @responses.activate
 def test_example():
     """Test documentation example."""
-    doi = "10.5072/test-doi"
+    doi = "10.1234/test-doi"
     url = "http://example.org/test-doi"
 
     # metadata post

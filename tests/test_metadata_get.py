@@ -10,8 +10,6 @@
 
 """Tests for /metadata GET."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client

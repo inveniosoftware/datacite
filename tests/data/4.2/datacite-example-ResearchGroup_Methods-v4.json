@@ -1,6 +1,6 @@
 {
-  "id": "https://doi.org/10.5072/fk25h7qrs",
-  "doi": "10.5072/fk25h7qrs",
+  "id": "https://doi.org/10.1234/fk25h7qrs",
+  "doi": "10.1234/fk25h7qrs",
   "types": {
     "resourceTypeGeneral": "Dataset",
     "resourceType": "Dataset",
@@ -74,7 +74,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/fk25h7qrs"
+      "identifier": "10.1234/fk25h7qrs"
     }
   ],
   "sizes": [],
@@ -96,7 +96,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "10.5072/j.jalz.2012.05.911",
+      "relatedIdentifier": "10.1234/j.jalz.2012.05.911",
       "relatedIdentifierType": "DOI",
       "relationType": "IsReferencedBy"
     }

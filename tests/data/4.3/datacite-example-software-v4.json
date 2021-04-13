@@ -106,7 +106,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/example-software-2.0"
+      "identifier": "10.1234/example-software-2.0"
     }
   ],
   "sizes": [],
@@ -137,12 +137,12 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "doi:10.5072/example-software-1.0",
+      "relatedIdentifier": "doi:10.1234/example-software-1.0",
       "relatedIdentifierType": "DOI",
       "relationType": "IsNewVersionOf"
     },
     {
-      "relatedIdentifier": "doi:10.5072/example-software-repository",
+      "relatedIdentifier": "doi:10.1234/example-software-repository",
       "relatedIdentifierType": "DOI",
       "relationType": "IsVersionOf"
     }

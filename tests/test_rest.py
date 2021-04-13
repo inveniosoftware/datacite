@@ -11,8 +11,6 @@
 
 """Tests for REST API."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import RESTURL, TEST_43_JSON_FILES, get_credentials, get_rest, \
@@ -26,8 +24,8 @@ from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
 @pytest.mark.pw
 def test_rest_create_draft():
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password,
-                 prefix=prefix, test_mode=True)
+    d = get_rest(username=username, password=password, prefix=prefix,
+                 with_fake_url=False)
     doi = d.draft_doi()
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -40,8 +38,8 @@ def test_rest_create_draft():
 @pytest.mark.pw
 def test_rest_create_draft_metadata():
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password,
-                 prefix=prefix, test_mode=True)
+    d = get_rest(username=username, password=password, prefix=prefix,
+                 with_fake_url=False)
     metadata = {"titles": [{"title": "hello world", "lang": "en"}]}
     doi = prefix+'/12345'
     returned_doi = d.draft_doi(metadata, doi)
@@ -64,10 +62,7 @@ def test_rest_create_draft_mock():
         json=data,
         status=201,
     )
-    # test_mode=False because we already introduced a fake url
-    # with RESTURL variable
-    d = get_rest(username='mock', password='mock',
-                 prefix=prefix)
+    d = get_rest(username='mock', password='mock', prefix=prefix)
     doi = d.draft_doi()
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -96,8 +91,8 @@ def test_rest_create_public(example_json43):
     example_metadata = load_json_path(example_json43)
     url = 'https://github.com/inveniosoftware/datacite'
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password,
-                 prefix=prefix, test_mode=True)
+    d = get_rest(username=username, password=password, prefix=prefix,
+                 with_fake_url=False)
     doi = d.public_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -123,10 +118,7 @@ def test_rest_create_public_mock():
         json=data,
         status=201,
     )
-    # test_mode=False because we already introduced a fake url
-    # with RESTURL variable
-    d = get_rest(username='mock', password='mock',
-                 prefix=prefix)
+    d = get_rest(username='mock', password='mock', prefix=prefix)
     doi = d.public_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -153,8 +145,8 @@ def test_rest_create_private():
     example_metadata = load_json_path(example_json43)
     url = 'https://github.com/inveniosoftware/datacite'
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password,
-                 prefix=prefix, test_mode=True)
+    d = get_rest(username=username, password=password, prefix=prefix,
+                 with_fake_url=False)
     doi = d.private_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -187,10 +179,7 @@ def test_rest_create_private_mock():
         json=data,
         status=200,
     )
-    # test_mode=False because we already introduced a fake url
-    # with RESTURL variable
-    d = get_rest(username='mock', password='mock',
-                 prefix=prefix)
+    d = get_rest(username='mock', password='mock', prefix=prefix)
     doi = d.private_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
@@ -226,22 +215,22 @@ def test_rest_get_200():
 
 @responses.activate
 def test_doi_get_204():
-    """Test 204 error and test_mode setting."""
+    """Test 204 error when no content."""
     responses.add(
         responses.GET,
-        "https://api.test.datacite.org/dois/10.1234/1".format(RESTURL),
+        "{0}dois/10.1234/1".format(RESTURL),
         body="No Content",
         status=204,
     )
 
-    d = get_rest(test_mode=True)
+    d = get_rest()
     with pytest.raises(DataCiteNoContentError):
         d.doi_get("10.1234/1")
 
 
 @responses.activate
 def test_doi_get_401():
-    """Test."""
+    """Test 401 error."""
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),
@@ -256,7 +245,7 @@ def test_doi_get_401():
 
 @responses.activate
 def test_doi_get_403():
-    """Test."""
+    """Test 403 error."""
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),
@@ -271,7 +260,7 @@ def test_doi_get_403():
 
 @responses.activate
 def test_doi_get_404():
-    """Test."""
+    """Test 404 error."""
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),
@@ -286,7 +275,7 @@ def test_doi_get_404():
 
 @responses.activate
 def test_doi_get_410():
-    """Test."""
+    """Test 410 error."""
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),
@@ -301,7 +290,7 @@ def test_doi_get_410():
 
 @responses.activate
 def test_doi_get_500():
-    """Test."""
+    """Test 500 error."""
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),

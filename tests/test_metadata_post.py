@@ -10,8 +10,6 @@
 
 """Tests for /metadata POST."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
@@ -30,11 +28,10 @@ def test_metadata_post_201():
         status=201,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     assert "OK" == d.metadata_post("<resource></resource>")
     assert responses.calls[0].request.headers['content-type'] == \
         "application/xml;charset=UTF-8"
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
 @responses.activate

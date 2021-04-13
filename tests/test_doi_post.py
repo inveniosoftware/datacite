@@ -10,13 +10,10 @@
 
 """Tests for /doi POST."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite._compat import b
 from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
     DataCitePreconditionError, DataCiteServerError, \
     DataCiteUnauthorizedError
@@ -39,8 +36,8 @@ def test_doi_post_200():
     assert "CREATED" == d.doi_post(doi, url)
     assert responses.calls[0].request.headers['content-type'] == \
         "text/plain;charset=UTF-8"
-    assert responses.calls[0].request.body == \
-        b("doi={0}\r\nurl={1}".format(doi, url))
+    expected_response = "doi={0}\r\nurl={1}".format(doi, url).encode("utf8")
+    assert responses.calls[0].request.body == expected_response
 
 
 @responses.activate
@@ -98,11 +95,9 @@ def test_doi_post_412():
         status=412,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     with pytest.raises(DataCitePreconditionError):
         d.doi_post("10.1234/1", "http://example.org")
-
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
 @responses.activate

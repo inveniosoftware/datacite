@@ -10,8 +10,6 @@
 
 """Tests for /media POST."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
@@ -54,11 +52,9 @@ def test_media_post_400():
         status=400,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     with pytest.raises(DataCiteBadRequestError):
         d.media_post("10.1234/1", {'text/plain': 'http://invaliddomain.org'})
-
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
 @responses.activate

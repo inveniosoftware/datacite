@@ -10,8 +10,6 @@
 
 """Tests for /media GET."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
@@ -92,8 +90,6 @@ def test_media_get_500():
         status=500,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     with pytest.raises(DataCiteServerError):
         d.media_get("10.1234/1")
-
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'

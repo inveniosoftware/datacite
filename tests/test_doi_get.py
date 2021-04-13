@@ -10,8 +10,6 @@
 
 """Tests for /doi GET."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
@@ -46,11 +44,9 @@ def test_doi_get_204():
         status=204,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     with pytest.raises(DataCiteNoContentError):
         d.doi_get("10.1234/1")
-
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
 @responses.activate

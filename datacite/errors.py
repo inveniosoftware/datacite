@@ -16,8 +16,6 @@ MDS error responses raises a subclass of
 :py:exc:`datacite.errors.DataCiteError`.
 """
 
-from __future__ import absolute_import, print_function
-
 
 class HttpError(Exception):
     """Exception raised when a connection problem happens."""

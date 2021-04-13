@@ -60,7 +60,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/geopointexample"
+      "identifier": "10.1234/geopointexample"
     }
   ],
   "sizes": [
@@ -95,7 +95,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "10.5072/timeseries",
+      "relatedIdentifier": "10.1234/timeseries",
       "relatedIdentifierType": "DOI",
       "relationType": "Continues"
     }

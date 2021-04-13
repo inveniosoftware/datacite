@@ -1,6 +1,6 @@
 {
-  "id": "https://doi.org/10.5072/geopointexample",
-  "doi": "10.5072/geopointexample",
+  "id": "https://doi.org/10.1234/geopointexample",
+  "doi": "10.1234/geopointexample",
   "types": {
     "resourceTypeGeneral": "Dataset",
     "resourceType": "Dataset",
@@ -62,7 +62,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/geopointexample"
+      "identifier": "10.1234/geopointexample"
     }
   ],
   "sizes": [
@@ -97,7 +97,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "10.5072/timeseries",
+      "relatedIdentifier": "10.1234/timeseries",
       "relatedIdentifierType": "DOI",
       "relationType": "Continues"
     }

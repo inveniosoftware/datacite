@@ -5,7 +5,7 @@
   },
   "identifiers": [{
     "identifierType": "DOI",
-    "identifier": "10.5072/example-full"
+    "identifier": "10.1234/example-full"
   }],
   "creators": [{
     "nameType": "Personal",
@@ -74,7 +74,7 @@
     "alternateIdentifier": "https://schema.datacite.org/meta/kernel-4.2/example/datacite-example-full-v4.2.xml"
   }],
   "relatedIdentifiers": [{
-      "relatedIdentifier": "https://data.datacite.org/application/citeproc+json/10.5072/example-full",
+      "relatedIdentifier": "https://data.datacite.org/application/citeproc+json/10.1234/example-full",
       "relatedIdentifierType": "URL",
       "relationType": "HasMetadata",
       "relatedMetadataScheme": "citeproc+json",
