@@ -1,6 +1,6 @@
 {
-  "id": "https://doi.org/10.5072/1153992",
-  "doi": "10.5072/1153992",
+  "id": "https://doi.org/10.1234/1153992",
+  "doi": "10.1234/1153992",
   "types": {
     "resourceTypeGeneral": "Audiovisual",
     "resourceType": "narrated video",
@@ -48,7 +48,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/1153992"
+      "identifier": "10.1234/1153992"
     }
   ],
   "sizes": [],

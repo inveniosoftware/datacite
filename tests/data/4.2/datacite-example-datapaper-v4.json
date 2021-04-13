@@ -1,6 +1,6 @@
 {
-  "id": "https://doi.org/10.5072/example-datapaper",
-  "doi": "10.5072/example-datapaper",
+  "id": "https://doi.org/10.1234/example-datapaper",
+  "doi": "10.1234/example-datapaper",
   "types": {
     "resourceTypeGeneral": "DataPaper",
     "resourceType": "Dataset",
@@ -66,7 +66,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/example-datapaper"
+      "identifier": "10.1234/example-datapaper"
     }
   ],
   "sizes": [],
@@ -86,7 +86,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "doi:10.5072/dataset",
+      "relatedIdentifier": "doi:10.1234/dataset",
       "relatedIdentifierType": "DOI",
       "relationType": "Describes"
     }

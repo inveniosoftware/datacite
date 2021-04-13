@@ -27,13 +27,13 @@ def test_api_url():
     """Test client init."""
     c = DataCiteMDSClient(
         username="TEST",
+        password="",
         prefix="10.1234",
+        test_mode=False,
         url="https://mds.example.org",  # without slash
-        test_mode=True,
     )
     assert c.api_url == "https://mds.example.org/"  # with slash
     assert c.prefix == "10.1234"
-    assert c.test_mode is True
     assert c.__repr__() == "<DataCiteMDSClient: TEST>"
 
 

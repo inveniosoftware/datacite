@@ -64,7 +64,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/example-datapaper"
+      "identifier": "10.1234/example-datapaper"
     }
   ],
   "sizes": [],
@@ -84,7 +84,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "doi:10.5072/dataset",
+      "relatedIdentifier": "doi:10.1234/dataset",
       "relatedIdentifierType": "DOI",
       "relationType": "Describes"
     }

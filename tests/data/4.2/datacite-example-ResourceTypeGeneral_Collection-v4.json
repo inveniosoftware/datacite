@@ -1,6 +1,6 @@
 {
-  "id": "https://doi.org/10.5072/1003496",
-  "doi": "10.5072/1003496",
+  "id": "https://doi.org/10.1234/1003496",
+  "doi": "10.1234/1003496",
   "types": {
     "resourceTypeGeneral": "Collection",
     "resourceType": "Report",
@@ -53,7 +53,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/1003496"
+      "identifier": "10.1234/1003496"
     },
     {
       "identifierType": "ADS Grey Lit ID",

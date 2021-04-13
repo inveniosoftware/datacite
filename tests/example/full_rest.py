@@ -31,38 +31,12 @@ assert schema42.validate(data)
 doc = schema42.tostring(data)
 
 # Initialize the REST client.
-username = os.environ["DATACITE_USER"]
-password = os.environ["DATACITE_PW"]
-prefix = os.environ["DATACITE_PREFIX"]
 d = DataCiteRESTClient(
-    username=username,
-    password=password,
-    prefix=prefix,
+    username="MYDC.MYACCOUNT",
+    password="mypassword",
+    prefix="10.1234",
     test_mode=True
 )
 
 # Reserve a draft DOI
 doi = d.draft_doi()
-
-# Mint new DOI
-#d.doi_post('10.5072/test-doi', 'http://example.org/test-doi')
-
-# Get DOI location
-#location = d.doi_get(doi)
-
-# Set alternate URL for content type (available through api)
-#d.media_post(
-#    "10.5072/test-doi",
-#    {"application/json": "http://example.org/test-doi/json/",
-#     "application/xml": "http://example.org/test-doi/xml/"}
-#)
-
-# Get alternate URLs
-#mapping = d.media_get("10.5072/test-doi")
-#assert mapping["application/json"] == "http://example.org/test-doi/json/"
-
-# Get metadata for DOI
-#doc = d.metadata_get("10.5072/test-doi")
-
-# Make DOI inactive
-#d.metadata_delete("10.5072/test-doi")

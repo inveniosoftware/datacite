@@ -33,31 +33,32 @@ doc = schema42.tostring(data)
 d = DataCiteMDSClient(
     username='MYDC.MYACCOUNT',
     password='mypassword',
-    prefix='10.5072',
+    prefix='10.1234',
+    test_mode=True,
 )
 
 # Set metadata for DOI
 d.metadata_post(doc)
 
 # Mint new DOI
-d.doi_post('10.5072/test-doi', 'http://example.org/test-doi')
+d.doi_post('10.1234/test-doi', 'http://example.org/test-doi')
 
 # Get DOI location
-location = d.doi_get("10.5072/test-doi")
+location = d.doi_get("10.1234/test-doi")
 
 # Set alternate URL for content type (available through content negotiation)
 d.media_post(
-    "10.5072/test-doi",
+    "10.1234/test-doi",
     {"application/json": "http://example.org/test-doi/json/",
      "application/xml": "http://example.org/test-doi/xml/"}
 )
 
 # Get alternate URLs
-mapping = d.media_get("10.5072/test-doi")
+mapping = d.media_get("10.1234/test-doi")
 assert mapping["application/json"] == "http://example.org/test-doi/json/"
 
 # Get metadata for DOI
-doc = d.metadata_get("10.5072/test-doi")
+doc = d.metadata_get("10.1234/test-doi")
 
 # Make DOI inactive
-d.metadata_delete("10.5072/test-doi")
+d.metadata_delete("10.1234/test-doi")

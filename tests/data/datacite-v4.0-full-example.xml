@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://datacite.org/schema/kernel-4" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4/metadata.xsd">
-  <identifier identifierType="DOI">10.5072/example-full</identifier>
+  <identifier identifierType="DOI">10.1234/example-full</identifier>
   <creators>
     <creator>
       <creatorName>Miller, Elizabeth</creatorName>
@@ -35,7 +35,7 @@
     <alternateIdentifier alternateIdentifierType="URL">http://schema.datacite.org/schema/meta/kernel-4.0/example/datacite-example-full-v4.0.xml</alternateIdentifier>
   </alternateIdentifiers>
   <relatedIdentifiers>
-    <relatedIdentifier relatedIdentifierType="URL" relationType="HasMetadata" relatedMetadataScheme="citeproc+json" schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json">http://data.datacite.org/application/citeproc+json/10.5072/example-full</relatedIdentifier>
+    <relatedIdentifier relatedIdentifierType="URL" relationType="HasMetadata" relatedMetadataScheme="citeproc+json" schemeURI="https://github.com/citation-style-language/schema/raw/master/csl-data.json">http://data.datacite.org/application/citeproc+json/10.1234/example-full</relatedIdentifier>
     <relatedIdentifier relatedIdentifierType="arXiv" relationType="IsReviewedBy">arXiv:0706.0001</relatedIdentifier>
   </relatedIdentifiers>
   <sizes>

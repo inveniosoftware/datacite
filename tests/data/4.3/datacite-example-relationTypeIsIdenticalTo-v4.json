@@ -112,7 +112,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/10.cpos-example"
+      "identifier": "10.1234/10.cpos-example"
     },
     {
       "identifierType": "internal ID",

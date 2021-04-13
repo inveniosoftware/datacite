@@ -16,42 +16,42 @@ https://support.datacite.org/reference/introduction.
 """
 
 import json
+import requests
 from idutils import normalize_doi
 
 from .errors import DataCiteError
 from .request import DataCiteRequest
 
+HTTP_OK = requests.codes['ok']
+HTTP_CREATED = requests.codes['created']
+
 
 class DataCiteRESTClient(object):
     """DataCite REST API client wrapper."""
 
-    def __init__(self, username=None, password=None, url=None, prefix=None,
-                 test_mode=False, api_ver="2", timeout=None):
+    def __init__(self, username, password, prefix, test_mode=False, url=None,
+                 timeout=None):
         """Initialize the REST client wrapper.
 
         :param username: DataCite username.
         :param password: DataCite password.
-        :param url: DataCite API base URL. Defaults to
-            https://api.datacite.org/.
-        :param test_mode: Set to True to change base url to
-        https://api.test.datacite.prg. Defaults to False.
         :param prefix: DOI prefix (or CFG_DATACITE_DOI_PREFIX).
-        :param api_ver: DataCite API version. Currently has no effect.
-            Default to 2.
+        :param test_mode: use test URL when True
+        :param url: DataCite API base URL.
         :param timeout: Connect and read timeout in seconds. Specify a tuple
             (connect, read) to specify each timeout individually.
         """
         self.username = username
         self.password = password
         self.prefix = prefix
-        self.api_ver = api_ver  # Currently not used
 
         if test_mode:
-            self.api_url = 'https://api.test.datacite.org/'
+            self.api_url = "https://api.test.datacite.org/"
         else:
-            self.api_url = url or 'https://api.datacite.org/'
-        if self.api_url[-1] != '/':
-            self.api_url = self.api_url + "/"
+            self.api_url = url or "https://api.datacite.org/"
+
+        if not self.api_url.endswith('/'):
+            self.api_url += '/'
 
         self.timeout = timeout
 
@@ -59,15 +59,12 @@ class DataCiteRESTClient(object):
         """Create string representation of object."""
         return '<DataCiteRESTClient: {0}>'.format(self.username)
 
-    def _request_factory(self):
+    def _create_request(self):
         """Create a new Request object."""
-        params = {}
-
         return DataCiteRequest(
             base_url=self.api_url,
             username=self.username,
             password=self.password,
-            default_params=params,
             timeout=self.timeout,
         )
 
@@ -76,12 +73,12 @@ class DataCiteRESTClient(object):
 
         :param doi: DOI name of the resource.
         """
-        r = self._request_factory()
-        r.get("dois/" + doi)
-        if r.code == 200:
-            return r.json['data']['attributes']['url']
+        request = self._create_request()
+        resp = request.get("dois/" + doi)
+        if resp.status_code == HTTP_OK:
+            return resp.json()['data']['attributes']['url']
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def check_doi(self, doi):
         """Check doi structure.
@@ -92,36 +89,38 @@ class DataCiteRESTClient(object):
         # If prefix is in doi
         if '/' in doi:
             split = doi.split('/')
-            if split[0] != self.prefix:
+            prefix = split[0]
+            if prefix != self.prefix:
                 # Provided a DOI with the wrong prefix
-                raise ValueError('DOI prefix provided ' + split[0] +
-                                 ' not prefix in rest client '+self.prefix)
+                raise ValueError('Wrong DOI {0} prefix provided, it should be '
+                                 '{1} as defined in the rest client'
+                                 .format(prefix, self.prefix))
         else:
-            doi = self.prefix + '/' + doi
+            doi = '{prefix}/{doi}'.format(prefix=self.prefix, doi=doi)
         return normalize_doi(doi)
 
     def post_doi(self, data):
         """Post a new JSON payload to DataCite."""
         headers = {'content-type': 'application/vnd.api+json'}
-        r = self._request_factory()
         body = {"data": data}
-        r.post("dois", body=json.dumps(body), headers=headers)
-        if r.code == 201:
-            return r.json['data']['id']
+        request = self._create_request()
+        resp = request.post("dois", body=json.dumps(body), headers=headers)
+        if resp.status_code == HTTP_CREATED:
+            return resp.json()['data']['id']
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def put_doi(self, doi, data):
         """Put a JSON payload to DataCite for an existing DOI."""
         headers = {'content-type': 'application/vnd.api+json'}
-        r = self._request_factory()
         body = {"data": data}
-        r.put("dois/" + doi, body=json.dumps(body), headers=headers)
-
-        if r.code == 200:
-            return r.json['data']['attributes']
+        request = self._create_request()
+        url = "dois/" + doi
+        resp = request.put(url, body=json.dumps(body), headers=headers)
+        if resp.status_code == HTTP_OK:
+            return resp.json()['data']['attributes']
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def draft_doi(self, metadata=None, doi=None):
         """Create a draft doi.
@@ -132,6 +131,7 @@ class DataCiteRESTClient(object):
         will automatically create a DOI with a random,
         recommended DOI suffix
 
+        :param metadata: metadata for the DOI
         :param doi: DOI (e.g. 10.123/456)
         :return:
         """
@@ -165,11 +165,11 @@ class DataCiteRESTClient(object):
         :param doi: DOI (e.g. 10.123/456)
         :return:
         """
-        r = self._request_factory()
-        r.delete("dois/" + doi)
+        request = self._create_request()
+        resp = request.delete("dois/" + doi)
 
-        if r.code != 204:
-            raise DataCiteError.factory(r.code, r.data)
+        if resp.status_code != 204:
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def public_doi(self, metadata, url, doi=None):
         """Create a public doi.
@@ -281,13 +281,13 @@ class DataCiteRESTClient(object):
         """
         """Put a JSON payload to DataCite for an existing DOI."""
         headers = {'content-type': 'application/vnd.api+json'}
-        r = self._request_factory()
-        r.get("dois/" + doi, headers=headers)
+        request = self._create_request()
+        resp = request.get("dois/" + doi, headers=headers)
 
-        if r.code == 200:
-            return r.json['data']['attributes']
+        if resp.status_code == HTTP_OK:
+            return resp.json()['data']['attributes']
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def media_get(self, doi):
         """Get list of pairs of media type and URLs associated with a DOI.
@@ -295,10 +295,10 @@ class DataCiteRESTClient(object):
         :param doi: DOI name of the resource.
         """
         headers = {'content-type': 'application/vnd.api+json'}
-        r = self._request_factory()
-        r.get("dois/" + doi, headers=headers)
+        request = self._create_request()
+        resp = request.get("dois/" + doi, headers=headers)
 
-        if r.code == 200:
-            return r.json['relationships']['media']
+        if resp.status_code == HTTP_OK:
+            return resp.json()['relationships']['media']
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)

@@ -10,8 +10,6 @@
 
 """Tests for /metadata DELETE."""
 
-from __future__ import absolute_import, print_function
-
 import pytest
 import responses
 from helpers import APIURL, get_client
@@ -30,9 +28,8 @@ def test_metadata_delete_200():
         status=200,
     )
 
-    d = get_client(test_mode=True)
+    d = get_client()
     assert "OK" == d.metadata_delete("10.1234/example")
-    assert responses.calls[0].response.url.split('?')[-1] == 'testMode=1'
 
 
 @responses.activate

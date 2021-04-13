@@ -10,8 +10,6 @@
 
 """DataCite v3.1 JSON to XML transformations."""
 
-from __future__ import absolute_import, print_function
-
 import pkg_resources
 from lxml import etree
 from lxml.builder import E

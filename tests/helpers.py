@@ -10,8 +10,6 @@
 
 """Test helpers."""
 
-from __future__ import absolute_import, print_function
-
 import io
 import json
 import os
@@ -23,30 +21,34 @@ APIURL = "https://mds.example.org/"
 RESTURL = "https://doi.example.org/"
 
 
-def get_client(username="DC", password="pw", prefix='10.5072',
-               test_mode=False, timeout=None):
+def get_client(username="DC", password="pw", prefix='10.1234',
+               with_fake_url=True):
     """Create a API client."""
-    return DataCiteMDSClient(
+    client = DataCiteMDSClient(
         username=username,
         password=password,
         prefix=prefix,
-        url=APIURL,
-        test_mode=test_mode,
-        timeout=timeout,
+        test_mode=True,
     )
+    if with_fake_url:
+        # change URL for tests
+        client.api_url = APIURL
+    return client
 
 
-def get_rest(username="DC", password="pw", prefix='10.5072',
-             test_mode=False, timeout=None):
+def get_rest(username="DC", password="pw", prefix='10.1234',
+             with_fake_url=True):
     """Create a REST API client."""
-    return DataCiteRESTClient(
+    client = DataCiteRESTClient(
         username=username,
         password=password,
         prefix=prefix,
-        url=RESTURL,
-        test_mode=test_mode,
-        timeout=timeout,
+        test_mode=True,
     )
+    if with_fake_url:
+        # change URL for tests
+        client.api_url = RESTURL
+    return client
 
 
 def get_credentials():

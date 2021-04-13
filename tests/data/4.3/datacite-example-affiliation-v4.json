@@ -129,7 +129,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "https://doi.org/10.5072/example-full"
+      "identifier": "https://doi.org/10.1234/example-full"
     },
     {
       "identifierType": "URL",
@@ -214,7 +214,7 @@
   ],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "https://data.datacite.org/application/citeproc+json/10.5072/example-full",
+      "relatedIdentifier": "https://data.datacite.org/application/citeproc+json/10.1234/example-full",
       "relatedIdentifierType": "URL",
       "relationType": "HasMetadata",
       "relatedMetadataScheme": "citeproc+json",

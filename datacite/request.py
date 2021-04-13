@@ -13,12 +13,10 @@
 
 import ssl
 
-import json
 import requests
 from requests.auth import HTTPBasicAuth
 from requests.exceptions import RequestException
 
-from ._compat import string_types, text_type
 from .errors import HttpError
 
 
@@ -27,7 +25,7 @@ class DataCiteRequest(object):
 
     :param base_url: Base URL for all requests.
     :param username: HTTP Basic Authentication Username
-    :param password: HTTP Basic Authentication Passsword
+    :param password: HTTP Basic Authentication Password
     :param default_params: A key/value-mapping which will be converted into a
         query string on all requests.
     :param timeout: Connect and read timeout in seconds. Specify a tuple
@@ -67,7 +65,7 @@ class DataCiteRequest(object):
         if self.base_url:
             url = self.base_url + url
 
-        if body and isinstance(body, text_type):
+        if body and isinstance(body, str):
             body = body.encode('utf-8')
 
         request_func = getattr(requests, method.lower())
@@ -85,15 +83,7 @@ class DataCiteRequest(object):
             kwargs['timeout'] = self.timeout
 
         try:
-            res = request_func(url, **kwargs)
-            self.code = res.status_code
-            self.data = res.content
-            if not isinstance(body, string_types):
-                self.data = self.data.decode('utf8')
-            try:
-                self.json = json.loads(self.data)
-            except ValueError as e:
-                self.json = None
+            return request_func(url, **kwargs)
         except RequestException as e:
             raise HttpError(e)
         except ssl.SSLError as e:
@@ -101,27 +91,19 @@ class DataCiteRequest(object):
 
     def get(self, url, params=None, headers=None):
         """Make a GET request."""
-        params = params or {}
-        headers = headers or {}
         return self.request(url, params=params, headers=headers)
 
     def post(self, url, body=None, params=None, headers=None):
         """Make a POST request."""
-        params = params or {}
-        headers = headers or {}
         return self.request(url, method="POST", body=body, params=params,
                             headers=headers)
 
     def put(self, url, body=None, params=None, headers=None):
         """Make a PUT request."""
-        params = params or {}
-        headers = headers or {}
         return self.request(url, method="PUT", body=body, params=params,
                             headers=headers)
 
     def delete(self, url, params=None, headers=None):
         """Make a DELETE request."""
-        params = params or {}
-        headers = headers or {}
         return self.request(url, method="DELETE", params=params,
                             headers=headers)

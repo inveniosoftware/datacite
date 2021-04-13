@@ -14,43 +14,45 @@ API documentation is available at
 https://support.datacite.org/docs/mds-api-guide.
 """
 
-from __future__ import absolute_import, print_function
+import requests
 
 from .errors import DataCiteError
 from .request import DataCiteRequest
 
+HTTP_OK = requests.codes['ok']
+HTTP_CREATED = requests.codes['created']
+
 
 class DataCiteMDSClient(object):
-    """DataCite MDS API client wrapper."""
+    """DataCite MDS API client wrapper.
 
-    def __init__(self, username=None, password=None, url=None, prefix=None,
-                 test_mode=False, api_ver="2", timeout=None):
+    Warning: The DataCite MDS API is being maintained but is no longer actively
+    developed.
+    """
+
+    def __init__(self, username, password, prefix, test_mode=False, url=None,
+                 timeout=None):
         """Initialize the API client wrapper.
 
         :param username: DataCite username.
         :param password: DataCite password.
-        :param url: DataCite API base URL. Defaults to
-            https://mds.datacite.org/.
-        :param prefix: DOI prefix (or CFG_DATACITE_DOI_PREFIX). Defaults to
-            10.5072 (DataCite test prefix).
-        :param test_mode: Set to True to enable test mode. Defaults to False.
-        :param api_ver: DataCite API version. Currently has no effect.
-            Default to 2.
+        :param prefix: DOI prefix (or CFG_DATACITE_DOI_PREFIX).
+        :param test_mode: use test URL when True
+        :param url: DataCite API base URL.
         :param timeout: Connect and read timeout in seconds. Specify a tuple
             (connect, read) to specify each timeout individually.
         """
         self.username = username
         self.password = password
-        self.prefix = prefix or '10.5072'
-        self.api_ver = api_ver  # Currently not used
+        self.prefix = prefix
 
-        self.api_url = url or 'https://mds.datacite.org/'
-        if self.api_url[-1] != '/':
-            self.api_url = self.api_url + "/"
+        if test_mode:
+            self.api_url = "https://mds.test.datacite.org/"
+        else:
+            self.api_url = url or "https://mds.datacite.org/"
 
-        # If in test mode, set prefix to 10.5072, the default DataCite test
-        # prefix.
-        self.test_mode = test_mode
+        if not self.api_url.endswith('/'):
+            self.api_url += '/'
 
         self.timeout = timeout
 
@@ -58,17 +60,12 @@ class DataCiteMDSClient(object):
         """Create string representation of object."""
         return '<DataCiteMDSClient: {0}>'.format(self.username)
 
-    def _request_factory(self):
+    def _create_request(self):
         """Create a new Request object."""
-        params = {}
-        if self.test_mode:
-            params['testMode'] = '1'
-
         return DataCiteRequest(
             base_url=self.api_url,
             username=self.username,
             password=self.password,
-            default_params=params,
             timeout=self.timeout,
         )
 
@@ -77,12 +74,12 @@ class DataCiteMDSClient(object):
 
         :param doi: DOI name of the resource.
         """
-        r = self._request_factory()
-        r.get("doi/" + doi)
-        if r.code == 200:
-            return r.data
+        request = self._create_request()
+        resp = request.get("doi/" + doi)
+        if resp.status_code == HTTP_OK:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def doi_post(self, new_doi, location):
         """Mint new DOI.
@@ -95,13 +92,13 @@ class DataCiteMDSClient(object):
         # Use \r\n for HTTP client data.
         body = "\r\n".join(["doi=%s" % new_doi, "url=%s" % location])
 
-        r = self._request_factory()
-        r.post("doi", body=body, headers=headers)
+        request = self._create_request()
+        resp = request.post("doi", body=body, headers=headers)
 
-        if r.code == 201:
-            return r.data
+        if resp.status_code == HTTP_CREATED:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def metadata_get(self, doi):
         """Get the XML metadata associated to a DOI name.
@@ -111,13 +108,13 @@ class DataCiteMDSClient(object):
         headers = {'Accept': 'application/xml',
                    'Accept-Encoding': 'UTF-8'}
 
-        r = self._request_factory()
-        r.get("metadata/" + doi, headers=headers)
+        request = self._create_request()
+        resp = request.get("metadata/" + doi, headers=headers)
 
-        if r.code == 200:
-            return r.data
+        if resp.status_code == HTTP_OK:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def metadata_post(self, metadata):
         """Set new metadata for an existing DOI.
@@ -130,13 +127,13 @@ class DataCiteMDSClient(object):
         """
         headers = {'Content-Type': 'application/xml;charset=UTF-8', }
 
-        r = self._request_factory()
-        r.post("metadata", body=metadata, headers=headers)
+        request = self._create_request()
+        resp = request.post("metadata", body=metadata, headers=headers)
 
-        if r.code == 201:
-            return r.data
+        if resp.status_code == HTTP_CREATED:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def metadata_delete(self, doi):
         """Mark as 'inactive' the metadata set of a DOI resource.
@@ -144,30 +141,30 @@ class DataCiteMDSClient(object):
         :param doi: DOI name of the resource.
         :return: "OK"
         """
-        r = self._request_factory()
-        r.delete("metadata/" + doi)
+        request = self._create_request()
+        resp = request.delete("metadata/" + doi)
 
-        if r.code == 200:
-            return r.data
+        if resp.status_code == HTTP_OK:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def media_get(self, doi):
         """Get list of pairs of media type and URLs associated with a DOI.
 
         :param doi: DOI name of the resource.
         """
-        r = self._request_factory()
-        r.get("media/" + doi)
+        request = self._create_request()
+        resp = request.get("media/" + doi)
 
-        if r.code == 200:
+        if resp.status_code == HTTP_OK:
             values = {}
-            for line in r.data.splitlines():
+            for line in resp.text.splitlines():
                 mimetype, url = line.split("=", 1)
                 values[mimetype] = url
             return values
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)
 
     def media_post(self, doi, media):
         """Add/update media type/urls pairs to a DOI.
@@ -182,10 +179,10 @@ class DataCiteMDSClient(object):
         # Use \r\n for HTTP client data.
         body = "\r\n".join(["%s=%s" % (k, v) for k, v in media.items()])
 
-        r = self._request_factory()
-        r.post("media/" + doi, body=body, headers=headers)
+        request = self._create_request()
+        resp = request.post("media/" + doi, body=body, headers=headers)
 
-        if r.code == 200:
-            return r.data
+        if resp.status_code == HTTP_OK:
+            return resp.text
         else:
-            raise DataCiteError.factory(r.code, r.data)
+            raise DataCiteError.factory(resp.status_code, resp.text)

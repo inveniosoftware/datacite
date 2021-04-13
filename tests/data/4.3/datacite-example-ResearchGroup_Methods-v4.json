@@ -71,7 +71,7 @@
   "identifiers": [
     {
       "identifierType": "DOI",
-      "identifier": "10.5072/fk25h7qrs"
+      "identifier": "10.1234/fk25h7qrs"
     }
   ],
   "sizes": [],
@@ -93,7 +93,7 @@
   "fundingReferences": [],
   "relatedIdentifiers": [
     {
-      "relatedIdentifier": "10.5072/j.jalz.2012.05.911",
+      "relatedIdentifier": "10.1234/j.jalz.2012.05.911",
       "relatedIdentifierType": "DOI",
       "relationType": "IsReferencedBy"
     }
