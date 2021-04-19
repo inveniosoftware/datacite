@@ -41,9 +41,9 @@ class DataCiteRESTClient(object):
         :param timeout: Connect and read timeout in seconds. Specify a tuple
             (connect, read) to specify each timeout individually.
         """
-        self.username = username
-        self.password = password
-        self.prefix = prefix
+        self.username = str(username)
+        self.password = str(password)
+        self.prefix = str(prefix)
 
         if test_mode:
             self.api_url = "https://api.test.datacite.org/"
