@@ -64,8 +64,6 @@ def identifiers(path, values):
     alt = ''
     doi = ''
     for value in values:
-        print(value['identifierType'])
-        print(value['identifierType'] == 'DOI')
         if value['identifierType'] == 'DOI':
             if doi != '':
                 # Don't know what to do with two DOIs
