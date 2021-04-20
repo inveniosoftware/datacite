@@ -1,6 +1,11 @@
 Changes
 =======
 
+Version v1.1.1 (released 2021-04-20):
+
+- Fixes DataCiteRESTClient attributes' type. Prefix, username and password
+  are always cast to string.
+
 Version v1.1.0 (released 2021-04-15):
 
 - Adds full support for DataCite Metadata Schema v4.2 and v4.3 XML generation.
