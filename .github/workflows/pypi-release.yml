@@ -40,3 +40,4 @@ jobs:
           user: __token__
           # The token is provided by the inveniosoftware organization
           password: ${{ secrets.pypi_token }}
+
