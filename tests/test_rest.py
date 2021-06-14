@@ -4,6 +4,7 @@
 #
 # Copyright (C) 2015, 2016 CERN.
 # Copyright (C) 2020 Caltech.
+# Copyright (C) 2021 Graz University of Technology.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -150,7 +151,7 @@ def test_rest_create_private():
     doi = d.private_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
-    datacite_metadata = d.metadata_get(doi)
+    datacite_metadata = d.get_metadata(doi)
     assert datacite_metadata['state'] == 'registered'
     new_metadata = d.show_doi(doi)
     assert new_metadata['state'] == 'findable'
@@ -183,7 +184,7 @@ def test_rest_create_private_mock():
     doi = d.private_doi(example_metadata, url)
     datacite_prefix = doi.split('/')[0]
     assert datacite_prefix == prefix
-    datacite_metadata = d.metadata_get(doi)
+    datacite_metadata = d.get_metadata(doi)
     assert datacite_metadata['state'] == 'registered'
     data = {"data": {"id": prefix+"/1", "attributes":
             {"state": "findable", "url": url}}}
@@ -210,11 +211,11 @@ def test_rest_get_200():
     )
 
     d = get_rest()
-    assert url == d.doi_get("10.1234/1")
+    assert url == d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_204():
+def test_get_doi_204():
     """Test 204 error when no content."""
     responses.add(
         responses.GET,
@@ -225,11 +226,11 @@ def test_doi_get_204():
 
     d = get_rest()
     with pytest.raises(DataCiteNoContentError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_401():
+def test_get_doi_401():
     """Test 401 error."""
     responses.add(
         responses.GET,
@@ -240,11 +241,11 @@ def test_doi_get_401():
 
     d = get_rest()
     with pytest.raises(DataCiteUnauthorizedError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_403():
+def test_get_doi_403():
     """Test 403 error."""
     responses.add(
         responses.GET,
@@ -255,11 +256,11 @@ def test_doi_get_403():
 
     d = get_rest()
     with pytest.raises(DataCiteForbiddenError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_404():
+def test_get_doi_404():
     """Test 404 error."""
     responses.add(
         responses.GET,
@@ -270,11 +271,11 @@ def test_doi_get_404():
 
     d = get_rest()
     with pytest.raises(DataCiteNotFoundError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_410():
+def test_get_doi_410():
     """Test 410 error."""
     responses.add(
         responses.GET,
@@ -285,11 +286,11 @@ def test_doi_get_410():
 
     d = get_rest()
     with pytest.raises(DataCiteGoneError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
 
 
 @responses.activate
-def test_doi_get_500():
+def test_get_doi_500():
     """Test 500 error."""
     responses.add(
         responses.GET,
@@ -300,4 +301,4 @@ def test_doi_get_500():
 
     d = get_rest()
     with pytest.raises(DataCiteServerError):
-        d.doi_get("10.1234/1")
+        d.get_doi("10.1234/1")
