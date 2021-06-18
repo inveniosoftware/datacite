@@ -4,6 +4,7 @@
 #
 # Copyright (C) 2015 CERN.
 # Copyright (C) 2020 Caltech.
+# Copyright (C) 2021 Graz University of Technology.
 #
 # DataCite is free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -17,6 +18,7 @@ https://support.datacite.org/reference/introduction.
 
 import json
 import requests
+import warnings
 from idutils import normalize_doi
 
 from .errors import DataCiteError
@@ -69,6 +71,15 @@ class DataCiteRESTClient(object):
         )
 
     def doi_get(self, doi):
+        """Get the URL where the resource pointed by the DOI is located.
+
+        :param doi: DOI name of the resource.
+        """
+        warn_msg = "The method is deprecated in favour of get_doi"
+        warnings.warn(warn_msg, DeprecationWarning)
+        return self.get_doi(doi)
+
+    def get_doi(self, doi):
         """Get the URL where the resource pointed by the DOI is located.
 
         :param doi: DOI name of the resource.
@@ -279,6 +290,15 @@ class DataCiteRESTClient(object):
 
         :param doi: DOI name of the resource.
         """
+        warn_msg = "The method is deprecated in favour of get_metadata"
+        warnings.warn(warn_msg, DeprecationWarning)
+        return self.get_metadata(doi)
+
+    def get_metadata(self, doi):
+        """Get the JSON metadata associated to a DOI name.
+
+        :param doi: DOI name of the resource.
+        """
         """Put a JSON payload to DataCite for an existing DOI."""
         headers = {'content-type': 'application/vnd.api+json'}
         request = self._create_request()
@@ -290,6 +310,15 @@ class DataCiteRESTClient(object):
             raise DataCiteError.factory(resp.status_code, resp.text)
 
     def media_get(self, doi):
+        """Get list of pairs of media type and URLs associated with a DOI.
+
+        :param doi: DOI name of the resource.
+        """
+        warn_msg = "The method is deprecated in favour of get_media"
+        warnings.warn(warn_msg, DeprecationWarning)
+        return self.get_media(doi)
+
+    def get_media(self, doi):
         """Get list of pairs of media type and URLs associated with a DOI.
 
         :param doi: DOI name of the resource.
