@@ -1,6 +1,11 @@
 Changes
 =======
 
+Version v1.1.2 (released 2021-06-22):
+
+- Standardizes function names in DataCiteRESTClient. Old functions will be
+  depreciated in a future release
+
 Version v1.1.1 (released 2021-04-20):
 
 - Fixes DataCiteRESTClient attributes' type. Prefix, username and password
