@@ -19,7 +19,6 @@ jobs:
 
     steps:
       - name: "GitHub Release"
-        run: |
           echo "done!"
 
       - uses: "marvinpinto/action-automatic-releases@latest"
