@@ -40,7 +40,7 @@ The datacite package is on PyPI so all you need is: ::
 Documentation
 =============
 
-Documentation is readable at http://datacite.readthedocs.io/ or can be
+Documentation is readable at https://datacite-test.readthedocs.io/ or can be
 built using Sphinx: ::
 
     pip install datacite[docs]
