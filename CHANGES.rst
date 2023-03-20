@@ -1,6 +1,11 @@
 Changes
 =======
 
+Version v1.1.3 (released 2023-03-20):
+
+- Updates dependency versions and adds python 3.9 support
+- Changes internal definition name for affiliation in 4.3 schema
+
 Version v1.1.2 (released 2021-06-22):
 
 - Standardizes function names in DataCiteRESTClient. Old functions will be
