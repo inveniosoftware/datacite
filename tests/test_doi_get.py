@@ -14,9 +14,14 @@ import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
-    DataCiteNoContentError, DataCiteNotFoundError, DataCiteServerError, \
-    DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteForbiddenError,
+    DataCiteGoneError,
+    DataCiteNoContentError,
+    DataCiteNotFoundError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @responses.activate
