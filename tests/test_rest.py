@@ -14,23 +14,34 @@
 
 import pytest
 import responses
-from helpers import RESTURL, TEST_43_JSON_FILES, get_credentials, get_rest, \
-    load_json_path
+from helpers import (
+    RESTURL,
+    TEST_43_JSON_FILES,
+    get_credentials,
+    get_rest,
+    load_json_path,
+)
 
-from datacite.errors import DataCiteForbiddenError, DataCiteGoneError, \
-    DataCiteNoContentError, DataCiteNotFoundError, DataCiteServerError, \
-    DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteForbiddenError,
+    DataCiteGoneError,
+    DataCiteNoContentError,
+    DataCiteNotFoundError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @pytest.mark.pw
 def test_rest_create_draft():
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password, prefix=prefix,
-                 with_fake_url=False)
+    d = get_rest(
+        username=username, password=password, prefix=prefix, with_fake_url=False
+    )
     doi = d.draft_doi()
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
-    url = 'https://github.com/inveniosoftware/datacite'
+    url = "https://github.com/inveniosoftware/datacite"
     new_url = d.update_url(doi, url)
     assert new_url == url
     d.delete_doi(doi)
@@ -39,33 +50,34 @@ def test_rest_create_draft():
 @pytest.mark.pw
 def test_rest_create_draft_metadata():
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password, prefix=prefix,
-                 with_fake_url=False)
+    d = get_rest(
+        username=username, password=password, prefix=prefix, with_fake_url=False
+    )
     metadata = {"titles": [{"title": "hello world", "lang": "en"}]}
-    doi = prefix+'/12345'
+    doi = prefix + "/12345"
     returned_doi = d.draft_doi(metadata, doi)
     assert returned_doi == doi
-    url = 'https://github.com/inveniosoftware/datacite'
+    url = "https://github.com/inveniosoftware/datacite"
     returned_metadata = d.update_doi(doi, url=url)
-    assert returned_metadata['url'] == url
-    assert returned_metadata['titles'][0]['title'] == 'hello world'
+    assert returned_metadata["url"] == url
+    assert returned_metadata["titles"][0]["title"] == "hello world"
     d.delete_doi(doi)
 
 
 @responses.activate
 def test_rest_create_draft_mock():
-    prefix = '10.1234'
-    mock = 'https://github.com/inveniosoftware/datacite'
-    data = {"data": {"id": prefix+"/1", "attributes": {"url": mock}}}
+    prefix = "10.1234"
+    mock = "https://github.com/inveniosoftware/datacite"
+    data = {"data": {"id": prefix + "/1", "attributes": {"url": mock}}}
     responses.add(
         responses.POST,
         "{0}dois".format(RESTURL),
         json=data,
         status=201,
     )
-    d = get_rest(username='mock', password='mock', prefix=prefix)
+    d = get_rest(username="mock", password="mock", prefix=prefix)
     doi = d.draft_doi()
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
 
     responses.add(
@@ -85,89 +97,96 @@ def test_rest_create_draft_mock():
     d.delete_doi(doi)
 
 
-@pytest.mark.parametrize('example_json43', TEST_43_JSON_FILES)
+@pytest.mark.parametrize("example_json43", TEST_43_JSON_FILES)
 @pytest.mark.pw
 def test_rest_create_public(example_json43):
     """Test creating DOIs with all example metadata"""
     example_metadata = load_json_path(example_json43)
-    url = 'https://github.com/inveniosoftware/datacite'
+    url = "https://github.com/inveniosoftware/datacite"
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password, prefix=prefix,
-                 with_fake_url=False)
+    d = get_rest(
+        username=username, password=password, prefix=prefix, with_fake_url=False
+    )
     doi = d.public_doi(example_metadata, url)
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
-    metadata = {'publisher': 'Invenio'}
+    metadata = {"publisher": "Invenio"}
     new_metadata = d.update_doi(doi, metadata)
-    assert new_metadata['publisher'] == 'Invenio'
-    url = 'https://github.com/inveniosoftware'
+    assert new_metadata["publisher"] == "Invenio"
+    url = "https://github.com/inveniosoftware"
     new_metadata = d.update_doi(doi, url=url)
-    assert new_metadata['url'] == url
+    assert new_metadata["url"] == url
 
 
 @responses.activate
 def test_rest_create_public_mock():
     """Test creating DOI"""
-    prefix = '10.1234'
-    example_json43 = 'data/datacite-v4.3-full-example.json'
+    prefix = "10.1234"
+    example_json43 = "data/datacite-v4.3-full-example.json"
     example_metadata = load_json_path(example_json43)
-    url = 'https://github.com/inveniosoftware/datacite'
-    data = {"data": {"id": prefix+"/1", "attributes": {"url": url}}}
+    url = "https://github.com/inveniosoftware/datacite"
+    data = {"data": {"id": prefix + "/1", "attributes": {"url": url}}}
     responses.add(
         responses.POST,
         "{0}dois".format(RESTURL),
         json=data,
         status=201,
     )
-    d = get_rest(username='mock', password='mock', prefix=prefix)
+    d = get_rest(username="mock", password="mock", prefix=prefix)
     doi = d.public_doi(example_metadata, url)
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
-    url = 'https://github.com/inveniosoftware'
-    data = {"data": {"id": prefix+"/1", "attributes":
-            {"publisher": "Invenio", "url": url}}}
+    url = "https://github.com/inveniosoftware"
+    data = {
+        "data": {
+            "id": prefix + "/1",
+            "attributes": {"publisher": "Invenio", "url": url},
+        }
+    }
     responses.add(
         responses.PUT,
         "{0}dois/{1}/1".format(RESTURL, prefix),
         json=data,
         status=200,
     )
-    metadata = {'publisher': 'Invenio'}
+    metadata = {"publisher": "Invenio"}
     new_metadata = d.update_doi(doi, metadata)
-    assert new_metadata['publisher'] == 'Invenio'
+    assert new_metadata["publisher"] == "Invenio"
     new_metadata = d.update_doi(doi, url=url)
-    assert new_metadata['url'] == url
+    assert new_metadata["url"] == url
 
 
 @pytest.mark.pw
 def test_rest_create_private():
     """Test creating private DOI"""
-    example_json43 = 'data/4.3/datacite-example-dataset-v4.json'
+    example_json43 = "data/4.3/datacite-example-dataset-v4.json"
     example_metadata = load_json_path(example_json43)
-    url = 'https://github.com/inveniosoftware/datacite'
+    url = "https://github.com/inveniosoftware/datacite"
     username, password, prefix = get_credentials()
-    d = get_rest(username=username, password=password, prefix=prefix,
-                 with_fake_url=False)
+    d = get_rest(
+        username=username, password=password, prefix=prefix, with_fake_url=False
+    )
     doi = d.private_doi(example_metadata, url)
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
     datacite_metadata = d.get_metadata(doi)
-    assert datacite_metadata['state'] == 'registered'
+    assert datacite_metadata["state"] == "registered"
     new_metadata = d.show_doi(doi)
-    assert new_metadata['state'] == 'findable'
+    assert new_metadata["state"] == "findable"
     new_metadata = d.hide_doi(doi)
-    assert new_metadata['state'] == 'registered'
+    assert new_metadata["state"] == "registered"
 
 
 @responses.activate
 def test_rest_create_private_mock():
     """Test creating private DOI"""
-    example_json43 = 'data/4.3/datacite-example-dataset-v4.json'
+    example_json43 = "data/4.3/datacite-example-dataset-v4.json"
     example_metadata = load_json_path(example_json43)
-    prefix = '10.1234'
-    url = 'https://github.com/inveniosoftware/datacite'
-    data = {"data": {"id": prefix+"/1", "attributes":
-            {"state": "registered", "url": url}}}
+    prefix = "10.1234"
+    url = "https://github.com/inveniosoftware/datacite"
+    data = {
+        "data": {"id": prefix + "/1", "attributes": {"state": "registered", "url": url}}
+    }
     responses.add(
         responses.POST,
         "{0}dois".format(RESTURL),
@@ -180,14 +199,15 @@ def test_rest_create_private_mock():
         json=data,
         status=200,
     )
-    d = get_rest(username='mock', password='mock', prefix=prefix)
+    d = get_rest(username="mock", password="mock", prefix=prefix)
     doi = d.private_doi(example_metadata, url)
-    datacite_prefix = doi.split('/')[0]
+    datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
     datacite_metadata = d.get_metadata(doi)
-    assert datacite_metadata['state'] == 'registered'
-    data = {"data": {"id": prefix+"/1", "attributes":
-            {"state": "findable", "url": url}}}
+    assert datacite_metadata["state"] == "registered"
+    data = {
+        "data": {"id": prefix + "/1", "attributes": {"state": "findable", "url": url}}
+    }
     responses.add(
         responses.PUT,
         "{0}dois/{1}/1".format(RESTURL, prefix),
@@ -195,7 +215,7 @@ def test_rest_create_private_mock():
         status=200,
     )
     new_metadata = d.show_doi(doi)
-    assert new_metadata['state'] == 'findable'
+    assert new_metadata["state"] == "findable"
 
 
 @responses.activate

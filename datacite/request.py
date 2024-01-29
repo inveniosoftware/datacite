@@ -32,16 +32,22 @@ class DataCiteRequest(object):
         (connect, read) to specify each timeout individually.
     """
 
-    def __init__(self, base_url=None, username=None, password=None,
-                 default_params=None, timeout=None):
+    def __init__(
+        self,
+        base_url=None,
+        username=None,
+        password=None,
+        default_params=None,
+        timeout=None,
+    ):
         """Initialize request object."""
         self.base_url = base_url
         self.username = username
-        self.password = password.encode('utf8')
+        self.password = password.encode("utf8")
         self.default_params = default_params or {}
         self.timeout = timeout
 
-    def request(self, url, method='GET', body=None, params=None, headers=None):
+    def request(self, url, method="GET", body=None, params=None, headers=None):
         """Make a request.
 
         If the request was successful (i.e no exceptions), you can find the
@@ -66,7 +72,7 @@ class DataCiteRequest(object):
             url = self.base_url + url
 
         if body and isinstance(body, str):
-            body = body.encode('utf-8')
+            body = body.encode("utf-8")
 
         request_func = getattr(requests, method.lower())
         kwargs = dict(
@@ -75,12 +81,12 @@ class DataCiteRequest(object):
             headers=headers,
         )
 
-        if method == 'POST':
-            kwargs['data'] = body
-        if method == 'PUT':
-            kwargs['data'] = body
+        if method == "POST":
+            kwargs["data"] = body
+        if method == "PUT":
+            kwargs["data"] = body
         if self.timeout is not None:
-            kwargs['timeout'] = self.timeout
+            kwargs["timeout"] = self.timeout
 
         try:
             return request_func(url, **kwargs)
@@ -95,15 +101,16 @@ class DataCiteRequest(object):
 
     def post(self, url, body=None, params=None, headers=None):
         """Make a POST request."""
-        return self.request(url, method="POST", body=body, params=params,
-                            headers=headers)
+        return self.request(
+            url, method="POST", body=body, params=params, headers=headers
+        )
 
     def put(self, url, body=None, params=None, headers=None):
         """Make a PUT request."""
-        return self.request(url, method="PUT", body=body, params=params,
-                            headers=headers)
+        return self.request(
+            url, method="PUT", body=body, params=params, headers=headers
+        )
 
     def delete(self, url, params=None, headers=None):
         """Make a DELETE request."""
-        return self.request(url, method="DELETE", params=params,
-                            headers=headers)
+        return self.request(url, method="DELETE", params=params, headers=headers)

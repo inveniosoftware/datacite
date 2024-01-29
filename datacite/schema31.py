@@ -15,27 +15,30 @@ from lxml import etree
 from lxml.builder import E
 
 from .jsonutils import validator_factory
-from .xmlutils import Rules, dump_etree_helper, etree_to_string, \
-    set_elem_attr, set_non_empty_attr
+from .xmlutils import (
+    Rules,
+    dump_etree_helper,
+    etree_to_string,
+    set_elem_attr,
+    set_non_empty_attr,
+)
 
 rules = Rules()
 
 ns = {
-    None: 'http://datacite.org/schema/kernel-3',
-    'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
-    'xml': 'xml',
+    None: "http://datacite.org/schema/kernel-3",
+    "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xml": "xml",
 }
 
 root_attribs = {
-    '{http://www.w3.org/2001/XMLSchema-instance}schemaLocation':
-    'http://datacite.org/schema/kernel-3 '
-    'http://schema.datacite.org/meta/kernel-3/metadata.xsd',
+    "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://datacite.org/schema/kernel-3 "
+    "http://schema.datacite.org/meta/kernel-3/metadata.xsd",
 }
 
-validator = validator_factory(pkg_resources.resource_filename(
-    'datacite',
-    'schemas/datacite-v3.1.json'
-))
+validator = validator_factory(
+    pkg_resources.resource_filename("datacite", "schemas/datacite-v3.1.json")
+)
 
 
 def dump_etree(data):
@@ -53,33 +56,30 @@ def validate(data):
     return validator.is_valid(data)
 
 
-@rules.rule('identifier')
+@rules.rule("identifier")
 def identifier(path, value):
     """Transform identifier."""
-    return E.identifier(
-        value['identifier'],
-        identifierType=value['identifierType']
-    )
+    return E.identifier(value["identifier"], identifierType=value["identifierType"])
 
 
 def affiliation(root, value):
     """Extract affiliation."""
-    val = value.get('affiliation')
+    val = value.get("affiliation")
     if val:
         root.append(E.affiliation(val))
 
 
 def nameidentifier(root, value):
     """Extract nameidentifier."""
-    val = value.get('nameIdentifier', {})
-    if val.get('nameIdentifier'):
-        elem = E.nameIdentifier(value['nameIdentifier']['nameIdentifier'])
-        elem.set('nameIdentifierScheme', val['nameIdentifierScheme'])
-        set_elem_attr(elem, 'schemeURI', val)
+    val = value.get("nameIdentifier", {})
+    if val.get("nameIdentifier"):
+        elem = E.nameIdentifier(value["nameIdentifier"]["nameIdentifier"])
+        elem.set("nameIdentifierScheme", val["nameIdentifierScheme"])
+        set_elem_attr(elem, "schemeURI", val)
         root.append(elem)
 
 
-@rules.rule('creators')
+@rules.rule("creators")
 def creators(path, values):
     """Transform creators."""
     if not values:
@@ -87,9 +87,7 @@ def creators(path, values):
 
     root = E.creators()
     for value in values:
-        creator = E.creator(
-            E.creatorName(value['creatorName'])
-        )
+        creator = E.creator(E.creatorName(value["creatorName"]))
 
         nameidentifier(creator, value)
         affiliation(creator, value)
@@ -98,7 +96,7 @@ def creators(path, values):
     return root
 
 
-@rules.rule('titles')
+@rules.rule("titles")
 def titles(path, values):
     """Transform titles."""
     if not values:
@@ -106,16 +104,16 @@ def titles(path, values):
     root = E.titles()
 
     for value in values:
-        elem = etree.Element('title', nsmap=ns)
-        elem.text = value['title']
-        set_non_empty_attr(elem, '{xml}lang', value.get('lang'))
-        set_non_empty_attr(elem, 'titleType', value.get('titleType'))
+        elem = etree.Element("title", nsmap=ns)
+        elem.text = value["title"]
+        set_non_empty_attr(elem, "{xml}lang", value.get("lang"))
+        set_non_empty_attr(elem, "titleType", value.get("titleType"))
         root.append(elem)
 
     return root
 
 
-@rules.rule('publisher')
+@rules.rule("publisher")
 def publisher(path, value):
     """Transform publisher."""
     if not value:
@@ -123,7 +121,7 @@ def publisher(path, value):
     return E.publisher(value)
 
 
-@rules.rule('publicationYear')
+@rules.rule("publicationYear")
 def publication_year(path, value):
     """Transform publicationYear."""
     if not value:
@@ -131,7 +129,7 @@ def publication_year(path, value):
     return E.publicationYear(str(value))
 
 
-@rules.rule('subjects')
+@rules.rule("subjects")
 def subjects(path, values):
     """Transform subjects."""
     if not values:
@@ -139,15 +137,15 @@ def subjects(path, values):
 
     root = E.subjects()
     for value in values:
-        elem = E.subject(value['subject'])
-        set_non_empty_attr(elem, '{xml}lang', value.get('lang'))
-        set_elem_attr(elem, 'schemeURI', value)
-        set_elem_attr(elem, 'subjectScheme', value)
+        elem = E.subject(value["subject"])
+        set_non_empty_attr(elem, "{xml}lang", value.get("lang"))
+        set_elem_attr(elem, "schemeURI", value)
+        set_elem_attr(elem, "subjectScheme", value)
         root.append(elem)
     return root
 
 
-@rules.rule('contributors')
+@rules.rule("contributors")
 def contributors(path, values):
     """Transform contributors."""
     if not values:
@@ -156,8 +154,8 @@ def contributors(path, values):
     root = E.contributors()
     for value in values:
         contributor = E.contributor(
-            E.contributorName(value['contributorName']),
-            contributorType=value['contributorType']
+            E.contributorName(value["contributorName"]),
+            contributorType=value["contributorType"],
         )
         nameidentifier(contributor, value)
         affiliation(contributor, value)
@@ -166,7 +164,7 @@ def contributors(path, values):
     return root
 
 
-@rules.rule('dates')
+@rules.rule("dates")
 def dates(path, values):
     """Transform dates."""
     if not values:
@@ -174,12 +172,12 @@ def dates(path, values):
 
     root = E.dates()
     for value in values:
-        root.append(E.date(value['date'], dateType=value['dateType']))
+        root.append(E.date(value["date"], dateType=value["dateType"]))
 
     return root
 
 
-@rules.rule('language')
+@rules.rule("language")
 def language(path, value):
     """Transform language."""
     if not value:
@@ -187,19 +185,19 @@ def language(path, value):
     return E.language(value)
 
 
-@rules.rule('resourceType')
+@rules.rule("resourceType")
 def resource_type(path, value):
     """Transform resourceType."""
     if not value:
         return
     elem = E.resourceType()
-    elem.set('resourceTypeGeneral', value['resourceTypeGeneral'])
-    if value.get('resourceType'):
-        elem.text = value['resourceType']
+    elem.set("resourceTypeGeneral", value["resourceTypeGeneral"])
+    if value.get("resourceType"):
+        elem.text = value["resourceType"]
     return elem
 
 
-@rules.rule('alternateIdentifiers')
+@rules.rule("alternateIdentifiers")
 def alternate_identifiers(path, values):
     """Transform alternateIdenftifiers."""
     if not values:
@@ -207,14 +205,14 @@ def alternate_identifiers(path, values):
 
     root = E.alternateIdentifiers()
     for value in values:
-        elem = E.alternateIdentifier(value['alternateIdentifier'])
-        elem.set('alternateIdentifierType', value['alternateIdentifierType'])
+        elem = E.alternateIdentifier(value["alternateIdentifier"])
+        elem.set("alternateIdentifierType", value["alternateIdentifierType"])
         root.append(elem)
 
     return root
 
 
-@rules.rule('relatedIdentifiers')
+@rules.rule("relatedIdentifiers")
 def related_identifiers(path, values):
     """Transform relatedIdentifiers."""
     if not values:
@@ -223,12 +221,12 @@ def related_identifiers(path, values):
     root = E.relatedIdentifiers()
     for value in values:
         elem = E.relatedIdentifier()
-        elem.text = value['relatedIdentifier']
-        elem.set('relatedIdentifierType', value['relatedIdentifierType'])
-        elem.set('relationType', value['relationType'])
-        set_elem_attr(elem, 'relatedMetadataScheme', value)
-        set_elem_attr(elem, 'schemeURI', value)
-        set_elem_attr(elem, 'schemeType', value)
+        elem.text = value["relatedIdentifier"]
+        elem.set("relatedIdentifierType", value["relatedIdentifierType"])
+        elem.set("relationType", value["relationType"])
+        set_elem_attr(elem, "relatedMetadataScheme", value)
+        set_elem_attr(elem, "schemeURI", value)
+        set_elem_attr(elem, "schemeType", value)
         root.append(elem)
     return root
 
@@ -243,19 +241,19 @@ def free_text_list(plural, singular, values):
     return root
 
 
-@rules.rule('sizes')
+@rules.rule("sizes")
 def sizes(path, values):
     """Transform sizes."""
-    return free_text_list('sizes', 'size', values)
+    return free_text_list("sizes", "size", values)
 
 
-@rules.rule('formats')
+@rules.rule("formats")
 def formats(path, values):
     """Transform sizes."""
-    return free_text_list('formats', 'format', values)
+    return free_text_list("formats", "format", values)
 
 
-@rules.rule('version')
+@rules.rule("version")
 def version(path, value):
     """Transform version."""
     if not value:
@@ -263,7 +261,7 @@ def version(path, value):
     return E.version(value)
 
 
-@rules.rule('rightsList')
+@rules.rule("rightsList")
 def rights(path, values):
     """Transform rights."""
     if not values:
@@ -271,14 +269,14 @@ def rights(path, values):
 
     root = E.rightsList()
     for value in values:
-        elem = E.rights(value['rights'])
-        set_elem_attr(elem, 'rightsURI', value)
+        elem = E.rights(value["rights"])
+        set_elem_attr(elem, "rightsURI", value)
         root.append(elem)
 
     return root
 
 
-@rules.rule('descriptions')
+@rules.rule("descriptions")
 def descriptions(path, values):
     """Transform descriptions."""
     if not values:
@@ -287,15 +285,15 @@ def descriptions(path, values):
     root = E.descriptions()
     for value in values:
         elem = E.description(
-            value['description'], descriptionType=value['descriptionType']
+            value["description"], descriptionType=value["descriptionType"]
         )
-        set_non_empty_attr(elem, '{xml}lang', value.get('language'))
+        set_non_empty_attr(elem, "{xml}lang", value.get("language"))
         root.append(elem)
 
     return root
 
 
-@rules.rule('geoLocations')
+@rules.rule("geoLocations")
 def geolocations(path, values):
     """Transform geolocations."""
     if not values:
@@ -305,15 +303,15 @@ def geolocations(path, values):
     for value in values:
         elem = E.geoLocation()
 
-        point = value.get('geoLocationPoint')
+        point = value.get("geoLocationPoint")
         if point:
             elem.append(E.geoLocationPoint(point))
 
-        box = value.get('geoLocationBox')
+        box = value.get("geoLocationBox")
         if box:
             elem.append(E.geoLocationBox(box))
 
-        place = value.get('geoLocationPlace')
+        place = value.get("geoLocationPlace")
         if place:
             elem.append(E.geoLocationPlace(place))
 

@@ -14,8 +14,12 @@ import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
-    DataCiteServerError, DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteBadRequestError,
+    DataCiteForbiddenError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @responses.activate
@@ -29,16 +33,17 @@ def test_media_post_200():
     )
 
     d = get_client()
-    assert "OK" == d.media_post("10.1234/1", {
-        'text/plain': 'http://example.org/text',
-        'application/json': 'http://example.org/json',
-        })
-    assert responses.calls[0].request.headers['content-type'] == \
-        "text/plain;charset=UTF-8"
-    lines = filter(
-        lambda x: x,
-        responses.calls[0].request.body.splitlines()
+    assert "OK" == d.media_post(
+        "10.1234/1",
+        {
+            "text/plain": "http://example.org/text",
+            "application/json": "http://example.org/json",
+        },
     )
+    assert (
+        responses.calls[0].request.headers["content-type"] == "text/plain;charset=UTF-8"
+    )
+    lines = filter(lambda x: x, responses.calls[0].request.body.splitlines())
     assert len(list(lines)) == 2
 
 
@@ -54,7 +59,7 @@ def test_media_post_400():
 
     d = get_client()
     with pytest.raises(DataCiteBadRequestError):
-        d.media_post("10.1234/1", {'text/plain': 'http://invaliddomain.org'})
+        d.media_post("10.1234/1", {"text/plain": "http://invaliddomain.org"})
 
 
 @responses.activate
@@ -69,7 +74,7 @@ def test_media_post_401():
 
     d = get_client()
     with pytest.raises(DataCiteUnauthorizedError):
-        d.media_post("10.1234/1", {'text/plain': 'http://example.org'})
+        d.media_post("10.1234/1", {"text/plain": "http://example.org"})
 
 
 @responses.activate
@@ -84,7 +89,7 @@ def test_media_post_403():
 
     d = get_client()
     with pytest.raises(DataCiteForbiddenError):
-        d.media_post("10.1234/1", {'text/plain': 'http://example.org'})
+        d.media_post("10.1234/1", {"text/plain": "http://example.org"})
 
 
 @responses.activate
@@ -99,4 +104,4 @@ def test_media_post_500():
 
     d = get_client()
     with pytest.raises(DataCiteServerError):
-        d.media_post("10.1234/1", {'text/plain': 'http://example.org'})
+        d.media_post("10.1234/1", {"text/plain": "http://example.org"})

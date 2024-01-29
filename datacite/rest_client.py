@@ -17,22 +17,24 @@ https://support.datacite.org/reference/introduction.
 """
 
 import json
-import requests
 import warnings
+
+import requests
 from idutils import normalize_doi
 
 from .errors import DataCiteError
 from .request import DataCiteRequest
 
-HTTP_OK = requests.codes['ok']
-HTTP_CREATED = requests.codes['created']
+HTTP_OK = requests.codes["ok"]
+HTTP_CREATED = requests.codes["created"]
 
 
 class DataCiteRESTClient(object):
     """DataCite REST API client wrapper."""
 
-    def __init__(self, username, password, prefix, test_mode=False, url=None,
-                 timeout=None):
+    def __init__(
+        self, username, password, prefix, test_mode=False, url=None, timeout=None
+    ):
         """Initialize the REST client wrapper.
 
         :param username: DataCite username.
@@ -52,14 +54,14 @@ class DataCiteRESTClient(object):
         else:
             self.api_url = url or "https://api.datacite.org/"
 
-        if not self.api_url.endswith('/'):
-            self.api_url += '/'
+        if not self.api_url.endswith("/"):
+            self.api_url += "/"
 
         self.timeout = timeout
 
     def __repr__(self):
         """Create string representation of object."""
-        return '<DataCiteRESTClient: {0}>'.format(self.username)
+        return "<DataCiteRESTClient: {0}>".format(self.username)
 
     def _create_request(self):
         """Create a new Request object."""
@@ -87,7 +89,7 @@ class DataCiteRESTClient(object):
         request = self._create_request()
         resp = request.get("dois/" + doi)
         if resp.status_code == HTTP_OK:
-            return resp.json()['data']['attributes']['url']
+            return resp.json()["data"]["attributes"]["url"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
 
@@ -98,38 +100,39 @@ class DataCiteRESTClient(object):
         12.12345/123 with the prefix defined
         """
         # If prefix is in doi
-        if '/' in doi:
-            split = doi.split('/')
+        if "/" in doi:
+            split = doi.split("/")
             prefix = split[0]
             if prefix != self.prefix:
                 # Provided a DOI with the wrong prefix
-                raise ValueError('Wrong DOI {0} prefix provided, it should be '
-                                 '{1} as defined in the rest client'
-                                 .format(prefix, self.prefix))
+                raise ValueError(
+                    "Wrong DOI {0} prefix provided, it should be "
+                    "{1} as defined in the rest client".format(prefix, self.prefix)
+                )
         else:
-            doi = '{prefix}/{doi}'.format(prefix=self.prefix, doi=doi)
+            doi = "{prefix}/{doi}".format(prefix=self.prefix, doi=doi)
         return normalize_doi(doi)
 
     def post_doi(self, data):
         """Post a new JSON payload to DataCite."""
-        headers = {'content-type': 'application/vnd.api+json'}
+        headers = {"content-type": "application/vnd.api+json"}
         body = {"data": data}
         request = self._create_request()
         resp = request.post("dois", body=json.dumps(body), headers=headers)
         if resp.status_code == HTTP_CREATED:
-            return resp.json()['data']['id']
+            return resp.json()["data"]["id"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
 
     def put_doi(self, doi, data):
         """Put a JSON payload to DataCite for an existing DOI."""
-        headers = {'content-type': 'application/vnd.api+json'}
+        headers = {"content-type": "application/vnd.api+json"}
         body = {"data": data}
         request = self._create_request()
         url = "dois/" + doi
         resp = request.put(url, body=json.dumps(body), headers=headers)
         if resp.status_code == HTTP_OK:
-            return resp.json()['data']['attributes']
+            return resp.json()["data"]["attributes"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
 
@@ -148,7 +151,7 @@ class DataCiteRESTClient(object):
         """
         data = {"attributes": {}}
         if metadata:
-            data['attributes'] = metadata
+            data["attributes"] = metadata
         data["attributes"]["prefix"] = self.prefix
         if doi:
             doi = self.check_doi(doi)
@@ -166,7 +169,7 @@ class DataCiteRESTClient(object):
         data = {"attributes": {"url": url}}
 
         result = self.put_doi(doi, data)
-        return result['url']
+        return result["url"]
 
     def delete_doi(self, doi):
         """Delete a doi.
@@ -220,7 +223,7 @@ class DataCiteRESTClient(object):
         doi = self.check_doi(doi)
         data["attributes"]["doi"] = doi
         if metadata:
-            data['attributes'] = metadata
+            data["attributes"] = metadata
         if url:
             data["attributes"]["url"] = url
 
@@ -300,12 +303,12 @@ class DataCiteRESTClient(object):
         :param doi: DOI name of the resource.
         """
         """Put a JSON payload to DataCite for an existing DOI."""
-        headers = {'content-type': 'application/vnd.api+json'}
+        headers = {"content-type": "application/vnd.api+json"}
         request = self._create_request()
         resp = request.get("dois/" + doi, headers=headers)
 
         if resp.status_code == HTTP_OK:
-            return resp.json()['data']['attributes']
+            return resp.json()["data"]["attributes"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
 
@@ -323,11 +326,11 @@ class DataCiteRESTClient(object):
 
         :param doi: DOI name of the resource.
         """
-        headers = {'content-type': 'application/vnd.api+json'}
+        headers = {"content-type": "application/vnd.api+json"}
         request = self._create_request()
         resp = request.get("dois/" + doi, headers=headers)
 
         if resp.status_code == HTTP_OK:
-            return resp.json()['relationships']['media']
+            return resp.json()["relationships"]["media"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
