@@ -21,8 +21,7 @@ APIURL = "https://mds.example.org/"
 RESTURL = "https://doi.example.org/"
 
 
-def get_client(username="DC", password="pw", prefix='10.1234',
-               with_fake_url=True):
+def get_client(username="DC", password="pw", prefix="10.1234", with_fake_url=True):
     """Create a API client."""
     client = DataCiteMDSClient(
         username=username,
@@ -36,8 +35,7 @@ def get_client(username="DC", password="pw", prefix='10.1234',
     return client
 
 
-def get_rest(username="DC", password="pw", prefix='10.1234',
-             with_fake_url=True):
+def get_rest(username="DC", password="pw", prefix="10.1234", with_fake_url=True):
     """Create a REST API client."""
     client = DataCiteRESTClient(
         username=username,
@@ -62,7 +60,7 @@ def get_credentials():
 def load_xml_path(path):
     """Helper method for loading an XML example file from a path."""
     path_base = dirname(__file__)
-    with io.open(join(path_base, path), encoding='utf-8') as file:
+    with io.open(join(path_base, path), encoding="utf-8") as file:
         content = file.read()
     return content
 
@@ -70,7 +68,7 @@ def load_xml_path(path):
 def load_json_path(path):
     """Helper method for loading a JSON example file from a path."""
     path_base = dirname(__file__)
-    with io.open(join(path_base, path), encoding='utf-8') as file:
+    with io.open(join(path_base, path), encoding="utf-8") as file:
         content = file.read()
     return json.loads(content)
 
@@ -79,21 +77,21 @@ def load_json_path(path):
 # Tests on example files
 #
 TEST_43_JSON_FILES = [
-    'data/4.3/datacite-example-polygon-v4.json',
-    'data/4.3/datacite-example-fundingReference-v4.json',
-    'data/4.3/datacite-example-ResearchGroup_Methods-v4.json',
-    'data/4.3/datacite-example-complicated-v4.json',
-    'data/4.3/datacite-example-datapaper-v4.json',
-    'data/4.3/datacite-example-video-v4.json',
-    'data/4.3/datacite-example-dataset-v4.json',
-    'data/4.3/datacite-example-Box_dateCollected_DataCollector-v4.json',
-    'data/4.3/datacite-example-ResourceTypeGeneral_Collection-v4.json',
-    'data/4.3/datacite-example-HasMetadata-v4.json',
-    'data/4.3/datacite-example-workflow-v4.json',
-    'data/4.3/datacite-example-GeoLocation-v4.json',
-    'data/4.3/datacite-example-relationTypeIsIdenticalTo-v4.json',
-    'data/4.3/datacite-example-software-v4.json',
-    'data/4.3/datacite-example-affiliation-v4.json',
-    'data/4.3/datacite-example-ancientdates-v4.json',
-    'data/datacite-v4.3-full-example.json',
+    "data/4.3/datacite-example-polygon-v4.json",
+    "data/4.3/datacite-example-fundingReference-v4.json",
+    "data/4.3/datacite-example-ResearchGroup_Methods-v4.json",
+    "data/4.3/datacite-example-complicated-v4.json",
+    "data/4.3/datacite-example-datapaper-v4.json",
+    "data/4.3/datacite-example-video-v4.json",
+    "data/4.3/datacite-example-dataset-v4.json",
+    "data/4.3/datacite-example-Box_dateCollected_DataCollector-v4.json",
+    "data/4.3/datacite-example-ResourceTypeGeneral_Collection-v4.json",
+    "data/4.3/datacite-example-HasMetadata-v4.json",
+    "data/4.3/datacite-example-workflow-v4.json",
+    "data/4.3/datacite-example-GeoLocation-v4.json",
+    "data/4.3/datacite-example-relationTypeIsIdenticalTo-v4.json",
+    "data/4.3/datacite-example-software-v4.json",
+    "data/4.3/datacite-example-affiliation-v4.json",
+    "data/4.3/datacite-example-ancientdates-v4.json",
+    "data/datacite-v4.3-full-example.json",
 ]

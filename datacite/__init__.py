@@ -16,4 +16,4 @@ from .rest_client import DataCiteRESTClient
 
 __version__ = "1.1.4"
 
-__all__ = ('DataCiteMDSClient', 'DataCiteRESTClient', '__version__')
+__all__ = ("DataCiteMDSClient", "DataCiteRESTClient", "__version__")

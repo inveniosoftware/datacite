@@ -58,7 +58,7 @@ def test_example():
         responses.GET,
         "{0}media/{1}".format(APIURL, doi),
         body="application/json=http://example.org/test-doi/json/\r\n"
-             "application/xml=http://example.org/test-doi/xml/\r\n",
+        "application/xml=http://example.org/test-doi/xml/\r\n",
         status=200,
     )
 
@@ -80,5 +80,6 @@ def test_example():
     )
 
     import example.full
+
     assert example.full.location == url
     assert example.full.doc == "<resource>...</resource>"

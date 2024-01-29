@@ -14,9 +14,13 @@ import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
-    DataCitePreconditionError, DataCiteServerError, \
-    DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteBadRequestError,
+    DataCiteForbiddenError,
+    DataCitePreconditionError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @responses.activate
@@ -34,8 +38,9 @@ def test_doi_post_200():
 
     d = get_client()
     assert "CREATED" == d.doi_post(doi, url)
-    assert responses.calls[0].request.headers['content-type'] == \
-        "text/plain;charset=UTF-8"
+    assert (
+        responses.calls[0].request.headers["content-type"] == "text/plain;charset=UTF-8"
+    )
     expected_response = "doi={0}\r\nurl={1}".format(doi, url).encode("utf8")
     assert responses.calls[0].request.body == expected_response
 

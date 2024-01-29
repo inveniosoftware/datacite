@@ -19,8 +19,8 @@ import requests
 from .errors import DataCiteError
 from .request import DataCiteRequest
 
-HTTP_OK = requests.codes['ok']
-HTTP_CREATED = requests.codes['created']
+HTTP_OK = requests.codes["ok"]
+HTTP_CREATED = requests.codes["created"]
 
 
 class DataCiteMDSClient(object):
@@ -30,8 +30,9 @@ class DataCiteMDSClient(object):
     developed.
     """
 
-    def __init__(self, username, password, prefix, test_mode=False, url=None,
-                 timeout=None):
+    def __init__(
+        self, username, password, prefix, test_mode=False, url=None, timeout=None
+    ):
         """Initialize the API client wrapper.
 
         :param username: DataCite username.
@@ -51,14 +52,14 @@ class DataCiteMDSClient(object):
         else:
             self.api_url = url or "https://mds.datacite.org/"
 
-        if not self.api_url.endswith('/'):
-            self.api_url += '/'
+        if not self.api_url.endswith("/"):
+            self.api_url += "/"
 
         self.timeout = timeout
 
     def __repr__(self):
         """Create string representation of object."""
-        return '<DataCiteMDSClient: {0}>'.format(self.username)
+        return "<DataCiteMDSClient: {0}>".format(self.username)
 
     def _create_request(self):
         """Create a new Request object."""
@@ -88,7 +89,7 @@ class DataCiteMDSClient(object):
         :param location: URL where the resource is located.
         :return: "CREATED" or "HANDLE_ALREADY_EXISTS".
         """
-        headers = {'Content-Type': 'text/plain;charset=UTF-8'}
+        headers = {"Content-Type": "text/plain;charset=UTF-8"}
         # Use \r\n for HTTP client data.
         body = "\r\n".join(["doi=%s" % new_doi, "url=%s" % location])
 
@@ -105,8 +106,7 @@ class DataCiteMDSClient(object):
 
         :param doi: DOI name of the resource.
         """
-        headers = {'Accept': 'application/xml',
-                   'Accept-Encoding': 'UTF-8'}
+        headers = {"Accept": "application/xml", "Accept-Encoding": "UTF-8"}
 
         request = self._create_request()
         resp = request.get("metadata/" + doi, headers=headers)
@@ -125,7 +125,9 @@ class DataCiteMDSClient(object):
         :param metadata: XML format of the metadata.
         :return: "CREATED" or "HANDLE_ALREADY_EXISTS"
         """
-        headers = {'Content-Type': 'application/xml;charset=UTF-8', }
+        headers = {
+            "Content-Type": "application/xml;charset=UTF-8",
+        }
 
         request = self._create_request()
         resp = request.post("metadata", body=metadata, headers=headers)
@@ -174,7 +176,7 @@ class DataCiteMDSClient(object):
         :param media: Dictionary of (mime-type, URL) key/value pairs.
         :return: "OK"
         """
-        headers = {'Content-Type': 'text/plain;charset=UTF-8'}
+        headers = {"Content-Type": "text/plain;charset=UTF-8"}
 
         # Use \r\n for HTTP client data.
         body = "\r\n".join(["%s=%s" % (k, v) for k, v in media.items()])

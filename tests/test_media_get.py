@@ -14,8 +14,12 @@ import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite.errors import DataCiteForbiddenError, DataCiteNotFoundError, \
-    DataCiteServerError, DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteForbiddenError,
+    DataCiteNotFoundError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @responses.activate
@@ -25,14 +29,15 @@ def test_media_get_200():
         responses.GET,
         "{0}media/10.1234/1".format(APIURL),
         body="application/json=http://example.org/json\r\n"
-             "text/plain=http://example.org/text\r\n",
+        "text/plain=http://example.org/text\r\n",
         status=200,
     )
 
     d = get_client()
-    assert d.media_get("10.1234/1") == \
-        {u'application/json': u'http://example.org/json',
-         u'text/plain': u'http://example.org/text'}
+    assert d.media_get("10.1234/1") == {
+        "application/json": "http://example.org/json",
+        "text/plain": "http://example.org/text",
+    }
 
 
 @responses.activate

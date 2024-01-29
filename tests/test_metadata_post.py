@@ -14,8 +14,12 @@ import pytest
 import responses
 from helpers import APIURL, get_client
 
-from datacite.errors import DataCiteBadRequestError, DataCiteForbiddenError, \
-    DataCiteServerError, DataCiteUnauthorizedError
+from datacite.errors import (
+    DataCiteBadRequestError,
+    DataCiteForbiddenError,
+    DataCiteServerError,
+    DataCiteUnauthorizedError,
+)
 
 
 @responses.activate
@@ -30,8 +34,10 @@ def test_metadata_post_201():
 
     d = get_client()
     assert "OK" == d.metadata_post("<resource></resource>")
-    assert responses.calls[0].request.headers['content-type'] == \
-        "application/xml;charset=UTF-8"
+    assert (
+        responses.calls[0].request.headers["content-type"]
+        == "application/xml;charset=UTF-8"
+    )
 
 
 @responses.activate
