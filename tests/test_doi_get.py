@@ -40,7 +40,6 @@ def test_doi_get_204():
     responses.add(
         responses.GET,
         "{0}doi/10.1234/1".format(APIURL),
-        body="No Content",
         status=204,
     )
 
