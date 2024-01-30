@@ -220,7 +220,6 @@ def test_get_doi_204():
     responses.add(
         responses.GET,
         "{0}dois/10.1234/1".format(RESTURL),
-        body="No Content",
         status=204,
     )
 
