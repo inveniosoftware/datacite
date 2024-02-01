@@ -1,0 +1,84 @@
+{
+  "doi": "10.82433/4fdh-rh04",
+  "prefix": "10.82433",
+  "suffix": "4fdh-rh04",
+  "alternateIdentifiers": [],
+  "creators": [
+    {
+      "name": "Garcia, Sofia",
+      "nameType": "Personal",
+      "givenName": "Sofia",
+      "familyName": "Garcia",
+      "affiliation": [],
+      "nameIdentifiers": []
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "Example Chapter Title"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "Example Publisher"
+  },
+  "container": {},
+  "publicationYear": "2016",
+  "subjects": [],
+  "contributors": [],
+  "dates": [
+    {
+      "date": "2016",
+      "dateType": "Issued"
+    }
+  ],
+  "types": {
+    "resourceTypeGeneral": "BookChapter"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsPublishedIn",
+      "relatedIdentifier": "0-12-345678-1",
+      "relatedIdentifierType": "ISBN"
+    }
+  ],
+  "relatedItems": [
+    {
+      "number": "4",
+      "titles": [
+        {
+          "title": "Example Book Title"
+        }
+      ],
+      "creators": [
+        {
+          "name": "Garcia, Sofia",
+          "nameType": "Personal",
+          "givenName": "Sofia",
+          "familyName": "Garcia"
+        }
+      ],
+      "lastPage": "63",
+      "firstPage": "45",
+      "publisher": "Example Publisher",
+      "numberType": "Chapter",
+      "contributors": [],
+      "relationType": "IsPublishedIn",
+      "publicationYear": "2016",
+      "relatedItemType": "Book",
+      "relatedItemIdentifier": {
+        "relatedItemIdentifier": "0-12-345678-1",
+        "relatedItemIdentifierType": "ISBN"
+      }
+    }
+  ],
+  "sizes": [],
+  "formats": [],
+  "rightsList": [],
+  "descriptions": [],
+  "geoLocations": [],
+  "fundingReferences": [],
+  "url": "https://example.org/RelatedItem3",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

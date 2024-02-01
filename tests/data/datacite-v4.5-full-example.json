@@ -1,0 +1,606 @@
+{
+  "doi": "10.82433/b09z-4k37",
+  "prefix": "10.82433",
+  "suffix": "b09z-4k37",
+  "alternateIdentifiers": [
+    {
+      "alternateIdentifierType": "Local accession number",
+      "alternateIdentifier": "12345"
+    }
+  ],
+  "creators": [
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "affiliation": [],
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "Example Title"
+    },
+    {
+      "lang": "en",
+      "title": "Example Subtitle",
+      "titleType": "Subtitle"
+    },
+    {
+      "lang": "fr",
+      "title": "Example TranslatedTitle",
+      "titleType": "TranslatedTitle"
+    },
+    {
+      "lang": "en",
+      "title": "Example AlternativeTitle",
+      "titleType": "AlternativeTitle"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "Example Publisher",
+    "schemeUri": "https://ror.org/",
+    "publisherIdentifier": "https://ror.org/04z8jg394",
+    "publisherIdentifierScheme": "ROR"
+  },
+  "container": {
+    "type": "DataRepository",
+    "title": "Example SeriesInformation",
+    "identifier": "http://purl.oclc.org/foo/bar",
+    "identifierType": "PURL"
+  },
+  "publicationYear": "2022",
+  "subjects": [
+    {
+      "subject": "FOS: Computer and information sciences",
+      "valueUri": "http://www.oecd.org/science/inno/38235147.pdf",
+      "schemeUri": "http://www.oecd.org/science/inno",
+      "subjectScheme": "Fields of Science and Technology (FOS)"
+    },
+    {
+      "subject": "FOS: Computer and information sciences",
+      "schemeUri": "http://www.oecd.org/science/inno/38235147.pdf",
+      "subjectScheme": "Fields of Science and Technology (FOS)"
+    },
+    {
+      "subject": "Digital curation and preservation",
+      "valueUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc/2020",
+      "schemeUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc",
+      "subjectScheme": "Australian and New Zealand Standard Research Classification (ANZSRC), 2020"
+    },
+    {
+      "subject": "Example Subject"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ContactPerson",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataCollector",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataCurator",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataManager",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "Distributor"
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Editor",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "HostingInstitution",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Producer",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectLeader",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectManager",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectMember",
+      "affiliation": []
+    },
+    {
+      "name": "DataCite",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "RegistrationAgency"
+    },
+    {
+      "name": "International DOI Foundation",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "RegistrationAuthority"
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "RelatedPerson",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Researcher",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleContributor",
+      "affiliation": [
+        {
+          "name": "ExampleOrganization",
+          "schemeUri": "https://ror.org",
+          "affiliationIdentifier": "https://ror.org/03yrm5c26",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "ResearchGroup",
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "RightsHolder",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleContributor",
+      "affiliation": [
+        {
+          "name": "https://ror.org/03yrm5c26",
+          "schemeUri": "https://ror.org",
+          "affiliationIdentifier": "https://ror.org/03yrm5c26",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "Sponsor",
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Supervisor",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "WorkPackageLeader",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Other",
+      "affiliation": []
+    }
+  ],
+  "dates": [
+    {
+      "date": "2022-01-01",
+      "dateType": "Accepted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Available"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Copyrighted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Created"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Issued"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Submitted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Updated"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Valid"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Withdrawn"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Other",
+      "dateInformation": "ExampleDateInformation"
+    }
+  ],
+  "language": "en",
+  "types": {
+    "resourceType": "Example ResourceType",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsCitedBy",
+      "relatedIdentifier": "ark:/13030/tqb3kh97gh8w",
+      "resourceTypeGeneral": "Audiovisual",
+      "relatedIdentifierType": "ARK"
+    },
+    {
+      "relationType": "Cites",
+      "relatedIdentifier": "arXiv:0706.0001",
+      "resourceTypeGeneral": "Book",
+      "relatedIdentifierType": "arXiv"
+    },
+    {
+      "relationType": "IsSupplementTo",
+      "relatedIdentifier": "2018AGUFM.A24K..07S",
+      "resourceTypeGeneral": "BookChapter",
+      "relatedIdentifierType": "bibcode"
+    },
+    {
+      "relationType": "IsSupplementedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Collection",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsContinuedBy",
+      "relatedIdentifier": "9783468111242",
+      "resourceTypeGeneral": "ComputationalNotebook",
+      "relatedIdentifierType": "EAN13"
+    },
+    {
+      "relationType": "Continues",
+      "relatedIdentifier": "1562-6865",
+      "resourceTypeGeneral": "ConferencePaper",
+      "relatedIdentifierType": "EISSN"
+    },
+    {
+      "relationType": "Describes",
+      "relatedIdentifier": "10013/epic.10033",
+      "resourceTypeGeneral": "ConferenceProceeding",
+      "relatedIdentifierType": "Handle"
+    },
+    {
+      "relationType": "IsDescribedBy",
+      "relatedIdentifier": "IECUR0097",
+      "resourceTypeGeneral": "DataPaper",
+      "relatedIdentifierType": "IGSN"
+    },
+    {
+      "relationType": "HasMetadata",
+      "relatedIdentifier": "978-3-905673-82-1",
+      "resourceTypeGeneral": "Dataset",
+      "relatedIdentifierType": "ISBN"
+    },
+    {
+      "relationType": "IsMetadataFor",
+      "relatedIdentifier": "0077-5606",
+      "resourceTypeGeneral": "Dissertation",
+      "relatedIdentifierType": "ISSN"
+    },
+    {
+      "relationType": "HasVersion",
+      "relatedIdentifier": "0A9 2002 12B4A105 7",
+      "resourceTypeGeneral": "Event",
+      "relatedIdentifierType": "ISTC"
+    },
+    {
+      "relationType": "IsVersionOf",
+      "relatedIdentifier": "1188-1534",
+      "resourceTypeGeneral": "Image",
+      "relatedIdentifierType": "LISSN"
+    },
+    {
+      "relationType": "IsNewVersionOf",
+      "relatedIdentifier": "urn:lsid:ubio.org:namebank:11815",
+      "resourceTypeGeneral": "InteractiveResource",
+      "relatedIdentifierType": "LSID"
+    },
+    {
+      "relationType": "IsPreviousVersionOf",
+      "relatedIdentifier": "12082125",
+      "resourceTypeGeneral": "Journal",
+      "relatedIdentifierType": "PMID"
+    },
+    {
+      "relationType": "IsPartOf",
+      "relatedIdentifier": "http://purl.oclc.org/foo/bar",
+      "resourceTypeGeneral": "JournalArticle",
+      "relatedIdentifierType": "PURL"
+    },
+    {
+      "relationType": "HasPart",
+      "relatedIdentifier": "123456789999",
+      "resourceTypeGeneral": "Model",
+      "relatedIdentifierType": "UPC"
+    },
+    {
+      "relationType": "IsPublishedIn",
+      "relatedIdentifier": "http://www.heatflow.und.edu/index2.html",
+      "resourceTypeGeneral": "OutputManagementPlan",
+      "relatedIdentifierType": "URL"
+    },
+    {
+      "relationType": "IsReferencedBy",
+      "relatedIdentifier": "urn:nbn:de:101:1-201102033592",
+      "resourceTypeGeneral": "PeerReview",
+      "relatedIdentifierType": "URN"
+    },
+    {
+      "relationType": "References",
+      "relatedIdentifier": "https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age",
+      "resourceTypeGeneral": "PhysicalObject",
+      "relatedIdentifierType": "w3id"
+    },
+    {
+      "relationType": "IsDocumentedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Preprint",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Documents",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Report",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsCompiledBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Service",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Compiles",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Software",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsVariantFormOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Sound",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsOriginalFormOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Standard",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsIdenticalTo",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Text",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsReviewedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Workflow",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Reviews",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsDerivedFrom",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsSourceOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsRequiredBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Requires",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Obsoletes",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsObsoletedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    }
+  ],
+  "relatedItems": [],
+  "sizes": [
+    "1 MB",
+    "90 pages"
+  ],
+  "formats": [
+    "application/xml",
+    "text/plain"
+  ],
+  "version": "1",
+  "rightsList": [
+    {
+      "rights": "Creative Commons Public Domain Dedication and Certification",
+      "rightsUri": "https://creativecommons.org/licenses/publicdomain/",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-pddc",
+      "rightsIdentifierScheme": "SPDX"
+    }
+  ],
+  "descriptions": [
+    {
+      "lang": "en",
+      "description": "Example Abstract",
+      "descriptionType": "Abstract"
+    },
+    {
+      "lang": "en",
+      "description": "Example Methods",
+      "descriptionType": "Methods"
+    },
+    {
+      "lang": "en",
+      "description": "Example SeriesInformation",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "lang": "en",
+      "description": "Example TableOfContents",
+      "descriptionType": "TableOfContents"
+    },
+    {
+      "lang": "en",
+      "description": "Example TechnicalInfo",
+      "descriptionType": "TechnicalInfo"
+    },
+    {
+      "lang": "en",
+      "description": "Example Other",
+      "descriptionType": "Other"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationBox": {
+        "eastBoundLongitude": -123.02,
+        "northBoundLatitude": 49.315,
+        "southBoundLatitude": 49.195,
+        "westBoundLongitude": -123.27
+      },
+      "geoLocationPlace": "Vancouver, British Columbia, Canada",
+      "geoLocationPoint": {
+        "pointLatitude": 49.2827,
+        "pointLongitude": -123.1207
+      }
+    }
+  ],
+  "fundingReferences": [
+    {
+      "awardUri": "https://example.com/example-award-uri",
+      "awardTitle": "Example AwardTitle",
+      "funderName": "Example Funder",
+      "awardNumber": "12345",
+      "funderIdentifier": "https://doi.org/10.13039/501100000780",
+      "funderIdentifierType": "Crossref Funder ID"
+    }
+  ],
+  "url": "https://example.com/",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}
