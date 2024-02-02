@@ -60,15 +60,6 @@
             },
             "required": ["name", "contributorType"]
         },
-        "titleType": {
-            "type": "string",
-            "enum": [
-                "AlternativeTitle",
-                "Subtitle",
-                "TranslatedTitle",
-                "Other"
-            ]
-        },
         "contributorType": {
             "type": "string",
             "enum": [
@@ -94,6 +85,25 @@
                 "WorkPackageLeader",
                 "Other"
             ]
+        },
+        "titleType": {
+            "type": "string",
+            "enum": [
+                "AlternativeTitle",
+                "Subtitle",
+                "TranslatedTitle",
+                "Other"
+            ]
+        },
+        "longitude": {
+            "type": "number",
+             "maximum": 180,
+             "minimum": -180
+        },
+        "latitude": {
+            "type": "number",
+             "maximum": 90,
+             "minimum": -90
         },
         "date": {
             "type": "string",
@@ -224,6 +234,30 @@
                 "Obsoletes"
             ]
         },
+        "relatedObject": {
+            "type": "object",
+            "properties": {
+                "relationType": {"$ref": "#/definitions/relationType"},
+                "relatedMetadataScheme": {"type": "string"},
+                "schemeUri": {"type": "string", "format": "uri"},
+                "schemeType": {"type": "string"},
+                "resourceTypeGeneral": {"$ref": "#/definitions/resourceTypeGeneral"}
+            },
+            "required": ["relationType"]
+        },
+        "relatedObjectIf": {
+            "properties": {
+                "relationType": {"enum": ["HasMetadata", "IsMetadataFor"]}
+            }
+        },
+        "relatedObjectElse": {
+            "$comment": "these properties may only be used with relation types HasMetadata/IsMetadataFor",
+            "properties": {
+                "relatedMetadataScheme": false,
+                "schemeUri": false,
+                "schemeType": false
+            }
+        },
         "descriptionType": {
             "type": "string",
             "enum": [
@@ -238,8 +272,8 @@
         "geoLocationPoint": {
             "type": "object",
             "properties": {
-                "pointLongitude": {"type": "string", "format": "longitude"},
-                "pointLatitude": {"type": "string", "format": "latitude"}
+                "pointLongitude": {"$ref": "#/definitions/longitude"},
+                "pointLatitude": {"$ref": "#/definitions/latitude"}
             },
             "required": ["pointLongitude", "pointLatitude"]
         },
@@ -266,7 +300,7 @@
                 "resourceType": {"type": "string"},
                 "resourceTypeGeneral": {"$ref": "#/definitions/resourceTypeGeneral"}
             },
-            "required": ["resourceType", "resourceTypeGeneral"]
+            "required": ["resourceTypeGeneral"]
         },
         "creators": {
             "type": "array",
@@ -297,8 +331,10 @@
                 "name": {"type":"string"},
                 "publisherIdentifier": {"type":"string"},
                 "publisherIdentifierScheme": {"type":"string"},
-                "schemeURI": {"type":"string", "format": "uri"}
-            }
+                "schemeURI": {"type":"string", "format": "uri"},
+                "lang": {"type":"string"}
+            },
+            "required": ["name"]
         },
         "publicationYear": {
             "type": "string",
@@ -357,51 +393,25 @@
             },
             "uniqueItems": true
         },
-        "identifiers": {
-            "type": "array",
-            "items":{
-                "type": "object",
-                "properties": {
-                    "identifier": {"type": "string"},
-                    "identifierType": {"type": "string"}
-                },
-                "required": ["identifier", "identifierType"]
-            },
-            "uniqueItems": true
-        },
         "relatedIdentifiers": {
             "type": "array",
             "items": {
                 "type": "object",
+                "allOf": [{ "$ref": "#/definitions/relatedObject"}],
                 "properties": {
                     "relatedIdentifier": {"type": "string"},
-                    "relatedIdentifierType": {"$ref": "#/definitions/relatedIdentifierType"},
-                    "relationType": {"$ref": "#/definitions/relationType"},
-                    "relatedMetadataScheme": {"type": "string"},
-                    "schemeUri": {"type": "string", "format": "uri"},
-                    "schemeType": {"type": "string"},
-                    "resourceTypeGeneral": {"$ref": "#/definitions/resourceTypeGeneral"}
+                    "relatedIdentifierType": {"$ref": "#/definitions/relatedIdentifierType"}
                 },
                 "required": ["relatedIdentifier", "relatedIdentifierType", "relationType"],
-                "if": {
-                    "properties": {
-                        "relationType": {"enum": ["HasMetadata", "IsMetadataFor"]}
-                    }
-                },
-                "else": {
-                    "$comment": "these properties may only be used with relation types HasMetadata/IsMetadataFor",
-                    "properties": {
-                        "relatedMetadataScheme": false,
-                        "schemeUri": false,
-                        "schemeType": false
-                    }
-                }
+                "if": {"$ref": "#/definitions/relatedObjectIf"},
+                "else": {"$ref": "#/definitions/relatedObjectElse"}
             }
         },
         "relatedItems": {
             "type": "array",
             "items": {
                 "type": "object",
+                "allOf": [{ "$ref": "#/definitions/relatedObject"}],
                 "properties": {
                     "relatedItemIdentifier": {
                         "type": "object",
@@ -411,11 +421,7 @@
                         },
                         "required": ["relatedItemIdentifier", "relatedItemIdentifierType"]
                     },
-                    "relationType": {"$ref": "#/definitions/relationType"},
-                    "relatedMetadataScheme": {"type": "string"},
-                    "schemeUri": {"type": "string", "format": "uri"},
-                    "schemeType": {"type": "string"},
-                    "resourceTypeGeneral": {"$ref": "#/definitions/resourceTypeGeneral"},
+                    "relatedItemType": {"$ref": "#/definitions/resourceTypeGeneral"},
                     "creators": {
                         "type": "array",
                         "items": {
@@ -467,20 +473,9 @@
                         ]
                     }
                 },
-                "required": ["relatedItemIdentifier", "titles"],
-                "if": {
-                    "properties": {
-                        "relationType": {"enum": ["HasMetadata", "IsMetadataFor"]}
-                    }
-                },
-                "else": {
-                    "$comment": "these properties may only be used with relation types HasMetadata/IsMetadataFor",
-                     "properties": {
-                         "relatedMetadataScheme": false,
-                         "schemeUri": false,
-                         "schemeType": false
-                     }
-                }
+                "required": ["titles", "relatedItemType", "relationType"],
+                "if": {"$ref": "#/definitions/relatedObjectIf"},
+                "else": {"$ref": "#/definitions/relatedObjectElse"}
             },
             "uniqueItems": true
         },
@@ -539,10 +534,10 @@
                     "geoLocationBox": {
                         "type": "object",
                         "properties": {
-                            "westBoundLongitude": {"type": "string", "format": "longitude"},
-                            "eastBoundLongitude": {"type": "string", "format": "longitude"},
-                            "southBoundLatitude": {"type": "string", "format": "latitude"},
-                            "northBoundLatitude": {"type": "string", "format": "latitude"}
+                            "westBoundLongitude": {"$ref": "#/definitions/longitude"},
+                            "eastBoundLongitude": {"$ref": "#/definitions/longitude"},
+                            "southBoundLatitude": {"$ref": "#/definitions/latitude"},
+                            "northBoundLatitude": {"$ref": "#/definitions/latitude"}
                         },
                         "required": ["westBoundLongitude", "eastBoundLongitude", "southBoundLatitude", "northBoundLatitude"]
                     },
