@@ -10,6 +10,7 @@ include *.py
 include *.rst
 include *.sh
 include *.yml
+include .git-blame-ignore-revs
 include .coveragerc
 include .editorconfig
 include AUTHORS.rst
