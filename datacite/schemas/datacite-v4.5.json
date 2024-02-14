@@ -286,14 +286,31 @@
                 "ROR",
                 "Other"
             ]
+        },
+        "prefix":{
+          "type": "string",
+          "pattern": "^10.\\d{4,9}$"
         }
     },
     "type": "object",
+    "oneOf": [
+      {"doi": {"type": "string", "pattern" : "^10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+$"}},
+      {"prefix": {"$ref":"#/definitions/prefix"}},
+      {
+        "prefix": {"$ref":"#/definitions/prefix"},
+        "suffix":{"type": "string", "pattern": "^[-._;()/:a-z0-9A-Z]+$"}
+      }
+    ],
     "properties": {
-        "doi": {
+        "event" : {
             "type": "string",
-            "pattern" : "^10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+$"
+            "enum": [
+                "hide",
+                "register",
+                "publish"
+            ]
         },
+        "url": {"type": "string", "format": "uri"},
         "types": {
             "type": "object",
             "properties": {
@@ -591,6 +608,7 @@
         }
     },
     "required": [
+        "url",
         "creators",
         "titles",
         "publisher",
