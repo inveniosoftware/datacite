@@ -293,15 +293,10 @@
         }
     },
     "type": "object",
-    "oneOf": [
-      {"doi": {"type": "string", "pattern" : "^10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+$"}},
-      {"prefix": {"$ref":"#/definitions/prefix"}},
-      {
-        "prefix": {"$ref":"#/definitions/prefix"},
-        "suffix":{"type": "string", "pattern": "^[-._;()/:a-z0-9A-Z]+$"}
-      }
-    ],
     "properties": {
+        "doi": {"type": "string", "pattern" : "^10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+$"},
+        "prefix":{"type": "string", "pattern": "^10.\\d{4,9}$"},
+        "suffix":{"type": "string", "pattern": "^[-._;()/:a-z0-9A-Z]+$"},
         "event" : {
             "type": "string",
             "enum": [
