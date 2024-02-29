@@ -1,0 +1,202 @@
+{
+  "doi": "10.82433/9184-dy35",
+  "prefix": "10.82433",
+  "suffix": "9184-dy35",
+  "alternateIdentifiers": [],
+  "creators": [
+    {
+      "name": "National Gallery",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/043kfff89",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "External Environmental Data, 2010-2020, National Gallery"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "National Gallery",
+    "schemeUri": "https://ror.org/",
+    "publisherIdentifier": "https://ror.org/043kfff89",
+    "publisherIdentifierScheme": "ROR"
+  },
+  "container": {},
+  "publicationYear": "2022",
+  "subjects": [
+    {
+      "subject": "FOS: Earth and related environmental sciences",
+      "schemeUri": "http://www.oecd.org/science/inno/38235147.pdf",
+      "subjectScheme": "Fields of Science and Technology (FOS)"
+    },
+    {
+      "subject": "temperature",
+      "valueUri": "https://www.wikidata.org/wiki/Q11466",
+      "schemeUri": "https://www.wikidata.org/wiki",
+      "subjectScheme": "Wikidata"
+    },
+    {
+      "subject": "relative humidity",
+      "valueUri": "http://vocab.getty.edu/aat/300192097",
+      "schemeUri": "http://vocab.getty.edu/aat",
+      "subjectScheme": "Art and Architecture Thesaurus"
+    },
+    {
+      "subject": "illuminance",
+      "valueUri": "https://www.wikidata.org/wiki/Q194411",
+      "schemeUri": "https://www.wikidata.org/wiki",
+      "subjectScheme": "Wikidata"
+    },
+    {
+      "subject": "moisture content",
+      "valueUri": "http://vocab.getty.edu/aat/300379432",
+      "schemeUri": "http://vocab.getty.edu/aat",
+      "subjectScheme": "Art and Architecture Thesaurus"
+    },
+    {
+      "subject": "Environmental monitoring",
+      "valueUri": "http://id.worldcat.org/fast/913214",
+      "schemeUri": "http://id.worldcat.org/fast",
+      "subjectScheme": "FAST"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Padfield, Joseph",
+      "nameType": "Personal",
+      "givenName": "Joseph",
+      "familyName": "Padfield",
+      "affiliation": [
+        {
+          "name": "National Gallery",
+          "affiliationIdentifier": "https://ror.org/043kfff89",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "ContactPerson",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://orcid.org",
+          "nameIdentifier": "https://orcid.org/0000-0002-2572-6428",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ]
+    },
+    {
+      "name": "Building Facilities Department",
+      "nameType": "Organizational",
+      "affiliation": [
+        {
+          "name": "National Gallery",
+          "affiliationIdentifier": "https://ror.org/043kfff89",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "DataCollector",
+      "nameIdentifiers": []
+    }
+  ],
+  "dates": [
+    {
+      "date": "2010/2020",
+      "dateType": "Collected"
+    },
+    {
+      "date": "2010/2020",
+      "dateType": "Other",
+      "dateInformation": "Coverage"
+    },
+    {
+      "date": "2022",
+      "dateType": "Issued"
+    }
+  ],
+  "language": "en",
+  "types": {
+    "resourceType": "Environmental data",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsSupplementTo",
+      "relatedIdentifier": "https://www.nationalgallery.org.uk/research/research-resources/research-papers/improving-our-environment",
+      "resourceTypeGeneral": "Report",
+      "relatedIdentifierType": "URL"
+    },
+    {
+      "relationType": "IsSourceOf",
+      "relatedIdentifier": "https://research.ng-london.org.uk/scientific/env/",
+      "resourceTypeGeneral": "InteractiveResource",
+      "relatedIdentifierType": "URL"
+    },
+    {
+      "relationType": "IsSupplementedBy",
+      "relatedIdentifier": "10.1080/00393630.2018.1504449/",
+      "resourceTypeGeneral": "JournalArticle",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsDocumentedBy",
+      "relatedIdentifier": "10.5281/zenodo.7629200",
+      "resourceTypeGeneral": "ConferencePaper",
+      "relatedIdentifierType": "DOI"
+    }
+  ],
+  "relatedItems": [],
+  "sizes": [
+    "13.6 MB"
+  ],
+  "formats": [
+    "application/json"
+  ],
+  "version": "1.0",
+  "rightsList": [
+    {
+      "lang": "en",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-by-4.0",
+      "rightsIdentifierScheme": "SPDX"
+    }
+  ],
+  "descriptions": [
+    {
+      "lang": "en",
+      "description": "The National Gallery houses one of the greatest ‒ and most visited ‒ collections of Western European painting, often welcoming more than 6 million visitors a year. The Scientific Department researches the history of materials and techniques and their degradation mechanisms (fading, darkening, etc.), through analysis using a range of micro-analytical and imaging methods. It also works in the fields of preventive conservation and environmental management of galleries (monitoring, lighting, vibration), as well as the development of a wide range of new instruments and methods (both analytical and imaging) for technical examination of artworks, most often in collaboration with universities. The examination of the environmental conditions within The National Gallery began soon after it was established in 1824. Early concerns often related to dust and pollution. The first electronic data logger, recording light levels, was introduced in 1975, with the regular logging of temperature and relative humidity followed soon after. Today the Gallery has hundreds of sensors, monitoring the environmental conditions in over hundreds of locations, 24/7. The National Gallery currently archives millions of environmental readings every year, which are used to monitor the Gallery conditions ensuring the on-going care of the collections. These readings are also used to examine long term environmental trends, manage additional events, and within the planning and management of preventive conservation work and research at the National Gallery. The National Gallery Environmental Database is an internal, bespoke system which has been developed, over the last 20 years, to act as an archive for all of these environmental readings. This dataset contains a selected range of the data gathered from a few of the external sensors that have been used to monitor ambient light levels, temperature, relative humidity and air moisture content 24 hours a day, 7 days a week over the last two decades.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationPlace": "Roof of National Gallery, London, UK",
+      "geoLocationPoint": {
+        "pointLatitude": 51.50872,
+        "pointLongitude": -0.12841
+      }
+    }
+  ],
+  "fundingReferences": [
+    {
+      "awardUri": "https://cordis.europa.eu/project/id/871034",
+      "awardTitle": "Integrating Platforms for the European Research Infrastructure ON Heritage Science",
+      "funderName": "H2020 Excellent Science",
+      "awardNumber": "871034",
+      "funderIdentifier": "https://doi.org/10.13039/100010662",
+      "funderIdentifierType": "Crossref Funder ID"
+    }
+  ],
+  "url": "https://research.ng-london.org.uk/scientific/env/External%20Environmental%20Data%202010-2020%20National%20Gallery%20V1.0.json",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}
+
+
