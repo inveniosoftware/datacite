@@ -1,0 +1,89 @@
+{
+  "doi": "10.82433/q54d-pf76",
+  "prefix": "10.82433",
+  "suffix": "q54d-pf76",
+  "alternateIdentifiers": [],
+  "creators": [
+    {
+      "name": "Garcia, Sofia",
+      "nameType": "Personal",
+      "givenName": "Sofia",
+      "familyName": "Garcia",
+      "affiliation": [
+        {
+          "name": "Arizona State University",
+          "schemeUri": "https://ror.org",
+          "affiliationIdentifier": "https://ror.org/03efmqc40"
+        }
+      ],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://orcid.org",
+          "nameIdentifier": "https://orcid.org/0000-0001-5727-2427",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "Example Article Title"
+    }
+  ],
+  "publisher": {
+    "name": "Example Publisher"
+  },
+  "container": {},
+  "publicationYear": "2022",
+  "subjects": [],
+  "contributors": [],
+  "dates": [
+    {
+      "date": "2022",
+      "dateType": "Issued"
+    }
+  ],
+  "types": {
+    "resourceType": "ScholarlyArticle",
+    "resourceTypeGeneral": "JournalArticle"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsPublishedIn",
+      "relatedIdentifier": "1234-5678",
+      "relatedIdentifierType": "ISSN"
+    }
+  ],
+  "relatedItems": [
+    {
+      "issue": "4",
+      "titles": [
+        {
+          "title": "Journal of Metadata Examples"
+        }
+      ],
+      "volume": "3",
+      "creators": [],
+      "lastPage": "35",
+      "firstPage": "20",
+      "publisher": "Example Publisher",
+      "contributors": [],
+      "relationType": "IsPublishedIn",
+      "publicationYear": "2022",
+      "relatedItemType": "Journal",
+      "relatedItemIdentifier": {
+        "relatedItemIdentifier": "1234-5678",
+        "relatedItemIdentifierType": "ISSN"
+      }
+    }
+  ],
+  "sizes": [],
+  "formats": [],
+  "rightsList": [],
+  "descriptions": [],
+  "geoLocations": [],
+  "fundingReferences": [],
+  "url": "https://example.org/RelatedItem1",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

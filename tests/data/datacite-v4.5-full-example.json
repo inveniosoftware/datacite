@@ -1,786 +1,606 @@
 {
-    "data": {
-      "id": "10.82433/b09z-4k37",
-      "type": "dois",
-      "attributes": {
-        "doi": "10.82433/b09z-4k37",
-        "prefix": "10.82433",
-        "suffix": "b09z-4k37",
-        "identifiers": [
-          {
-            "identifier": "12345",
-            "identifierType": "Local accession number"
-          }
-        ],
-        "alternateIdentifiers": [
-          {
-            "alternateIdentifierType": "Local accession number",
-            "alternateIdentifier": "12345"
-          }
-        ],
-        "creators": [
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "affiliation": [],
-            "nameIdentifiers": []
-          },
-          {
-            "name": "ExampleOrganization",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://ror.org",
-                "nameIdentifier": "https://ror.org/03yrm5c26",
-                "nameIdentifierScheme": "ROR"
-              }
-            ]
-          }
-        ],
-        "titles": [
-          {
-            "lang": "en",
-            "title": "Example Title"
-          },
-          {
-            "lang": "en",
-            "title": "Example Subtitle",
-            "titleType": "Subtitle"
-          },
-          {
-            "lang": "fr",
-            "title": "Example TranslatedTitle",
-            "titleType": "TranslatedTitle"
-          },
-          {
-            "lang": "en",
-            "title": "Example AlternativeTitle",
-            "titleType": "AlternativeTitle"
-          }
-        ],
-        "publisher": {
-          "lang": "en",
-          "name": "Example Publisher",
-          "schemeUri": "https://ror.org/",
-          "publisherIdentifier": "https://ror.org/04z8jg394",
-          "publisherIdentifierScheme": "ROR"
-        },
-        "container": {
-          "type": "DataRepository",
-          "title": "Example SeriesInformation",
-          "identifier": "http://purl.oclc.org/foo/bar",
-          "identifierType": "PURL"
-        },
-        "publicationYear": 2022,
-        "subjects": [
-          {
-            "subject": "FOS: Computer and information sciences",
-            "valueUri": "http://www.oecd.org/science/inno/38235147.pdf",
-            "schemeUri": "http://www.oecd.org/science/inno",
-            "subjectScheme": "Fields of Science and Technology (FOS)"
-          },
-          {
-            "subject": "FOS: Computer and information sciences",
-            "schemeUri": "http://www.oecd.org/science/inno/38235147.pdf",
-            "subjectScheme": "Fields of Science and Technology (FOS)"
-          },
-          {
-            "subject": "Digital curation and preservation",
-            "valueUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc/2020",
-            "schemeUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc",
-            "subjectScheme": "Australian and New Zealand Standard Research Classification (ANZSRC), 2020"
-          },
-          {
-            "subject": "Example Subject"
-          }
-        ],
-        "contributors": [
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "ContactPerson",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "DataCollector",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "DataCurator",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "DataManager",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleOrganization",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "contributorType": "Distributor",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://ror.org",
-                "nameIdentifier": "https://ror.org/03yrm5c26",
-                "nameIdentifierScheme": "ROR"
-              }
-            ]
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "Editor",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleOrganization",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "contributorType": "HostingInstitution",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://ror.org",
-                "nameIdentifier": "https://ror.org/03yrm5c26",
-                "nameIdentifierScheme": "ROR"
-              }
-            ]
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "Producer",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "ProjectLeader",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "ProjectManager",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "ProjectMember",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "DataCite",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "contributorType": "RegistrationAgency",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://ror.org",
-                "nameIdentifier": "https://ror.org/04wxnsj81",
-                "nameIdentifierScheme": "ROR"
-              }
-            ]
-          },
-          {
-            "name": "International DOI Foundation",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "contributorType": "RegistrationAuthority",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "",
-                "nameIdentifierScheme": ""
-              }
-            ]
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "RelatedPerson",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "Researcher",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleContributor",
-            "affiliation": [
-              {
-                "name": "ExampleOrganization",
-                "schemeUri": "https://ror.org",
-                "affiliationIdentifier": "https://ror.org/03yrm5c26",
-                "affiliationIdentifierScheme": "ROR"
-              }
-            ],
-            "contributorType": "ResearchGroup",
-            "nameIdentifiers": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "RightsHolder",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleContributor",
-            "affiliation": [
-              {
-                "name": "https://ror.org/03yrm5c26",
-                "schemeUri": "https://ror.org",
-                "affiliationIdentifier": "https://ror.org/03yrm5c26",
-                "affiliationIdentifierScheme": "ROR"
-              }
-            ],
-            "contributorType": "Sponsor",
-            "nameIdentifiers": []
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "Supervisor",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          },
-          {
-            "name": "ExampleOrganization",
-            "nameType": "Organizational",
-            "affiliation": [],
-            "contributorType": "WorkPackageLeader",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://ror.org",
-                "nameIdentifier": "https://ror.org/03yrm5c26",
-                "nameIdentifierScheme": "ROR"
-              }
-            ]
-          },
-          {
-            "name": "ExampleFamilyName, ExampleGivenName",
-            "nameType": "Personal",
-            "givenName": "ExampleGivenName",
-            "familyName": "ExampleFamilyName",
-            "contributorType": "Other",
-            "nameIdentifiers": [
-              {
-                "schemeUri": "https://orcid.org",
-                "nameIdentifierScheme": "ORCID"
-              }
-            ],
-            "affiliation": []
-          }
-        ],
-        "dates": [
-          {
-            "date": "2022-01-01",
-            "dateType": "Accepted"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Available"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Copyrighted"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Created"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Issued"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Submitted"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Updated"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Valid"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Withdrawn"
-          },
-          {
-            "date": "2022-01-01",
-            "dateType": "Other",
-            "dateInformation": "ExampleDateInformation"
-          }
-        ],
-        "language": "en",
-        "types": {
-          "ris": "DATA",
-          "bibtex": "misc",
-          "citeproc": "dataset",
-          "schemaOrg": "Dataset",
-          "resourceType": "Example ResourceType",
-          "resourceTypeGeneral": "Dataset"
-        },
-        "relatedIdentifiers": [
-          {
-            "relationType": "IsCitedBy",
-            "relatedIdentifier": "ark:/13030/tqb3kh97gh8w",
-            "resourceTypeGeneral": "Audiovisual",
-            "relatedIdentifierType": "ARK"
-          },
-          {
-            "relationType": "Cites",
-            "relatedIdentifier": "arXiv:0706.0001",
-            "resourceTypeGeneral": "Book",
-            "relatedIdentifierType": "arXiv"
-          },
-          {
-            "relationType": "IsSupplementTo",
-            "relatedIdentifier": "2018AGUFM.A24K..07S",
-            "resourceTypeGeneral": "BookChapter",
-            "relatedIdentifierType": "bibcode"
-          },
-          {
-            "relationType": "IsSupplementedBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Collection",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsContinuedBy",
-            "relatedIdentifier": "9783468111242",
-            "resourceTypeGeneral": "ComputationalNotebook",
-            "relatedIdentifierType": "EAN13"
-          },
-          {
-            "relationType": "Continues",
-            "relatedIdentifier": "1562-6865",
-            "resourceTypeGeneral": "ConferencePaper",
-            "relatedIdentifierType": "EISSN"
-          },
-          {
-            "relationType": "Describes",
-            "relatedIdentifier": "10013/epic.10033",
-            "resourceTypeGeneral": "ConferenceProceeding",
-            "relatedIdentifierType": "Handle"
-          },
-          {
-            "relationType": "IsDescribedBy",
-            "relatedIdentifier": "IECUR0097",
-            "resourceTypeGeneral": "DataPaper",
-            "relatedIdentifierType": "IGSN"
-          },
-          {
-            "relationType": "HasMetadata",
-            "relatedIdentifier": "978-3-905673-82-1",
-            "resourceTypeGeneral": "Dataset",
-            "relatedIdentifierType": "ISBN"
-          },
-          {
-            "relationType": "IsMetadataFor",
-            "relatedIdentifier": "0077-5606",
-            "resourceTypeGeneral": "Dissertation",
-            "relatedIdentifierType": "ISSN"
-          },
-          {
-            "relationType": "HasVersion",
-            "relatedIdentifier": "0A9 2002 12B4A105 7",
-            "resourceTypeGeneral": "Event",
-            "relatedIdentifierType": "ISTC"
-          },
-          {
-            "relationType": "IsVersionOf",
-            "relatedIdentifier": "1188-1534",
-            "resourceTypeGeneral": "Image",
-            "relatedIdentifierType": "LISSN"
-          },
-          {
-            "relationType": "IsNewVersionOf",
-            "relatedIdentifier": "urn:lsid:ubio.org:namebank:11815",
-            "resourceTypeGeneral": "InteractiveResource",
-            "relatedIdentifierType": "LSID"
-          },
-          {
-            "relationType": "IsPreviousVersionOf",
-            "relatedIdentifier": "12082125",
-            "resourceTypeGeneral": "Journal",
-            "relatedIdentifierType": "PMID"
-          },
-          {
-            "relationType": "IsPartOf",
-            "relatedIdentifier": "http://purl.oclc.org/foo/bar",
-            "resourceTypeGeneral": "JournalArticle",
-            "relatedIdentifierType": "PURL"
-          },
-          {
-            "relationType": "HasPart",
-            "relatedIdentifier": "123456789999",
-            "resourceTypeGeneral": "Model",
-            "relatedIdentifierType": "UPC"
-          },
-          {
-            "relationType": "IsPublishedIn",
-            "relatedIdentifier": "http://www.heatflow.und.edu/index2.html",
-            "resourceTypeGeneral": "OutputManagementPlan",
-            "relatedIdentifierType": "URL"
-          },
-          {
-            "relationType": "IsReferencedBy",
-            "relatedIdentifier": "urn:nbn:de:101:1-201102033592",
-            "resourceTypeGeneral": "PeerReview",
-            "relatedIdentifierType": "URN"
-          },
-          {
-            "relationType": "References",
-            "relatedIdentifier": "https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age",
-            "resourceTypeGeneral": "PhysicalObject",
-            "relatedIdentifierType": "w3id"
-          },
-          {
-            "relationType": "IsDocumentedBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Preprint",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "Documents",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Report",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsCompiledBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Service",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "Compiles",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Software",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsVariantFormOf",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Sound",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsOriginalFormOf",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Standard",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsIdenticalTo",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Text",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsReviewedBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Workflow",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "Reviews",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsDerivedFrom",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsSourceOf",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsRequiredBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "Requires",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "Obsoletes",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          },
-          {
-            "relationType": "IsObsoletedBy",
-            "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
-            "resourceTypeGeneral": "Other",
-            "relatedIdentifierType": "DOI"
-          }
-        ],
-        "relatedItems": [],
-        "sizes": [
-          "1 MB",
-          "90 pages"
-        ],
-        "formats": [
-          "application/xml",
-          "text/plain"
-        ],
-        "version": "1",
-        "rightsList": [
-          {
-            "rights": "Creative Commons Public Domain Dedication and Certification",
-            "rightsUri": "https://creativecommons.org/licenses/publicdomain/",
-            "schemeUri": "https://spdx.org/licenses/",
-            "rightsIdentifier": "cc-pddc",
-            "rightsIdentifierScheme": "SPDX"
-          }
-        ],
-        "descriptions": [
-          {
-            "lang": "en",
-            "description": "Example Abstract",
-            "descriptionType": "Abstract"
-          },
-          {
-            "lang": "en",
-            "description": "Example Methods",
-            "descriptionType": "Methods"
-          },
-          {
-            "lang": "en",
-            "description": "Example SeriesInformation",
-            "descriptionType": "SeriesInformation"
-          },
-          {
-            "lang": "en",
-            "description": "Example TableOfContents",
-            "descriptionType": "TableOfContents"
-          },
-          {
-            "lang": "en",
-            "description": "Example TechnicalInfo",
-            "descriptionType": "TechnicalInfo"
-          },
-          {
-            "lang": "en",
-            "description": "Example Other",
-            "descriptionType": "Other"
-          }
-        ],
-        "geoLocations": [
-          {
-            "geoLocationBox": {
-              "eastBoundLongitude": "-123.02",
-              "northBoundLatitude": "49.315",
-              "southBoundLatitude": "49.195",
-              "westBoundLongitude": "-123.27"
-            },
-            "geoLocationPlace": "Vancouver, British Columbia, Canada",
-            "geoLocationPoint": {
-              "pointLatitude": "49.2827",
-              "pointLongitude": "-123.1207"
-            }
-          }
-        ],
-        "fundingReferences": [
-          {
-            "awardUri": "https://example.com/example-award-uri",
-            "awardTitle": "Example AwardTitle",
-            "funderName": "Example Funder",
-            "awardNumber": "12345",
-            "funderIdentifier": "https://doi.org/10.13039/501100000780",
-            "funderIdentifierType": "Crossref Funder ID"
-          }
-        ],
-        "xml": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJlc291cmNlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vZGF0YWNpdGUub3JnL3NjaGVtYS9rZXJuZWwtNCBodHRwOi8vc2NoZW1hLmRhdGFjaXRlLm9yZy9tZXRhL2tlcm5lbC00L21ldGFkYXRhLnhzZCI+CiAgPGlkZW50aWZpZXIgaWRlbnRpZmllclR5cGU9IkRPSSI+MTAuODI0MzMvQjA5Wi00SzM3PC9pZGVudGlmaWVyPgogIDxjcmVhdG9ycz4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY3JlYXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+RXhhbXBsZUdpdmVuTmFtZTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5FeGFtcGxlRmFtaWx5TmFtZTwvZmFtaWx5TmFtZT4KICAgIDwvY3JlYXRvcj4KICAgIDxjcmVhdG9yPgogICAgICA8Y3JlYXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5FeGFtcGxlT3JnYW5pemF0aW9uPC9jcmVhdG9yTmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJST1IiIHNjaGVtZVVSST0iaHR0cHM6Ly9yb3Iub3JnIj5odHRwczovL3Jvci5vcmcvMDN5cm01YzI2PC9uYW1lSWRlbnRpZmllcj4KICAgIDwvY3JlYXRvcj4KICA8L2NyZWF0b3JzPgogIDx0aXRsZXM+CiAgICA8dGl0bGUgeG1sOmxhbmc9ImVuIj5FeGFtcGxlIFRpdGxlPC90aXRsZT4KICAgIDx0aXRsZSB0aXRsZVR5cGU9IlN1YnRpdGxlIiB4bWw6bGFuZz0iZW4iPkV4YW1wbGUgU3VidGl0bGU8L3RpdGxlPgogICAgPHRpdGxlIHRpdGxlVHlwZT0iVHJhbnNsYXRlZFRpdGxlIiB4bWw6bGFuZz0iZnIiPkV4YW1wbGUgVHJhbnNsYXRlZFRpdGxlPC90aXRsZT4KICAgIDx0aXRsZSB0aXRsZVR5cGU9IkFsdGVybmF0aXZlVGl0bGUiIHhtbDpsYW5nPSJlbiI+RXhhbXBsZSBBbHRlcm5hdGl2ZVRpdGxlPC90aXRsZT4KICA8L3RpdGxlcz4KICA8cHVibGlzaGVyIHhtbDpsYW5nPSJlbiIgcHVibGlzaGVySWRlbnRpZmllcj0iaHR0cHM6Ly9yb3Iub3JnLzA0ejhqZzM5NCIgcHVibGlzaGVySWRlbnRpZmllclNjaGVtZT0iUk9SIiBzY2hlbWVVUkk9Imh0dHBzOi8vcm9yLm9yZy8iPkV4YW1wbGUgUHVibGlzaGVyPC9wdWJsaXNoZXI+CiAgPHB1YmxpY2F0aW9uWWVhcj4yMDIyPC9wdWJsaWNhdGlvblllYXI+CiAgPHJlc291cmNlVHlwZSByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij5FeGFtcGxlIFJlc291cmNlVHlwZTwvcmVzb3VyY2VUeXBlPgogIDxzdWJqZWN0cz4KICAgIDxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkZpZWxkcyBvZiBTY2llbmNlIGFuZCBUZWNobm9sb2d5IChGT1MpIiBzY2hlbWVVUkk9Imh0dHA6Ly93d3cub2VjZC5vcmcvc2NpZW5jZS9pbm5vIiB2YWx1ZVVSST0iaHR0cDovL3d3dy5vZWNkLm9yZy9zY2llbmNlL2lubm8vMzgyMzUxNDcucGRmIj5GT1M6IENvbXB1dGVyIGFuZCBpbmZvcm1hdGlvbiBzY2llbmNlczwvc3ViamVjdD4KICAgIDxzdWJqZWN0IHN1YmplY3RTY2hlbWU9IkF1c3RyYWxpYW4gYW5kIE5ldyBaZWFsYW5kIFN0YW5kYXJkIFJlc2VhcmNoIENsYXNzaWZpY2F0aW9uIChBTlpTUkMpLCAyMDIwIiBzY2hlbWVVUkk9Imh0dHBzOi8vd3d3LmFicy5nb3YuYXUvc3RhdGlzdGljcy9jbGFzc2lmaWNhdGlvbnMvYXVzdHJhbGlhbi1hbmQtbmV3LXplYWxhbmQtc3RhbmRhcmQtcmVzZWFyY2gtY2xhc3NpZmljYXRpb24tYW56c3JjIiB2YWx1ZVVSST0iaHR0cHM6Ly93d3cuYWJzLmdvdi5hdS9zdGF0aXN0aWNzL2NsYXNzaWZpY2F0aW9ucy9hdXN0cmFsaWFuLWFuZC1uZXctemVhbGFuZC1zdGFuZGFyZC1yZXNlYXJjaC1jbGFzc2lmaWNhdGlvbi1hbnpzcmMvMjAyMCI+RGlnaXRhbCBjdXJhdGlvbiBhbmQgcHJlc2VydmF0aW9uPC9zdWJqZWN0PgogICAgPHN1YmplY3Q+RXhhbXBsZSBTdWJqZWN0PC9zdWJqZWN0PgogIDwvc3ViamVjdHM+CiAgPGNvbnRyaWJ1dG9ycz4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IkNvbnRhY3RQZXJzb24iPgogICAgICA8Y29udHJpYnV0b3JOYW1lIG5hbWVUeXBlPSJQZXJzb25hbCI+RXhhbXBsZUZhbWlseU5hbWUsIEV4YW1wbGVHaXZlbk5hbWU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5FeGFtcGxlR2l2ZW5OYW1lPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkV4YW1wbGVGYW1pbHlOYW1lPC9mYW1pbHlOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHBzOi8vb3JjaWQub3JnIj5odHRwczovL29yY2lkLm9yZy8wMDAwLTAwMDEtNTcyNy0yNDI3LzwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRGF0YUNvbGxlY3RvciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEYXRhQ3VyYXRvciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEYXRhTWFuYWdlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJEaXN0cmlidXRvciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5FeGFtcGxlT3JnYW5pemF0aW9uPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iUk9SIiBzY2hlbWVVUkk9Imh0dHBzOi8vcm9yLm9yZyI+aHR0cHM6Ly9yb3Iub3JnLzAzeXJtNWMyNjwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iRWRpdG9yIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZSBuYW1lVHlwZT0iUGVyc29uYWwiPkV4YW1wbGVGYW1pbHlOYW1lLCBFeGFtcGxlR2l2ZW5OYW1lPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+RXhhbXBsZUdpdmVuTmFtZTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5FeGFtcGxlRmFtaWx5TmFtZTwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwczovL29yY2lkLm9yZyI+aHR0cHM6Ly9vcmNpZC5vcmcvMDAwMC0wMDAxLTU3MjctMjQyNy88L25hbWVJZGVudGlmaWVyPgogICAgICA8YWZmaWxpYXRpb24vPgogICAgPC9jb250cmlidXRvcj4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9Ikhvc3RpbmdJbnN0aXR1dGlvbiI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5FeGFtcGxlT3JnYW5pemF0aW9uPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iUk9SIiBzY2hlbWVVUkk9Imh0dHBzOi8vcm9yLm9yZyI+aHR0cHM6Ly9yb3Iub3JnLzAzeXJtNWMyNjwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUHJvZHVjZXIiPgogICAgICA8Y29udHJpYnV0b3JOYW1lIG5hbWVUeXBlPSJQZXJzb25hbCI+RXhhbXBsZUZhbWlseU5hbWUsIEV4YW1wbGVHaXZlbk5hbWU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5FeGFtcGxlR2l2ZW5OYW1lPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkV4YW1wbGVGYW1pbHlOYW1lPC9mYW1pbHlOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHBzOi8vb3JjaWQub3JnIj5odHRwczovL29yY2lkLm9yZy8wMDAwLTAwMDEtNTcyNy0yNDI3LzwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUHJvamVjdExlYWRlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJQcm9qZWN0TWFuYWdlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJQcm9qZWN0TWVtYmVyIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZSBuYW1lVHlwZT0iUGVyc29uYWwiPkV4YW1wbGVGYW1pbHlOYW1lLCBFeGFtcGxlR2l2ZW5OYW1lPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxnaXZlbk5hbWU+RXhhbXBsZUdpdmVuTmFtZTwvZ2l2ZW5OYW1lPgogICAgICA8ZmFtaWx5TmFtZT5FeGFtcGxlRmFtaWx5TmFtZTwvZmFtaWx5TmFtZT4KICAgICAgPG5hbWVJZGVudGlmaWVyIG5hbWVJZGVudGlmaWVyU2NoZW1lPSJPUkNJRCIgc2NoZW1lVVJJPSJodHRwczovL29yY2lkLm9yZyI+aHR0cHM6Ly9vcmNpZC5vcmcvMDAwMC0wMDAxLTU3MjctMjQyNy88L25hbWVJZGVudGlmaWVyPgogICAgICA8YWZmaWxpYXRpb24vPgogICAgPC9jb250cmlidXRvcj4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlZ2lzdHJhdGlvbkFnZW5jeSI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5EYXRhQ2l0ZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9IlJPUiIgc2NoZW1lVVJJPSJodHRwczovL3Jvci5vcmciPmh0dHBzOi8vcm9yLm9yZy8wNHd4bnNqODE8L25hbWVJZGVudGlmaWVyPgogICAgICA8YWZmaWxpYXRpb24vPgogICAgPC9jb250cmlidXRvcj4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlZ2lzdHJhdGlvbkF1dGhvcml0eSI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5JbnRlcm5hdGlvbmFsIERPSSBGb3VuZGF0aW9uPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iIiBzY2hlbWVVUkk9IiIvPgogICAgICA8YWZmaWxpYXRpb24vPgogICAgPC9jb250cmlidXRvcj4KICAgIDxjb250cmlidXRvciBjb250cmlidXRvclR5cGU9IlJlbGF0ZWRQZXJzb24iPgogICAgICA8Y29udHJpYnV0b3JOYW1lIG5hbWVUeXBlPSJQZXJzb25hbCI+RXhhbXBsZUZhbWlseU5hbWUsIEV4YW1wbGVHaXZlbk5hbWU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5FeGFtcGxlR2l2ZW5OYW1lPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkV4YW1wbGVGYW1pbHlOYW1lPC9mYW1pbHlOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHBzOi8vb3JjaWQub3JnIj5odHRwczovL29yY2lkLm9yZy8wMDAwLTAwMDEtNTcyNy0yNDI3LzwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iUmVzZWFyY2hlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJSZXNlYXJjaEdyb3VwIj4KICAgICAgPGNvbnRyaWJ1dG9yTmFtZT5FeGFtcGxlQ29udHJpYnV0b3I8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGFmZmlsaWF0aW9uIGFmZmlsaWF0aW9uSWRlbnRpZmllcj0iaHR0cHM6Ly9yb3Iub3JnLzAzeXJtNWMyNiIgYWZmaWxpYXRpb25JZGVudGlmaWVyU2NoZW1lPSJST1IiIHNjaGVtZVVSST0iaHR0cHM6Ly9yb3Iub3JnIj5FeGFtcGxlT3JnYW5pemF0aW9uPC9hZmZpbGlhdGlvbj4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJSaWdodHNIb2xkZXIiPgogICAgICA8Y29udHJpYnV0b3JOYW1lIG5hbWVUeXBlPSJQZXJzb25hbCI+RXhhbXBsZUZhbWlseU5hbWUsIEV4YW1wbGVHaXZlbk5hbWU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5FeGFtcGxlR2l2ZW5OYW1lPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkV4YW1wbGVGYW1pbHlOYW1lPC9mYW1pbHlOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHBzOi8vb3JjaWQub3JnIj5odHRwczovL29yY2lkLm9yZy8wMDAwLTAwMDEtNTcyNy0yNDI3LzwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iU3BvbnNvciI+CiAgICAgIDxjb250cmlidXRvck5hbWU+RXhhbXBsZUNvbnRyaWJ1dG9yPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxhZmZpbGlhdGlvbiBhZmZpbGlhdGlvbklkZW50aWZpZXI9Imh0dHBzOi8vcm9yLm9yZy8wM3lybTVjMjYiIGFmZmlsaWF0aW9uSWRlbnRpZmllclNjaGVtZT0iUk9SIiBzY2hlbWVVUkk9Imh0dHBzOi8vcm9yLm9yZyI+aHR0cHM6Ly9yb3Iub3JnLzAzeXJtNWMyNjwvYWZmaWxpYXRpb24+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iU3VwZXJ2aXNvciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9IlBlcnNvbmFsIj5FeGFtcGxlRmFtaWx5TmFtZSwgRXhhbXBsZUdpdmVuTmFtZTwvY29udHJpYnV0b3JOYW1lPgogICAgICA8Z2l2ZW5OYW1lPkV4YW1wbGVHaXZlbk5hbWU8L2dpdmVuTmFtZT4KICAgICAgPGZhbWlseU5hbWU+RXhhbXBsZUZhbWlseU5hbWU8L2ZhbWlseU5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iT1JDSUQiIHNjaGVtZVVSST0iaHR0cHM6Ly9vcmNpZC5vcmciPmh0dHBzOi8vb3JjaWQub3JnLzAwMDAtMDAwMS01NzI3LTI0MjcvPC9uYW1lSWRlbnRpZmllcj4KICAgICAgPGFmZmlsaWF0aW9uLz4KICAgIDwvY29udHJpYnV0b3I+CiAgICA8Y29udHJpYnV0b3IgY29udHJpYnV0b3JUeXBlPSJXb3JrUGFja2FnZUxlYWRlciI+CiAgICAgIDxjb250cmlidXRvck5hbWUgbmFtZVR5cGU9Ik9yZ2FuaXphdGlvbmFsIj5FeGFtcGxlT3JnYW5pemF0aW9uPC9jb250cmlidXRvck5hbWU+CiAgICAgIDxuYW1lSWRlbnRpZmllciBuYW1lSWRlbnRpZmllclNjaGVtZT0iUk9SIiBzY2hlbWVVUkk9Imh0dHBzOi8vcm9yLm9yZyI+aHR0cHM6Ly9yb3Iub3JnLzAzeXJtNWMyNjwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogICAgPGNvbnRyaWJ1dG9yIGNvbnRyaWJ1dG9yVHlwZT0iT3RoZXIiPgogICAgICA8Y29udHJpYnV0b3JOYW1lIG5hbWVUeXBlPSJQZXJzb25hbCI+RXhhbXBsZUZhbWlseU5hbWUsIEV4YW1wbGVHaXZlbk5hbWU8L2NvbnRyaWJ1dG9yTmFtZT4KICAgICAgPGdpdmVuTmFtZT5FeGFtcGxlR2l2ZW5OYW1lPC9naXZlbk5hbWU+CiAgICAgIDxmYW1pbHlOYW1lPkV4YW1wbGVGYW1pbHlOYW1lPC9mYW1pbHlOYW1lPgogICAgICA8bmFtZUlkZW50aWZpZXIgbmFtZUlkZW50aWZpZXJTY2hlbWU9Ik9SQ0lEIiBzY2hlbWVVUkk9Imh0dHBzOi8vb3JjaWQub3JnIj5odHRwczovL29yY2lkLm9yZy8wMDAwLTAwMDEtNTcyNy0yNDI3LzwvbmFtZUlkZW50aWZpZXI+CiAgICAgIDxhZmZpbGlhdGlvbi8+CiAgICA8L2NvbnRyaWJ1dG9yPgogIDwvY29udHJpYnV0b3JzPgogIDxkYXRlcz4KICAgIDxkYXRlIGRhdGVUeXBlPSJBY2NlcHRlZCI+MjAyMi0wMS0wMTwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJBdmFpbGFibGUiPjIwMjItMDEtMDE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ29weXJpZ2h0ZWQiPjIwMjItMDEtMDE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ29sbGVjdGVkIj4yMDIxLTAxLTAxLzIwMjEvMTItMzE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iQ3JlYXRlZCI+MjAyMi0wMS0wMTwvZGF0ZT4KICAgIDxkYXRlIGRhdGVUeXBlPSJJc3N1ZWQiPjIwMjItMDEtMDE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iU3VibWl0dGVkIj4yMDIyLTAxLTAxPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9IlVwZGF0ZWQiPjIwMjItMDEtMDE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iVmFsaWQiPjIwMjItMDEtMDE8L2RhdGU+CiAgICA8ZGF0ZSBkYXRlVHlwZT0iV2l0aGRyYXduIj4yMDIyLTAxLTAxPC9kYXRlPgogICAgPGRhdGUgZGF0ZVR5cGU9Ik90aGVyIiBkYXRlSW5mb3JtYXRpb249IkV4YW1wbGVEYXRlSW5mb3JtYXRpb24iPjIwMjItMDEtMDE8L2RhdGU+CiAgPC9kYXRlcz4KICA8bGFuZ3VhZ2U+ZW48L2xhbmd1YWdlPgogIDxhbHRlcm5hdGVJZGVudGlmaWVycz4KICAgIDxhbHRlcm5hdGVJZGVudGlmaWVyIGFsdGVybmF0ZUlkZW50aWZpZXJUeXBlPSJMb2NhbCBhY2Nlc3Npb24gbnVtYmVyIj4xMjM0NTwvYWx0ZXJuYXRlSWRlbnRpZmllcj4KICA8L2FsdGVybmF0ZUlkZW50aWZpZXJzPgogIDxyZWxhdGVkSWRlbnRpZmllcnM+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJBUksiIHJlbGF0aW9uVHlwZT0iSXNDaXRlZEJ5IiByZXNvdXJjZVR5cGVHZW5lcmFsPSJBdWRpb3Zpc3VhbCI+YXJrOi8xMzAzMC90cWIza2g5N2doOHc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iYXJYaXYiIHJlbGF0aW9uVHlwZT0iQ2l0ZXMiIHJlc291cmNlVHlwZUdlbmVyYWw9IkJvb2siPmFyWGl2OjA3MDYuMDAwMTwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJiaWJjb2RlIiByZWxhdGlvblR5cGU9IklzU3VwcGxlbWVudFRvIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJCb29rQ2hhcHRlciI+MjAxOEFHVUZNLkEyNEsuLjA3UzwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNTdXBwbGVtZW50ZWRCeSIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iQ29sbGVjdGlvbiI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRUFOMTMiIHJlbGF0aW9uVHlwZT0iSXNDb250aW51ZWRCeSIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iQ29tcHV0YXRpb25hbE5vdGVib29rIj45NzgzNDY4MTExMjQyPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkVJU1NOIiByZWxhdGlvblR5cGU9IkNvbnRpbnVlcyIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iQ29uZmVyZW5jZVBhcGVyIj4xNTYyLTY4NjU8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iSGFuZGxlIiByZWxhdGlvblR5cGU9IkRlc2NyaWJlcyIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iQ29uZmVyZW5jZVByb2NlZWRpbmciPjEwMDEzL2VwaWMuMTAwMzM8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iSUdTTiIgcmVsYXRpb25UeXBlPSJJc0Rlc2NyaWJlZEJ5IiByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhUGFwZXIiPklFQ1VSMDA5NzwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJJU0JOIiByZWxhdGlvblR5cGU9Ikhhc01ldGFkYXRhIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJEYXRhc2V0Ij45NzgtMy05MDU2NzMtODItMTwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJJU1NOIiByZWxhdGlvblR5cGU9IklzTWV0YWRhdGFGb3IiIHJlc291cmNlVHlwZUdlbmVyYWw9IkRpc3NlcnRhdGlvbiI+MDA3Ny01NjA2PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IklTVEMiIHJlbGF0aW9uVHlwZT0iSGFzVmVyc2lvbiIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iRXZlbnQiPjBBOSAyMDAyIDEyQjRBMTA1IDc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iTElTU04iIHJlbGF0aW9uVHlwZT0iSXNWZXJzaW9uT2YiIHJlc291cmNlVHlwZUdlbmVyYWw9IkltYWdlIj4xMTg4LTE1MzQ8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iTFNJRCIgcmVsYXRpb25UeXBlPSJJc05ld1ZlcnNpb25PZiIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iSW50ZXJhY3RpdmVSZXNvdXJjZSI+dXJuOmxzaWQ6dWJpby5vcmc6bmFtZWJhbms6MTE4MTU8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iUE1JRCIgcmVsYXRpb25UeXBlPSJJc1ByZXZpb3VzVmVyc2lvbk9mIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJKb3VybmFsIj4xMjA4MjEyNTwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJQVVJMIiByZWxhdGlvblR5cGU9IklzUGFydE9mIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJKb3VybmFsQXJ0aWNsZSI+aHR0cDovL3B1cmwub2NsYy5vcmcvZm9vL2JhcjwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUEMiIHJlbGF0aW9uVHlwZT0iSGFzUGFydCIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iTW9kZWwiPjEyMzQ1Njc4OTk5OTwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUkwiIHJlbGF0aW9uVHlwZT0iSXNQdWJsaXNoZWRJbiIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iT3V0cHV0TWFuYWdlbWVudFBsYW4iPmh0dHA6Ly93d3cuaGVhdGZsb3cudW5kLmVkdS9pbmRleDIuaHRtbDwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJVUk4iIHJlbGF0aW9uVHlwZT0iSXNSZWZlcmVuY2VkQnkiIHJlc291cmNlVHlwZUdlbmVyYWw9IlBlZXJSZXZpZXciPnVybjpuYm46ZGU6MTAxOjEtMjAxMTAyMDMzNTkyPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9InczaWQiIHJlbGF0aW9uVHlwZT0iUmVmZXJlbmNlcyIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iUGh5c2ljYWxPYmplY3QiPmh0dHBzOi8vdzNpZC5vcmcvZ2FtZXMvc3BlYy9jb2lsI0NvaWxfQm9tYl9EaWVfT2ZfQWdlPC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc0RvY3VtZW50ZWRCeSIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iUHJlcHJpbnQiPjEwLjEwMTYvai5lcHNsLjIwMTEuMTEuMDM3PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJEb2N1bWVudHMiIHJlc291cmNlVHlwZUdlbmVyYWw9IlJlcG9ydCI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzQ29tcGlsZWRCeSIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU2VydmljZSI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IkNvbXBpbGVzIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJTb2Z0d2FyZSI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzVmFyaWFudEZvcm1PZiIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iU291bmQiPjEwLjEwMTYvai5lcHNsLjIwMTEuMTEuMDM3PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc09yaWdpbmFsRm9ybU9mIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJTdGFuZGFyZCI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzSWRlbnRpY2FsVG8iIHJlc291cmNlVHlwZUdlbmVyYWw9IlRleHQiPjEwLjEwMTYvai5lcHNsLjIwMTEuMTEuMDM3PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc1Jldmlld2VkQnkiIHJlc291cmNlVHlwZUdlbmVyYWw9IldvcmtmbG93Ij4xMC4xMDE2L2ouZXBzbC4yMDExLjExLjAzNzwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iUmV2aWV3cyIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iT3RoZXIiPjEwLjEwMTYvai5lcHNsLjIwMTEuMTEuMDM3PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc0Rlcml2ZWRGcm9tIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJPdGhlciI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IklzU291cmNlT2YiIHJlc291cmNlVHlwZUdlbmVyYWw9Ik90aGVyIj4xMC4xMDE2L2ouZXBzbC4yMDExLjExLjAzNzwvcmVsYXRlZElkZW50aWZpZXI+CiAgICA8cmVsYXRlZElkZW50aWZpZXIgcmVsYXRlZElkZW50aWZpZXJUeXBlPSJET0kiIHJlbGF0aW9uVHlwZT0iSXNSZXF1aXJlZEJ5IiByZXNvdXJjZVR5cGVHZW5lcmFsPSJPdGhlciI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9IlJlcXVpcmVzIiByZXNvdXJjZVR5cGVHZW5lcmFsPSJPdGhlciI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogICAgPHJlbGF0ZWRJZGVudGlmaWVyIHJlbGF0ZWRJZGVudGlmaWVyVHlwZT0iRE9JIiByZWxhdGlvblR5cGU9Ik9ic29sZXRlcyIgcmVzb3VyY2VUeXBlR2VuZXJhbD0iT3RoZXIiPjEwLjEwMTYvai5lcHNsLjIwMTEuMTEuMDM3PC9yZWxhdGVkSWRlbnRpZmllcj4KICAgIDxyZWxhdGVkSWRlbnRpZmllciByZWxhdGVkSWRlbnRpZmllclR5cGU9IkRPSSIgcmVsYXRpb25UeXBlPSJJc09ic29sZXRlZEJ5IiByZXNvdXJjZVR5cGVHZW5lcmFsPSJPdGhlciI+MTAuMTAxNi9qLmVwc2wuMjAxMS4xMS4wMzc8L3JlbGF0ZWRJZGVudGlmaWVyPgogIDwvcmVsYXRlZElkZW50aWZpZXJzPgogIDxzaXplcz4KICAgIDxzaXplPjEgTUI8L3NpemU+CiAgICA8c2l6ZT45MCBwYWdlczwvc2l6ZT4KICA8L3NpemVzPgogIDxmb3JtYXRzPgogICAgPGZvcm1hdD5hcHBsaWNhdGlvbi94bWw8L2Zvcm1hdD4KICAgIDxmb3JtYXQ+dGV4dC9wbGFpbjwvZm9ybWF0PgogIDwvZm9ybWF0cz4KICA8dmVyc2lvbj4xPC92ZXJzaW9uPgogIDxyaWdodHNMaXN0PgogICAgPHJpZ2h0cyByaWdodHNVUkk9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9wdWJsaWNkb21haW4vIj5DcmVhdGl2ZSBDb21tb25zIFB1YmxpYyBEb21haW4gRGVkaWNhdGlvbiBhbmQgQ2VydGlmaWNhdGlvbjwvcmlnaHRzPgogIDwvcmlnaHRzTGlzdD4KICA8ZGVzY3JpcHRpb25zPgogICAgPGRlc2NyaXB0aW9uIHhtbDpsYW5nPSJlbiIgZGVzY3JpcHRpb25UeXBlPSJBYnN0cmFjdCI+RXhhbXBsZSBBYnN0cmFjdDwvZGVzY3JpcHRpb24+CiAgICA8ZGVzY3JpcHRpb24geG1sOmxhbmc9ImVuIiBkZXNjcmlwdGlvblR5cGU9Ik1ldGhvZHMiPkV4YW1wbGUgTWV0aG9kczwvZGVzY3JpcHRpb24+CiAgICA8ZGVzY3JpcHRpb24geG1sOmxhbmc9ImVuIiBkZXNjcmlwdGlvblR5cGU9IlNlcmllc0luZm9ybWF0aW9uIj5FeGFtcGxlIFNlcmllc0luZm9ybWF0aW9uPC9kZXNjcmlwdGlvbj4KICAgIDxkZXNjcmlwdGlvbiB4bWw6bGFuZz0iZW4iIGRlc2NyaXB0aW9uVHlwZT0iVGFibGVPZkNvbnRlbnRzIj5FeGFtcGxlIFRhYmxlT2ZDb250ZW50czwvZGVzY3JpcHRpb24+CiAgICA8ZGVzY3JpcHRpb24geG1sOmxhbmc9ImVuIiBkZXNjcmlwdGlvblR5cGU9IlRlY2huaWNhbEluZm8iPkV4YW1wbGUgVGVjaG5pY2FsSW5mbzwvZGVzY3JpcHRpb24+CiAgICA8ZGVzY3JpcHRpb24geG1sOmxhbmc9ImVuIiBkZXNjcmlwdGlvblR5cGU9Ik90aGVyIj5FeGFtcGxlIE90aGVyPC9kZXNjcmlwdGlvbj4KICA8L2Rlc2NyaXB0aW9ucz4KICA8Z2VvTG9jYXRpb25zPgogICAgPGdlb0xvY2F0aW9uPgogICAgICA8Z2VvTG9jYXRpb25QbGFjZT5WYW5jb3V2ZXIsIEJyaXRpc2ggQ29sdW1iaWEsIENhbmFkYTwvZ2VvTG9jYXRpb25QbGFjZT4KICAgICAgPGdlb0xvY2F0aW9uUG9pbnQ+CiAgICAgICAgPHBvaW50TGF0aXR1ZGU+NDkuMjgyNzwvcG9pbnRMYXRpdHVkZT4KICAgICAgICA8cG9pbnRMb25naXR1ZGU+LTEyMy4xMjA3PC9wb2ludExvbmdpdHVkZT4KICAgICAgPC9nZW9Mb2NhdGlvblBvaW50PgogICAgICA8Z2VvTG9jYXRpb25Cb3g+CiAgICAgICAgPHdlc3RCb3VuZExvbmdpdHVkZT4tMTIzLjI3PC93ZXN0Qm91bmRMb25naXR1ZGU+CiAgICAgICAgPGVhc3RCb3VuZExvbmdpdHVkZT4tMTIzLjAyPC9lYXN0Qm91bmRMb25naXR1ZGU+CiAgICAgICAgPHNvdXRoQm91bmRMYXRpdHVkZT40OS4xOTU8L3NvdXRoQm91bmRMYXRpdHVkZT4KICAgICAgICA8bm9ydGhCb3VuZExhdGl0dWRlPjQ5LjMxNTwvbm9ydGhCb3VuZExhdGl0dWRlPgogICAgICA8L2dlb0xvY2F0aW9uQm94PgogICAgPC9nZW9Mb2NhdGlvbj4KICA8L2dlb0xvY2F0aW9ucz4KICA8ZnVuZGluZ1JlZmVyZW5jZXM+CiAgICA8ZnVuZGluZ1JlZmVyZW5jZT4KICAgICAgPGZ1bmRlck5hbWU+RXhhbXBsZSBGdW5kZXI8L2Z1bmRlck5hbWU+CiAgICAgIDxmdW5kZXJJZGVudGlmaWVyIGZ1bmRlcklkZW50aWZpZXJUeXBlPSJDcm9zc3JlZiBGdW5kZXIgSUQiPmh0dHBzOi8vZG9pLm9yZy8xMC4xMzAzOS81MDExMDAwMDA3ODA8L2Z1bmRlcklkZW50aWZpZXI+CiAgICAgIDxhd2FyZE51bWJlciBhd2FyZFVSST0iaHR0cHM6Ly9leGFtcGxlLmNvbS9leGFtcGxlLWF3YXJkLXVyaSI+MTIzNDU8L2F3YXJkTnVtYmVyPgogICAgICA8YXdhcmRUaXRsZT5FeGFtcGxlIEF3YXJkVGl0bGU8L2F3YXJkVGl0bGU+CiAgICA8L2Z1bmRpbmdSZWZlcmVuY2U+CiAgPC9mdW5kaW5nUmVmZXJlbmNlcz4KPC9yZXNvdXJjZT4=",
-        "url": "https://example.com/",
-        "contentUrl": null,
-        "metadataVersion": 20,
-        "schemaVersion": "http://datacite.org/schema/kernel-4",
-        "source": "fabricaForm",
-        "isActive": true,
-        "state": "findable",
-        "reason": null,
-        "viewCount": 0,
-        "viewsOverTime": [],
-        "downloadCount": 0,
-        "downloadsOverTime": [],
-        "referenceCount": 0,
-        "citationCount": 0,
-        "citationsOverTime": [],
-        "partCount": 0,
-        "partOfCount": 0,
-        "versionCount": 0,
-        "versionOfCount": 0,
-        "created": "2022-10-27T19:09:17.000Z",
-        "registered": "2022-10-27T19:15:48.000Z",
-        "published": "2022",
-        "updated": "2024-01-02T20:47:44.000Z"
-      },
-      "relationships": {
-        "client": {
-          "data": {
-            "id": "datacite.mwg",
-            "type": "clients"
-          }
-        },
-        "provider": {
-          "data": {
-            "id": "datacite",
-            "type": "providers"
-          }
-        },
-        "media": {
-          "data": {
-            "id": "10.82433/b09z-4k37",
-            "type": "media"
-          }
-        },
-        "references": {
-          "data": []
-        },
-        "citations": {
-          "data": []
-        },
-        "parts": {
-          "data": []
-        },
-        "partOf": {
-          "data": []
-        },
-        "versions": {
-          "data": []
-        },
-        "versionOf": {
-          "data": []
+  "doi": "10.82433/b09z-4k37",
+  "prefix": "10.82433",
+  "suffix": "b09z-4k37",
+  "alternateIdentifiers": [
+    {
+      "alternateIdentifierType": "Local accession number",
+      "alternateIdentifier": "12345"
+    }
+  ],
+  "creators": [
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "affiliation": [],
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
         }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "Example Title"
+    },
+    {
+      "lang": "en",
+      "title": "Example Subtitle",
+      "titleType": "Subtitle"
+    },
+    {
+      "lang": "fr",
+      "title": "Example TranslatedTitle",
+      "titleType": "TranslatedTitle"
+    },
+    {
+      "lang": "en",
+      "title": "Example AlternativeTitle",
+      "titleType": "AlternativeTitle"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "Example Publisher",
+    "schemeUri": "https://ror.org/",
+    "publisherIdentifier": "https://ror.org/04z8jg394",
+    "publisherIdentifierScheme": "ROR"
+  },
+  "container": {
+    "type": "DataRepository",
+    "title": "Example SeriesInformation",
+    "identifier": "http://purl.oclc.org/foo/bar",
+    "identifierType": "PURL"
+  },
+  "publicationYear": "2022",
+  "subjects": [
+    {
+      "subject": "FOS: Computer and information sciences",
+      "valueUri": "http://www.oecd.org/science/inno/38235147.pdf",
+      "schemeUri": "http://www.oecd.org/science/inno",
+      "subjectScheme": "Fields of Science and Technology (FOS)"
+    },
+    {
+      "subject": "FOS: Computer and information sciences",
+      "schemeUri": "http://www.oecd.org/science/inno/38235147.pdf",
+      "subjectScheme": "Fields of Science and Technology (FOS)"
+    },
+    {
+      "subject": "Digital curation and preservation",
+      "valueUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc/2020",
+      "schemeUri": "https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc",
+      "subjectScheme": "Australian and New Zealand Standard Research Classification (ANZSRC), 2020"
+    },
+    {
+      "subject": "Example Subject"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ContactPerson",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataCollector",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataCurator",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "DataManager",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "Distributor"
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Editor",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "HostingInstitution",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Producer",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectLeader",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectManager",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "ProjectMember",
+      "affiliation": []
+    },
+    {
+      "name": "DataCite",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "RegistrationAgency"
+    },
+    {
+      "name": "International DOI Foundation",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "RegistrationAuthority"
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "RelatedPerson",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Researcher",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleContributor",
+      "affiliation": [
+        {
+          "name": "ExampleOrganization",
+          "schemeUri": "https://ror.org",
+          "affiliationIdentifier": "https://ror.org/03yrm5c26",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "ResearchGroup",
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "RightsHolder",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleContributor",
+      "affiliation": [
+        {
+          "name": "https://ror.org/03yrm5c26",
+          "schemeUri": "https://ror.org",
+          "affiliationIdentifier": "https://ror.org/03yrm5c26",
+          "affiliationIdentifierScheme": "ROR"
+        }
+      ],
+      "contributorType": "Sponsor",
+      "nameIdentifiers": []
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Supervisor",
+      "affiliation": []
+    },
+    {
+      "name": "ExampleOrganization",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "WorkPackageLeader",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/03yrm5c26",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    },
+    {
+      "name": "ExampleFamilyName, ExampleGivenName",
+      "nameType": "Personal",
+      "givenName": "ExampleGivenName",
+      "familyName": "ExampleFamilyName",
+      "contributorType": "Other",
+      "affiliation": []
+    }
+  ],
+  "dates": [
+    {
+      "date": "2022-01-01",
+      "dateType": "Accepted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Available"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Copyrighted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Created"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Issued"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Submitted"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Updated"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Valid"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Withdrawn"
+    },
+    {
+      "date": "2022-01-01",
+      "dateType": "Other",
+      "dateInformation": "ExampleDateInformation"
+    }
+  ],
+  "language": "en",
+  "types": {
+    "resourceType": "Example ResourceType",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsCitedBy",
+      "relatedIdentifier": "ark:/13030/tqb3kh97gh8w",
+      "resourceTypeGeneral": "Audiovisual",
+      "relatedIdentifierType": "ARK"
+    },
+    {
+      "relationType": "Cites",
+      "relatedIdentifier": "arXiv:0706.0001",
+      "resourceTypeGeneral": "Book",
+      "relatedIdentifierType": "arXiv"
+    },
+    {
+      "relationType": "IsSupplementTo",
+      "relatedIdentifier": "2018AGUFM.A24K..07S",
+      "resourceTypeGeneral": "BookChapter",
+      "relatedIdentifierType": "bibcode"
+    },
+    {
+      "relationType": "IsSupplementedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Collection",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsContinuedBy",
+      "relatedIdentifier": "9783468111242",
+      "resourceTypeGeneral": "ComputationalNotebook",
+      "relatedIdentifierType": "EAN13"
+    },
+    {
+      "relationType": "Continues",
+      "relatedIdentifier": "1562-6865",
+      "resourceTypeGeneral": "ConferencePaper",
+      "relatedIdentifierType": "EISSN"
+    },
+    {
+      "relationType": "Describes",
+      "relatedIdentifier": "10013/epic.10033",
+      "resourceTypeGeneral": "ConferenceProceeding",
+      "relatedIdentifierType": "Handle"
+    },
+    {
+      "relationType": "IsDescribedBy",
+      "relatedIdentifier": "IECUR0097",
+      "resourceTypeGeneral": "DataPaper",
+      "relatedIdentifierType": "IGSN"
+    },
+    {
+      "relationType": "HasMetadata",
+      "relatedIdentifier": "978-3-905673-82-1",
+      "resourceTypeGeneral": "Dataset",
+      "relatedIdentifierType": "ISBN"
+    },
+    {
+      "relationType": "IsMetadataFor",
+      "relatedIdentifier": "0077-5606",
+      "resourceTypeGeneral": "Dissertation",
+      "relatedIdentifierType": "ISSN"
+    },
+    {
+      "relationType": "HasVersion",
+      "relatedIdentifier": "0A9 2002 12B4A105 7",
+      "resourceTypeGeneral": "Event",
+      "relatedIdentifierType": "ISTC"
+    },
+    {
+      "relationType": "IsVersionOf",
+      "relatedIdentifier": "1188-1534",
+      "resourceTypeGeneral": "Image",
+      "relatedIdentifierType": "LISSN"
+    },
+    {
+      "relationType": "IsNewVersionOf",
+      "relatedIdentifier": "urn:lsid:ubio.org:namebank:11815",
+      "resourceTypeGeneral": "InteractiveResource",
+      "relatedIdentifierType": "LSID"
+    },
+    {
+      "relationType": "IsPreviousVersionOf",
+      "relatedIdentifier": "12082125",
+      "resourceTypeGeneral": "Journal",
+      "relatedIdentifierType": "PMID"
+    },
+    {
+      "relationType": "IsPartOf",
+      "relatedIdentifier": "http://purl.oclc.org/foo/bar",
+      "resourceTypeGeneral": "JournalArticle",
+      "relatedIdentifierType": "PURL"
+    },
+    {
+      "relationType": "HasPart",
+      "relatedIdentifier": "123456789999",
+      "resourceTypeGeneral": "Model",
+      "relatedIdentifierType": "UPC"
+    },
+    {
+      "relationType": "IsPublishedIn",
+      "relatedIdentifier": "http://www.heatflow.und.edu/index2.html",
+      "resourceTypeGeneral": "OutputManagementPlan",
+      "relatedIdentifierType": "URL"
+    },
+    {
+      "relationType": "IsReferencedBy",
+      "relatedIdentifier": "urn:nbn:de:101:1-201102033592",
+      "resourceTypeGeneral": "PeerReview",
+      "relatedIdentifierType": "URN"
+    },
+    {
+      "relationType": "References",
+      "relatedIdentifier": "https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age",
+      "resourceTypeGeneral": "PhysicalObject",
+      "relatedIdentifierType": "w3id"
+    },
+    {
+      "relationType": "IsDocumentedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Preprint",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Documents",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Report",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsCompiledBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Service",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Compiles",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Software",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsVariantFormOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Sound",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsOriginalFormOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Standard",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsIdenticalTo",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Text",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsReviewedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Workflow",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Reviews",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsDerivedFrom",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsSourceOf",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsRequiredBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Requires",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "Obsoletes",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    },
+    {
+      "relationType": "IsObsoletedBy",
+      "relatedIdentifier": "10.1016/j.epsl.2011.11.037",
+      "resourceTypeGeneral": "Other",
+      "relatedIdentifierType": "DOI"
+    }
+  ],
+  "relatedItems": [],
+  "sizes": [
+    "1 MB",
+    "90 pages"
+  ],
+  "formats": [
+    "application/xml",
+    "text/plain"
+  ],
+  "version": "1",
+  "rightsList": [
+    {
+      "rights": "Creative Commons Public Domain Dedication and Certification",
+      "rightsUri": "https://creativecommons.org/licenses/publicdomain/",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-pddc",
+      "rightsIdentifierScheme": "SPDX"
+    }
+  ],
+  "descriptions": [
+    {
+      "lang": "en",
+      "description": "Example Abstract",
+      "descriptionType": "Abstract"
+    },
+    {
+      "lang": "en",
+      "description": "Example Methods",
+      "descriptionType": "Methods"
+    },
+    {
+      "lang": "en",
+      "description": "Example SeriesInformation",
+      "descriptionType": "SeriesInformation"
+    },
+    {
+      "lang": "en",
+      "description": "Example TableOfContents",
+      "descriptionType": "TableOfContents"
+    },
+    {
+      "lang": "en",
+      "description": "Example TechnicalInfo",
+      "descriptionType": "TechnicalInfo"
+    },
+    {
+      "lang": "en",
+      "description": "Example Other",
+      "descriptionType": "Other"
+    }
+  ],
+  "geoLocations": [
+    {
+      "geoLocationBox": {
+        "eastBoundLongitude": -123.02,
+        "northBoundLatitude": 49.315,
+        "southBoundLatitude": 49.195,
+        "westBoundLongitude": -123.27
+      },
+      "geoLocationPlace": "Vancouver, British Columbia, Canada",
+      "geoLocationPoint": {
+        "pointLatitude": 49.2827,
+        "pointLongitude": -123.1207
       }
     }
-  }
+  ],
+  "fundingReferences": [
+    {
+      "awardUri": "https://example.com/example-award-uri",
+      "awardTitle": "Example AwardTitle",
+      "funderName": "Example Funder",
+      "awardNumber": "12345",
+      "funderIdentifier": "https://doi.org/10.13039/501100000780",
+      "funderIdentifierType": "Crossref Funder ID"
+    }
+  ],
+  "url": "https://example.com/",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}
