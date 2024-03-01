@@ -286,6 +286,10 @@
                 "ROR",
                 "Other"
             ]
+        },
+        "publicationYear": {
+            "type": "string",
+            "pattern": "^[0-9]{4}$"
         }
     },
     "type": "object",
@@ -344,10 +348,7 @@
             },
             "required": ["name"]
         },
-        "publicationYear": {
-            "type": "string",
-            "pattern": "^[0-9]{4}$"
-        },
+        "publicationYear": {"$ref": "#/definitions/publicationYear"},
         "subjects": {
             "type": "array",
             "items": {
@@ -460,10 +461,7 @@
                         "minItems": 1,
                         "uniqueItems": true
                     },
-                    "publicationYear": {
-                        "type": "string",
-                        "pattern": "^[0-9]{4}$"
-                    },
+                    "publicationYear": {"$ref": "#/definitions/publicationYear"},
                     "volume": {"type": "string"},
                     "issue": {"type": "string"},
                     "firstPage": {"type": "string"},
