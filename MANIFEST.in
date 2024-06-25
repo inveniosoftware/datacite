@@ -9,7 +9,7 @@
 include *.py
 include *.rst
 include *.sh
-include *.yml
+include *.yaml
 include .git-blame-ignore-revs
 include .coveragerc
 include .editorconfig
