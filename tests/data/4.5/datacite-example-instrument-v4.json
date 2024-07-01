@@ -1,0 +1,99 @@
+{
+  "doi": "10.82433/08qf-ee96",
+  "prefix": "10.82433",
+  "suffix": "08qf-ee96",
+  "alternateIdentifiers": [
+    {
+      "alternateIdentifierType": "SerialNumber",
+      "alternateIdentifier": "1234567"
+    }
+  ],
+  "creators": [
+    {
+      "name": "DECTRIS",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://www.wikidata.org/wiki/",
+          "nameIdentifier": "Q107529885",
+          "nameIdentifierScheme": "Wikidata"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en-US",
+      "title": "Pilatus detector at MX station 14.1"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "Helmholtz Centre Potsdam - GFZ German Research Centre for Geosciences"
+  },
+  "container": {
+    "type": "Series",
+    "identifier": "1234.1675",
+    "identifierType": "Handle"
+  },
+  "publicationYear": "2022",
+  "subjects": [],
+  "contributors": [
+    {
+      "name": "Helmholtz-Zentrum Berlin Für Materialien Und Energie",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "contributorType": "HostingInstitution",
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/02aj13c28",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    }
+  ],
+  "dates": [
+    {
+      "date": "2022",
+      "dateType": "Issued"
+    }
+  ],
+  "types": {
+    "resourceType": "Raster image pixel detector",
+    "resourceTypeGeneral": "Instrument"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsPartOf",
+      "relatedIdentifier": "1234.1675",
+      "resourceTypeGeneral": "Instrument",
+      "relatedIdentifierType": "Handle"
+    },
+    {
+      "relationType": "IsDescribedBy",
+      "relatedIdentifier": "https://www.dectris.com/products/pilatus3/pilatus3-s-for-synchrotron/details/pilatus3-s-6m",
+      "resourceTypeGeneral": "Text",
+      "relatedIdentifierType": "URL"
+    }
+  ],
+  "relatedItems": [],
+  "sizes": [],
+  "formats": [],
+  "rightsList": [],
+  "descriptions": [
+    {
+      "lang": "en-US",
+      "description": "The Pilatus 6M pixel-detector at the MX station 14.1",
+      "descriptionType": "Abstract"
+    },
+    {
+      "lang": "en-US",
+      "description": "Model Name: PILATUS3 S 6M. Instrument type: Raster image pixel detector. Measured variables: X-ray.",
+      "descriptionType": "TechnicalInfo"
+    }
+  ],
+  "url": "https://github.com/rdawg-pidinst/schema/blob/master/support/examples/hzb-mx-14-1-pilatus.xml",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}
