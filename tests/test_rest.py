@@ -17,6 +17,7 @@ import responses
 from helpers import (
     RESTURL,
     TEST_43_JSON_FILES,
+    TEST_45_JSON_FILES,
     get_credentials,
     get_rest,
     load_json_path,
@@ -99,7 +100,7 @@ def test_rest_create_draft_mock():
 
 @pytest.mark.parametrize("example_json43", TEST_43_JSON_FILES)
 @pytest.mark.pw
-def test_rest_create_public(example_json43):
+def test_rest_create_public_43(example_json43):
     """Test creating DOIs with all example metadata"""
     example_metadata = load_json_path(example_json43)
     url = "https://github.com/inveniosoftware/datacite"
@@ -116,6 +117,31 @@ def test_rest_create_public(example_json43):
     url = "https://github.com/inveniosoftware"
     new_metadata = d.update_doi(doi, url=url)
     assert new_metadata["url"] == url
+
+
+@pytest.mark.parametrize('example_json45', TEST_45_JSON_FILES)
+@pytest.mark.pw
+def test_rest_create_public_45(example_json45):
+    """Test creating DOIs with all example metadata"""
+    example_metadata = load_json_path(example_json45)
+    # We need to remove the example doi, since we want DataCite to
+    # mint one with our test prefix
+    example_metadata.pop('doi')
+    example_metadata.pop('prefix')
+    example_metadata.pop('suffix')
+    url = 'https://github.com/inveniosoftware/datacite'
+    username, password, prefix = get_credentials()
+    d = get_rest(username=username, password=password, prefix=prefix,
+                 with_fake_url=False)
+    doi = d.public_doi(example_metadata, url)
+    datacite_prefix = doi.split('/')[0]
+    assert datacite_prefix == prefix
+    metadata = {'publisher': 'Invenio'}
+    new_metadata = d.update_doi(doi, metadata)
+    assert new_metadata['publisher'] == 'Invenio'
+    url = 'https://github.com/inveniosoftware'
+    new_metadata = d.update_doi(doi, url=url)
+    assert new_metadata['url'] == url
 
 
 @responses.activate
