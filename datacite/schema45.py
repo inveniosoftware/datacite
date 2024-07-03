@@ -414,19 +414,20 @@ def geolocations(path, values):
             elem.append(E.northBoundLatitude(str(box["northBoundLatitude"])))
             element.append(elem)
 
-        polygons = value.get("geoLocationPolygons", [])
-        for polygon in polygons:
+        polygon = value.get("geoLocationPolygon")
+        if polygon:
             elem = E.geoLocationPolygon()
-            points = polygon["polygonPoints"]
-            for p in points:
-                e = E.polygonPoint()
-                geopoint(e, p)
-                elem.append(e)
-            inPoint = polygon.get("inPolygonPoint")
-            if inPoint:
-                e = E.inPolygonPoint()
-                geopoint(e, inPoint)
-                elem.append(e)
+            for point in polygon:
+                plainPoint = point.get("polygonPoint")
+                if plainPoint:
+                    e = E.polygonPoint()
+                    geopoint(e, plainPoint)
+                    elem.append(e)
+                inPoint = point.get("inPolygonPoint")
+                if inPoint:
+                    e = E.inPolygonPoint()
+                    geopoint(e, inPoint)
+                    elem.append(e)
             element.append(elem)
 
         root.append(element)

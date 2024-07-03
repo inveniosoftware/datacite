@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/2019-09/schema#",
     "id": "datacite-v4.5.json",
     "title": "DataCite v4.5",
     "description": "JSON representation of the DataCite v4.5 schema.",
@@ -16,6 +16,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "nameIdentifier": {"type": "string"},
                     "nameIdentifierScheme": {"type": "string"},
@@ -29,6 +30,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "name": {"type": "string"},
                     "affiliationIdentifier": {"type": "string"},
@@ -39,7 +41,7 @@
             },
             "uniqueItems": true
         },
-        "creator": {
+        "person": {
             "type": "object",
             "properties": {
                 "name": {"type": "string"},
@@ -52,9 +54,15 @@
             },
             "required": ["name"]
         },
+        "creator": {
+            "type": "object",
+            "allOf": [{ "$ref": "#/definitions/person" }],
+            "unevaluatedProperties": false
+        },
         "contributor": {
             "type": "object",
-            "allOf": [{ "$ref": "#/definitions/creator" }],
+            "allOf": [{ "$ref": "#/definitions/person" }],
+            "unevaluatedProperties": false,
             "properties": {
                 "contributorType": {"$ref": "#/definitions/contributorType"}
             },
@@ -271,6 +279,7 @@
         },
         "geoLocationPoint": {
             "type": "object",
+            "additionalProperties": false,    
             "properties": {
                 "pointLongitude": {"$ref": "#/definitions/longitude"},
                 "pointLatitude": {"$ref": "#/definitions/latitude"}
@@ -294,9 +303,9 @@
     },
     "type": "object",
     "properties": {
-        "doi": {"type": "string", "pattern" : "^10.\\d{4,9}/[-._;()/:a-z0-9A-Z]+$"},
-        "prefix":{"type": "string", "pattern": "^10.\\d{4,9}$"},
-        "suffix":{"type": "string", "pattern": "^[-._;()/:a-z0-9A-Z]+$"},
+        "doi": {"type": "string", "pattern" : "^10[.][0-9]{4,9}[/][^\\s]+$"},
+        "prefix":{"type": "string", "pattern": "^10[.][0-9]{4,9}$"},
+        "suffix":{"type": "string", "pattern": "^[^\\s]+$"},
         "event" : {
             "type": "string",
             "enum": [
@@ -308,6 +317,7 @@
         "url": {"type": "string", "format": "uri"},
         "types": {
             "type": "object",
+            "additionalProperties": false,    
             "properties": {
                 "resourceType": {"type": "string"},
                 "resourceTypeGeneral": {"$ref": "#/definitions/resourceTypeGeneral"}
@@ -327,6 +337,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "title": {"type": "string"},
                     "titleType": {"$ref": "#/definitions/titleType"},
@@ -339,11 +350,12 @@
         },
         "publisher": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "name": {"type":"string"},
                 "publisherIdentifier": {"type":"string"},
                 "publisherIdentifierScheme": {"type":"string"},
-                "schemeURI": {"type":"string", "format": "uri"},
+                "schemeUri": {"type":"string", "format": "uri"},
                 "lang": {"type":"string"}
             },
             "required": ["name"]
@@ -353,6 +365,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "subject": {"type": "string"},
                     "subjectScheme": {"type": "string"},
@@ -377,6 +390,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "date": {"$ref": "#/definitions/date"},
                     "dateType": {"$ref": "#/definitions/dateType"},
@@ -394,6 +408,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "alternateIdentifier": {"type": "string"},
                     "alternateIdentifierType": {"type": "string"}
@@ -407,6 +422,7 @@
             "items": {
                 "type": "object",
                 "allOf": [{ "$ref": "#/definitions/relatedObject"}],
+                "unevaluatedProperties": false,
                 "properties": {
                     "relatedIdentifier": {"type": "string"},
                     "relatedIdentifierType": {"$ref": "#/definitions/relatedIdentifierType"}
@@ -421,9 +437,11 @@
             "items": {
                 "type": "object",
                 "allOf": [{ "$ref": "#/definitions/relatedObject"}],
+                "unevaluatedProperties": false,
                 "properties": {
                     "relatedItemIdentifier": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                           "relatedItemIdentifier": {"type": "string"},
                           "relatedItemIdentifierType": {"$ref": "#/definitions/relatedIdentifierType"}
@@ -435,6 +453,7 @@
                         "type": "array",
                         "items": {
                             "type": "object",
+                            "unevaluatedProperties": false,
                             "allOf": [{ "$ref": "#/definitions/creator" }],
                             "required": ["name"]
                         }
@@ -443,6 +462,7 @@
                         "type": "array",
                         "items": {
                             "type": "object",
+                            "unevaluatedProperties": false,
                             "allOf": [{ "$ref": "#/definitions/contributor" }],
                             "required": ["contributorType", "name"]
                         }
@@ -451,6 +471,7 @@
                         "type": "array",
                         "items": {
                             "type": "object",
+                            "additionalProperties": false,
                             "properties": {
                                 "title": {"type": "string"},
                                 "titleType": {"$ref": "#/definitions/titleType"},
@@ -506,6 +527,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "rights": {"type": "string"},
                     "rightsUri": {"type": "string", "format": "uri"},
@@ -521,6 +543,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "description": {"type": "string"},
                     "descriptionType": {"$ref": "#/definitions/descriptionType"},
@@ -534,11 +557,13 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "geoLocationPlace": {"type": "string"},
                     "geoLocationPoint": {"$ref": "#/definitions/geoLocationPoint"},
                     "geoLocationBox": {
                         "type": "object",
+                        "additionalProperties": false,
                         "properties": {
                             "westBoundLongitude": {"$ref": "#/definitions/longitude"},
                             "eastBoundLongitude": {"$ref": "#/definitions/longitude"},
@@ -547,21 +572,16 @@
                         },
                         "required": ["westBoundLongitude", "eastBoundLongitude", "southBoundLatitude", "northBoundLatitude"]
                     },
-                    "geoLocationPolygons": {
+                    "geoLocationPolygon": {
                         "type": "array",
                         "items": {
                             "type": "object",
+                            "additionalProperties": false,
                             "properties": {
-                                "polygonPoints": {
-                                    "type": "array",
-                                    "items": {"$ref": "#/definitions/geoLocationPoint"},
-                                    "minItems": 4
-                                },
+                                "polygonPoint": {"$ref": "#/definitions/geoLocationPoint"},
                                 "inPolygonPoint": {"$ref": "#/definitions/geoLocationPoint"}
-                            },
-                            "required": ["polygonPoints"]
-                        },
-                        "uniqueItems": true
+                            }
+                        }
                     }
                 }
             },
@@ -571,6 +591,7 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "additionalProperties": false,
                 "properties": {
                     "funderName": {"type": "string"},
                     "funderIdentifier": {"type": "string"},
@@ -597,7 +618,6 @@
         }
     },
     "required": [
-        "url",
         "creators",
         "titles",
         "publisher",

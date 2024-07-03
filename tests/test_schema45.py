@@ -496,22 +496,32 @@ def test_geolocations(minimal_json45):
                     "northBoundLatitude": 68,
                 },
                 "geoLocationPlace": "Atlantic Ocean",
-                "geoLocationPolygons": [
+                "geoLocationPolygon": [
                     {
-                        "polygonPoints": [
-                            {"pointLongitude": -71.032, "pointLatitude": 41.090},
-                            {"pointLongitude": -68.211, "pointLatitude": 42.893},
-                            {"pointLongitude": -72.032, "pointLatitude": 39.090},
-                            {"pointLongitude": -71.032, "pointLatitude": 41.090},
-                        ]
+                        "polygonPoint": {
+                            "pointLongitude": -71.032,
+                            "pointLatitude": 41.090,
+                        }
                     },
                     {
-                        "polygonPoints": [
-                            {"pointLongitude": -72.032, "pointLatitude": 42.090},
-                            {"pointLongitude": -69.211, "pointLatitude": 43.893},
-                            {"pointLongitude": -73.032, "pointLatitude": 41.090},
-                            {"pointLongitude": -72.032, "pointLatitude": 42.090},
-                        ],
+                        "polygonPoint": {
+                            "pointLongitude": -68.211,
+                            "pointLatitude": 42.893,
+                        }
+                    },
+                    {
+                        "polygonPoint": {
+                            "pointLongitude": -72.032,
+                            "pointLatitude": 39.090,
+                        }
+                    },
+                    {
+                        "polygonPoint": {
+                            "pointLongitude": -71.032,
+                            "pointLatitude": 41.090,
+                        }
+                    },
+                    {
                         "inPolygonPoint": {
                             "pointLongitude": -52.032,
                             "pointLatitude": 12.090,
@@ -538,11 +548,8 @@ def test_geolocations(minimal_json45):
     assert boxnorth.text == "68"
     place = elem.xpath("geoLocationPlace")[0]
     assert place.text == "Atlantic Ocean"
-    polygons = elem.xpath("geoLocationPolygon")
-    assert len(polygons) == 2
-    # Polygon 1
-    points = polygons[0]
-    assert len(points) == 4
+    polygon = elem.xpath("geoLocationPolygon")[0]
+    points = polygon.xpath("polygonPoint")
     p1long = points[0].xpath("pointLongitude")[0]
     p1lat = points[0].xpath("pointLatitude")[0]
     p2long = points[1].xpath("pointLongitude")[0]
@@ -559,12 +566,7 @@ def test_geolocations(minimal_json45):
     assert p3lat.text == "39.09"
     assert p4long.text == "-71.032"
     assert p4lat.text == "41.09"
-    # Polygon 2
-    points = polygons[1]
-    assert len(points) == 5
-    assert len(points.xpath("inPolygonPoint")) == 1
-    assert len(points.xpath("polygonPoint")) == 4
-    inp = points.xpath("inPolygonPoint")[0]
+    inp = polygon.xpath("inPolygonPoint")[0]
     inplat = inp.xpath("pointLatitude")[0]
     inplong = inp.xpath("pointLongitude")[0]
     assert inplat.text == "12.09"

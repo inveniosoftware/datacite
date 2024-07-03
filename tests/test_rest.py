@@ -137,9 +137,9 @@ def test_rest_create_public_45(example_json45):
     doi = d.public_doi(example_metadata, url)
     datacite_prefix = doi.split("/")[0]
     assert datacite_prefix == prefix
-    metadata = {"publisher": "Invenio"}
+    metadata = {"subjects": [{"subject": "Invenio"}]}
     new_metadata = d.update_doi(doi, metadata)
-    assert new_metadata["publisher"] == "Invenio"
+    assert new_metadata["subjects"][0]["subject"] == "Invenio"
     url = "https://github.com/inveniosoftware"
     new_metadata = d.update_doi(doi, url=url)
     assert new_metadata["url"] == url
