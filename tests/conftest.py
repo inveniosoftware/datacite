@@ -83,10 +83,7 @@ def example_json_file43():
 def example_json_file45():
     """Load DataCite v4.5 full example JSON."""
     path = dirname(__file__)
-    with open(join(
-            path,
-            'data',
-            'datacite-v4.5-full-example.json')) as file:
+    with open(join(path, "data", "datacite-v4.5-full-example.json")) as file:
         return file.read()
 
 
@@ -167,7 +164,7 @@ def example_xml_file43():
 @pytest.fixture
 def example_xml_file45():
     """Load DataCite v4.5 full example XML."""
-    return load_xml('datacite-v4.5-full-example.xml')
+    return load_xml("datacite-v4.5-full-example.xml")
 
 
 @pytest.fixture
@@ -203,7 +200,7 @@ def example_xml43(example_xml_file43):
 @pytest.fixture
 def example_xml45(example_xml_file45):
     """Load DataCite v4.3 full example as an etree."""
-    return etree.fromstring(example_xml_file45.encode('utf-8'))
+    return etree.fromstring(example_xml_file45.encode("utf-8"))
 
 
 def _load_xsd(xsd_filename):
@@ -249,13 +246,13 @@ def xsd43():
     return _load_xsd("4.3/metadata.xsd")
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def xsd45():
     """Load DataCite v4.5 full example as an etree."""
-    return _load_xsd('4.5/metadata.xsd')
+    return _load_xsd("4.5/metadata.xsd")
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope="function")
 def minimal_json42():
     """Minimal valid JSON for DataCite 4.2."""
     return {
@@ -297,23 +294,18 @@ def minimal_json43():
     }
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope="function")
 def minimal_json45():
     """Minimal valid JSON for DataCite 4.5."""
     return {
-        'doi': '10.1234/foo.bar',
-        'creators': [
-            {'name': 'Nielsen, Lars Holm'},
+        "doi": "10.1234/foo.bar",
+        "creators": [
+            {"name": "Nielsen, Lars Holm"},
         ],
-        'titles': [
-            {'title': 'Minimal Test Case'}
-        ],
-        'publisher': {'name': 'Invenio Software'},
-        'publicationYear': '2016',
-        'types': {
-            'resourceType': '',
-            'resourceTypeGeneral': 'Software'
-        },
-        'schemaVersion': 'http://datacite.org/schema/kernel-4',
-        'url': "https://www.example.com"
+        "titles": [{"title": "Minimal Test Case"}],
+        "publisher": {"name": "Invenio Software"},
+        "publicationYear": "2016",
+        "types": {"resourceType": "", "resourceTypeGeneral": "Software"},
+        "schemaVersion": "http://datacite.org/schema/kernel-4",
+        "url": "https://www.example.com",
     }

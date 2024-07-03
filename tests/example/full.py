@@ -4,23 +4,24 @@ from datacite import DataCiteMDSClient, schema42
 # schema31, schema40 or schema41 instead.
 
 data = {
-    'identifiers': [{
-        'identifierType': 'DOI',
-        'identifier': '10.1234/foo.bar',
-    }],
-    'creators': [
-        {'name': 'Smith, John'},
+    "identifiers": [
+        {
+            "identifierType": "DOI",
+            "identifier": "10.1234/foo.bar",
+        }
     ],
-    'titles': [
-        {'title': 'Minimal Test Case', }
+    "creators": [
+        {"name": "Smith, John"},
     ],
-    'publisher': 'Invenio Software',
-    'publicationYear': '2015',
-    'types': {
-        'resourceType': 'Dataset',
-        'resourceTypeGeneral': 'Dataset'
-    },
-    'schemaVersion': 'http://datacite.org/schema/kernel-4',
+    "titles": [
+        {
+            "title": "Minimal Test Case",
+        }
+    ],
+    "publisher": "Invenio Software",
+    "publicationYear": "2015",
+    "types": {"resourceType": "Dataset", "resourceTypeGeneral": "Dataset"},
+    "schemaVersion": "http://datacite.org/schema/kernel-4",
 }
 
 # Validate dictionary
@@ -31,9 +32,9 @@ doc = schema42.tostring(data)
 
 # Initialize the MDS client.
 d = DataCiteMDSClient(
-    username='MYDC.MYACCOUNT',
-    password='mypassword',
-    prefix='10.1234',
+    username="MYDC.MYACCOUNT",
+    password="mypassword",
+    prefix="10.1234",
     test_mode=True,
 )
 
@@ -41,7 +42,7 @@ d = DataCiteMDSClient(
 d.metadata_post(doc)
 
 # Mint new DOI
-d.doi_post('10.1234/test-doi', 'http://example.org/test-doi')
+d.doi_post("10.1234/test-doi", "http://example.org/test-doi")
 
 # Get DOI location
 location = d.doi_get("10.1234/test-doi")
@@ -49,8 +50,10 @@ location = d.doi_get("10.1234/test-doi")
 # Set alternate URL for content type (available through content negotiation)
 d.media_post(
     "10.1234/test-doi",
-    {"application/json": "http://example.org/test-doi/json/",
-     "application/xml": "http://example.org/test-doi/xml/"}
+    {
+        "application/json": "http://example.org/test-doi/json/",
+        "application/xml": "http://example.org/test-doi/xml/",
+    },
 )
 
 # Get alternate URLs
