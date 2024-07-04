@@ -1,6 +1,34 @@
 Changes
 =======
 
+Version v1.2.0 (released 2024-10-17):
+
+- Updates package setup and adds black formatting
+- Adds support for DataCite Metadata Schema v4.5.
+  The version 4.5 jsonschema includes a number of 
+  changes and improvements:
+
+  - Switches to jsonschema 2019-09 and adds more complete validation
+    to catch mistyped elements
+  - Switches publisher from a string to an object. This means
+    you will need to change publisher to be structured like 
+    `"publisher": {"name": "Invenio Software"}` 
+    when you use version 4.5. This change is needed to
+    support the addition of publisher identifiers.
+  - Removes the identifiers field and added doi, prefix, and suffix fields.
+    These fields are clearer, and DataCite appears to be moving away from the
+    combined identifiers field. doi is not a required field since you may or
+    may not have a DOI depending on your workflow.
+  - Adds new relatedItem elements for publication metadata
+  - Switches geolocation point values to numbers. This is to enable 
+    validation and is consistent with GeoJson and InvenioRDM. It is 
+    different from the DataCite REST API which uses strings, and
+    submitted numbers will be turned into strings by DataCite.
+  - Reorganizes geolocationPolygon to how DataCite is currently rendering this
+    metadata
+  - Adds support for the new resourceTypeGeneral and relationType values
+  - General jsonschema organization improvements
+
 Version v1.1.3 (released 2023-03-20):
 
 - Updates dependency versions and adds python 3.9 support
