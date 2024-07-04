@@ -26,9 +26,8 @@
 About
 =====
 
-Python API wrapper for the DataCite Metadata Store API and DataCite XML
-generation.
-
+Python API wrapper for the DataCite REST and Metadata Store APIs as well as 
+DataCite JSON and XML generation.
 
 Installation
 ============
