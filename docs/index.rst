@@ -6,17 +6,18 @@
 .. raw:: html
 
     <p style="height:22px; margin:0 0 0 2em; float:right">
-        <a href="https://travis-ci.org/inveniosoftware/datacite">
-            <img src="https://img.shields.io/travis/inveniosoftware/datacite.svg"
-                 alt="travis-ci badge"/>
+        <a href="https://github.com/inveniosoftware/datacite/actions/workflows/tests.yml">
+            <img src="https://github.com/inveniosoftware/datacite/actions/workflows/tests.yml/badge.svg"
+                 alt="ci badge"/>
         </a>
-        <a href="https://coveralls.io/r/inveniosoftware/datacite">
+        <a href="https://coveralls.io/r/inveniosoftware/datacite?branch=master">
             <img src="https://img.shields.io/coveralls/inveniosoftware/datacite.svg"
                  alt="coveralls.io badge"/>
         </a>
     </p>
 
-Python API wrapper for the DataCite Metadata Store API and DataCite XML generation.
+Python API wrapper for the DataCite REST and Metadata Store APIs as well as
+DataCite JSON and XML generation.
 
 Installation
 ============
@@ -31,14 +32,7 @@ The datacite package is on PyPI so all you need is:
 Usage
 =====
 
-The datacite package implements a Python client for DataCite MDS API and DataCite REST API.
-You can find below full usage example of the DataCite MDS client API wrapper. Please see
-the `DataCite MDS API documentation <https://support.datacite.org/docs/mds-api-guide>`_
-for further information.
-
-.. literalinclude:: ../tests/example/full.py
-   :language: python
-   :linenos:
+The datacite package implements a Python client for DataCite REST and MDS APIs.
 
 You can find below an usage example of the DataCite REST client API wrapper. Please see
 the `DataCite REST API documentation <https://support.datacite.org/docs/api>`_
@@ -48,10 +42,18 @@ for further information.
    :language: python
    :linenos:
 
+You can find below full usage example of the DataCite MDS client API wrapper. Please see
+the `DataCite MDS API documentation <https://support.datacite.org/docs/mds-api-guide>`_
+for further information.
+
+.. literalinclude:: ../tests/example/full.py
+   :language: python
+   :linenos:
+
 Please see the `DataCite Testing guide <https://support.datacite.org/docs/testing-guide>`_ to
 know how to test this client with your test credentials.
 
-Metadata Store API
+DataCite API Wrappers
 ===================
 
 .. automodule:: datacite
@@ -63,28 +65,40 @@ Errors
 .. automodule:: datacite.errors
    :members:
 
-DataCite v3.1 XML generation
-============================
+DataCite v4.5 Metadata Management
+==================================
 
-.. automodule:: datacite.schema31
+.. automodule:: datacite.schema45
    :members: dump_etree, tostring, validate
 
-DataCite v4.0 XML generation
-============================
+DataCite v4.3 Metadata Management
+==================================
 
-.. automodule:: datacite.schema40
+.. automodule:: datacite.schema43
    :members: dump_etree, tostring, validate
 
-DataCite v4.1 XML generation
-============================
+DataCite v4.2 Metadata Management
+==================================
+
+.. automodule:: datacite.schema42
+   :members: dump_etree, tostring, validate
+
+DataCite v4.1 Metadata Management
+==================================
 
 .. automodule:: datacite.schema41
    :members: dump_etree, tostring, validate
 
-DataCite v4.2 XML generation
-============================
+DataCite v4.0 Metadata Management
+==================================
 
-.. automodule:: datacite.schema42
+.. automodule:: datacite.schema40
+   :members: dump_etree, tostring, validate
+
+DataCite v3.1 Metadata Management
+==================================
+
+.. automodule:: datacite.schema31
    :members: dump_etree, tostring, validate
 
 .. include:: ../CHANGES.rst
