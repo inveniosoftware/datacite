@@ -54,7 +54,7 @@ Please see the `DataCite Testing guide <https://support.datacite.org/docs/testin
 know how to test this client with your test credentials.
 
 DataCite API Wrappers
-===================
+============================
 
 .. automodule:: datacite
    :members:
@@ -116,4 +116,4 @@ License
     granted to it by virtue of its status as an Intergovernmental Organization
     or submit itself to any jurisdiction.
 
-.. include:: ../AUTHORS.rst
+Thank you to all the `contributors <https://github.com/inveniosoftware/datacite/graphs/contributors>`!
