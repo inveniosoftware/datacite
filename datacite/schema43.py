@@ -11,7 +11,8 @@
 
 """DataCite v4.3 JSON to XML transformations."""
 
-import pkg_resources
+import importlib.resources as importlib_resources
+
 from lxml import etree
 from lxml.builder import E
 
@@ -38,7 +39,7 @@ root_attribs = {
 }
 
 validator = validator_factory(
-    pkg_resources.resource_filename("datacite", "schemas/datacite-v4.3.json")
+    importlib_resources.files("datacite") / "schemas/datacite-v4.3.json"
 )
 
 
