@@ -8,6 +8,8 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+from collections import defaultdict
+
 """Errors for the DataCite API.
 
 MDS error responses will be converted into an exception from this module.
@@ -32,27 +34,21 @@ class DataCiteError(Exception):
     * 403 Forbidden
     * 404 Not Found
     * 410 Gone (deleted)
+    * 412 Precondition Failed
+    * 422 Unprocessable Entity
     """
+
+    status_code = 400
+
+    def __init__(self, *args, status_code=500):
+        """Initialize this exception with an http status code error."""
+        super().__init__(*args)
+        self.status_code = status_code
 
     @staticmethod
     def factory(err_code, *args):
         """Create exceptions through a Factory based on the HTTP error code."""
-        if err_code == 204:
-            return DataCiteNoContentError(*args)
-        elif err_code == 400:
-            return DataCiteBadRequestError(*args)
-        elif err_code == 401:
-            return DataCiteUnauthorizedError(*args)
-        elif err_code == 403:
-            return DataCiteForbiddenError(*args)
-        elif err_code == 404:
-            return DataCiteNotFoundError(*args)
-        elif err_code == 410:
-            return DataCiteGoneError(*args)
-        elif err_code == 412:
-            return DataCitePreconditionError(*args)
-        else:
-            return DataCiteServerError(*args)
+        return DataCiteErrorFactory.create(err_code, *args)
 
 
 class DataCiteServerError(DataCiteError):
@@ -104,3 +100,48 @@ class DataCiteGoneError(DataCiteRequestError):
 
 class DataCitePreconditionError(DataCiteRequestError):
     """Metadata must be uploaded first."""
+
+
+class DataCiteUnprocessableEntityError(DataCiteRequestError):
+    """Invalid metadata format or content."""
+
+
+class DataCiteErrorFactory:
+    """
+    Factory class to create specific DataCiteError instances based on the HTTP status code
+
+    Attributes:
+        ERROR_CLASSES (defaultdict): A dictionary mapping HTTP status codes to corresponding DataCiteError classes.
+    """
+
+    ERROR_CLASSES = defaultdict(
+        lambda status_code: (
+            DataCiteServerError if status_code >= 500 else DataCiteRequestError
+        ),
+        {
+            204: DataCiteNoContentError,
+            400: DataCiteBadRequestError,
+            401: DataCiteUnauthorizedError,
+            403: DataCiteForbiddenError,
+            404: DataCiteNotFoundError,
+            410: DataCiteGoneError,
+            412: DataCitePreconditionError,
+            422: DataCiteUnprocessableEntityError,
+        },
+    )
+
+    @staticmethod
+    def create(err_code, *args):
+        """
+        Create a specific DataCiteError instance based on the provided error code.
+
+        Args:
+            err_code (int): The HTTP status code representing the error.
+            *args: Additional arguments to be passed to the DataCiteError constructor.
+
+        Returns:
+            DataCiteError: An instance of the appropriate DataCiteError subclass.
+
+        """
+        DataCiteErrorClass = DataCiteErrorFactory.ERROR_CLASSES[err_code]
+        return DataCiteErrorClass(*args, status_code=err_code)
