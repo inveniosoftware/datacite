@@ -1,0 +1,78 @@
+{
+
+      "doi": "10.82433/eck0-f231",
+      "prefix": "10.82433",
+      "suffix": "eck0-f231",
+      "alternateIdentifiers": [],
+      "creators": [
+        {
+          "name": "Garcia, Sofia",
+          "nameType": "Personal",
+          "givenName": "Sofia",
+          "familyName": "Garcia",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "titles": [
+        {
+          "lang": "en",
+          "title": "Example Chapter Title"
+        }
+      ],
+      "publisher": {
+        "lang": "en",
+        "name": "Example Publisher"
+      },
+      "container": {},
+      "publicationYear": "1980",
+      "subjects": [],
+      "contributors": [],
+      "dates": [
+        {
+          "date": "1980",
+          "dateType": "Issued"
+        }
+      ],
+      "types": {
+        "resourceTypeGeneral": "BookChapter"
+      },
+      "relatedIdentifiers": [],
+      "relatedItems": [
+        {
+          "titles": [
+            {
+              "title": "Example Book Title"
+            }
+          ],
+          "volume": "I",
+          "edition": "2nd edition",
+          "creators": [],
+          "lastPage": "155",
+          "firstPage": "110",
+          "publisher": "Example Publisher",
+          "contributors": [
+            {
+              "name": "Miller, Elizabeth",
+              "nameType": "Personal",
+              "givenName": "Elizabeth",
+              "familyName": "Miller",
+              "affiliation": [],
+              "contributorType": "Editor",
+              "nameIdentifiers": []
+            }
+          ],
+          "relationType": "IsPublishedIn",
+          "publicationYear": "1980",
+          "relatedItemType": "Book"
+        }
+      ],
+      "sizes": [],
+      "formats": [],
+      "rightsList": [],
+      "descriptions": [],
+      "geoLocations": [],
+      "fundingReferences": [],
+      "url": "https://example.org/RelatedItem2",
+      "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

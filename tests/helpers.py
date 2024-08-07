@@ -95,3 +95,13 @@ TEST_43_JSON_FILES = [
     "data/4.3/datacite-example-ancientdates-v4.json",
     "data/datacite-v4.3-full-example.json",
 ]
+
+TEST_45_JSON_FILES = [
+    "data/4.5/datacite-example-dataset-v4.json",
+    "data/4.5/datacite-example-instrument-v4.json",
+    "data/4.5/datacite-example-multilingual-v4.json",
+    "data/4.5/datacite-example-relateditem1-v4.json",
+    "data/4.5/datacite-example-relateditem2-v4.json",
+    "data/4.5/datacite-example-relateditem3-v4.json",
+    "data/datacite-v4.5-full-example.json",
+]
