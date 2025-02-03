@@ -95,12 +95,6 @@ DataCite v4.0 Metadata Management
 .. automodule:: datacite.schema40
    :members: dump_etree, tostring, validate
 
-DataCite v3.1 Metadata Management
-==================================
-
-.. automodule:: datacite.schema31
-   :members: dump_etree, tostring, validate
-
 .. include:: ../CHANGES.rst
 
 .. include:: ../CONTRIBUTING.rst
