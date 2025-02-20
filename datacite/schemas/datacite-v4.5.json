@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/2019-09/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "id": "datacite-v4.5.json",
     "title": "DataCite v4.5",
     "description": "JSON representation of the DataCite v4.5 schema.",
