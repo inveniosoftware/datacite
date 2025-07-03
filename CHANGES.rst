@@ -1,6 +1,13 @@
 Changes
 =======
 
+Version v1.3.0 (released 2025-07-03):
+
+- Removes deprecated schema 3.1
+- Adds minimum python version 3.9
+- Switches 4.5 schema to https
+- Documentation clanup and improvements
+
 Version v1.2.0 (released 2024-10-17):
 
 - Updates package setup and adds black formatting
