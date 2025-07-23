@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version v1.3.1 (released 2025-07-23):
+
+- remove deprecated schema 31 test files
+- tests: reorganize test files and remove http schema access that was removed in lxml
+- fix: replaced pkg_resources with importlib.resources
+
 Version v1.3.0 (released 2025-07-03):
 
 - Removes deprecated schema 3.1
