@@ -65,6 +65,12 @@ Errors
 .. automodule:: datacite.errors
    :members:
 
+DataCite v4.6 Metadata Management
+==================================
+
+.. automodule:: datacite.schema46
+   :members: dump_etree, tostring, validate
+
 DataCite v4.5 Metadata Management
 ==================================
 
