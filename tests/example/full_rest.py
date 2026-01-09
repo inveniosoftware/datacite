@@ -1,5 +1,5 @@
 import os
-from datacite import DataCiteRESTClient, schema45
+from datacite import DataCiteRESTClient, schema46
 
 data = {
     "creators": [
@@ -17,10 +17,10 @@ data = {
 }
 
 # Validate dictionary
-schema45.validator.validate(data)
+schema46.validator.validate(data)
 
 # Generate DataCite XML from dictionary.
-doc = schema45.tostring(data)
+doc = schema46.tostring(data)
 
 print(doc)
 
