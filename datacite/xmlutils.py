@@ -10,7 +10,6 @@
 
 """XML utilities."""
 
-
 from collections import OrderedDict
 
 from lxml import etree
