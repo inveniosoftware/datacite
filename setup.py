@@ -11,7 +11,6 @@
 
 """Python API wrapper for the DataCite Metadata Store and REST APIs."""
 
-
 from setuptools import setup
 
 setup()
