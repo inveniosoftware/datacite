@@ -1,6 +1,12 @@
 Changes
 =======
 
+Version v1.4.0 (released 2026-03-19)
+
+- fix: DeprecationWarning
+- chore: black formatting
+- build(deps): bump pypa/gh-action-pypi-publish in /.github/workflows
+
 Version v1.3.1 (released 2025-07-23):
 
 - remove deprecated schema 31 test files
