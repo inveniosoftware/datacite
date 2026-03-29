@@ -1,0 +1,150 @@
+{
+  "doi": "10.82433/byt7-2g42",
+  "prefix": "10.82433",
+  "suffix": "byt7-2g42",
+  "alternateIdentifiers": [],
+  "creators": [
+    {
+      "name": "Zou, Jing",
+      "nameType": "Personal",
+      "givenName": "Jing",
+      "familyName": "Zou",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://orcid.org",
+          "nameIdentifier": "https://orcid.org/0000-0002-4553-2743",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ]
+    },
+    {
+      "name": "DataCite",
+      "nameType": "Organizational",
+      "affiliation": [],
+      "nameIdentifiers": [
+        {
+          "schemeUri": "https://ror.org",
+          "nameIdentifier": "https://ror.org/04wxnsj81",
+          "nameIdentifierScheme": "ROR"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "lang": "en",
+      "title": "Advances in Chemistry"
+    },
+    {
+      "lang": "es",
+      "title": "Avances en Química",
+      "titleType": "TranslatedTitle"
+    },
+    {
+      "lang": "zh",
+      "title": "化学进展",
+      "titleType": "TranslatedTitle"
+    }
+  ],
+  "publisher": {
+    "lang": "en",
+    "name": "DataCite",
+    "schemeUri": "https://ror.org/",
+    "publisherIdentifier": "https://ror.org/04wxnsj81",
+    "publisherIdentifierScheme": "ROR"
+  },
+  "container": {
+    "type": "Series",
+    "identifier": "arXiv:0706.0001",
+    "identifierType": "arXiv"
+  },
+  "publicationYear": "2022",
+  "subjects": [
+    {
+      "lang": "en",
+      "subject": "Chemistry"
+    },
+    {
+      "lang": "es",
+      "subject": "Químicas"
+    },
+    {
+      "lang": "zh",
+      "subject": "化学"
+    }
+  ],
+  "contributors": [],
+  "dates": [
+    {
+      "date": "2024-01-01",
+      "dateType": "Available"
+    },
+    {
+      "date": "2022",
+      "dateType": "Issued"
+    }
+  ],
+  "language": "en",
+  "types": {
+    "resourceTypeGeneral": "BookChapter"
+  },
+  "relatedIdentifiers": [
+    {
+      "relationType": "IsPartOf",
+      "relatedIdentifier": "arXiv:0706.0001",
+      "resourceTypeGeneral": "Book",
+      "relatedIdentifierType": "arXiv"
+    }
+  ],
+  "relatedItems": [],
+  "sizes": [],
+  "formats": [],
+  "rightsList": [
+    {
+      "lang": "en",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-by-4.0",
+      "rightsIdentifierScheme": "SPDX"
+    },
+    {
+      "lang": "es",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-by-4.0",
+      "rightsIdentifierScheme": "SPDX"
+    },
+    {
+      "lang": "zh",
+      "rights": "Creative Commons Attribution 4.0 International",
+      "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "schemeUri": "https://spdx.org/licenses/",
+      "rightsIdentifier": "cc-by-4.0",
+      "rightsIdentifierScheme": "SPDX"
+    }
+  ],
+  "descriptions": [
+    {
+      "lang": "en",
+      "description": "This chapter reviews selected landmarks ocurred in Chemistry basic research in the last 5 years",
+      "descriptionType": "Abstract"
+    },
+    {
+      "lang": "es",
+      "description": "El capítulo repasa los principales avances en la investigación básica en Ciencias Químicas en los últimos 5 años",
+      "descriptionType": "Abstract"
+    },
+    {
+      "lang": "zh",
+      "description": "本章回顾了过去5年中在化学基础研究中发生的一些里程碑式的事件",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "geoLocations": [],
+  "fundingReferences": [],
+  "url": "https://example.org",
+  "schemaVersion": "http://datacite.org/schema/kernel-4"
+}

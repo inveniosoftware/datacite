@@ -1,4 +1,4 @@
-from datacite import DataCiteMDSClient, schema45
+from datacite import DataCiteMDSClient, schema46
 
 prefix = "10.1234"
 
@@ -19,10 +19,10 @@ data = {
 }
 
 # Validate dictionary
-assert schema45.validate(data)
+assert schema46.validate(data)
 
 # Generate DataCite XML from dictionary.
-doc = schema45.tostring(data)
+doc = schema46.tostring(data)
 
 # Initialize the MDS client.
 d = DataCiteMDSClient(

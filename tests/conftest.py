@@ -79,6 +79,14 @@ def example_json_file45():
 
 
 @pytest.fixture
+def example_json_file46():
+    """Load DataCite v4.6 full example JSON."""
+    path = dirname(__file__)
+    with open(join(path, "data", "datacite-v4.6-full-example.json")) as file:
+        return file.read()
+
+
+@pytest.fixture
 def example_json40(example_json_file40):
     """Load the DataCite v4.0 full example into a dict."""
     return json.loads(example_json_file40)
@@ -106,6 +114,12 @@ def example_json43(example_json_file43):
 def example_json45(example_json_file45):
     """Load the DataCite v4.5 full example into a dict."""
     return json.loads(example_json_file45)
+
+
+@pytest.fixture
+def example_json46(example_json_file46):
+    """Load the DataCite v4.6 full example into a dict."""
+    return json.loads(example_json_file46)
 
 
 def load_xml(filename):
@@ -147,6 +161,12 @@ def example_xml_file45():
 
 
 @pytest.fixture
+def example_xml_file46():
+    """Load DataCite v4.6 full example XML."""
+    return load_xml("datacite-v4.6-full-example.xml")
+
+
+@pytest.fixture
 def example_xml40(example_xml_file40):
     """Load DataCite v4.0 full example as an etree."""
     return etree.fromstring(example_xml_file40.encode("utf-8"))
@@ -172,8 +192,14 @@ def example_xml43(example_xml_file43):
 
 @pytest.fixture
 def example_xml45(example_xml_file45):
-    """Load DataCite v4.3 full example as an etree."""
+    """Load DataCite v4.5 full example as an etree."""
     return etree.fromstring(example_xml_file45.encode("utf-8"))
+
+
+@pytest.fixture
+def example_xml46(example_xml_file46):
+    """Load DataCite v4.6 full example as an etree."""
+    return etree.fromstring(example_xml_file46.encode("utf-8"))
 
 
 def _load_xsd(xsd_filename):
@@ -211,6 +237,12 @@ def xsd43():
 def xsd45():
     """Load DataCite v4.5 full example as an etree."""
     return _load_xsd("4.5/metadata.xsd")
+
+
+@pytest.fixture(scope="session")
+def xsd46():
+    """Load DataCite v4.6 full example as an etree."""
+    return _load_xsd("4.6/metadata.xsd")
 
 
 @pytest.fixture(scope="function")
@@ -258,6 +290,23 @@ def minimal_json43():
 @pytest.fixture(scope="function")
 def minimal_json45():
     """Minimal valid JSON for DataCite 4.5."""
+    return {
+        "doi": "10.1234/foo.bar",
+        "creators": [
+            {"name": "Nielsen, Lars Holm"},
+        ],
+        "titles": [{"title": "Minimal Test Case"}],
+        "publisher": {"name": "Invenio Software"},
+        "publicationYear": "2016",
+        "types": {"resourceType": "", "resourceTypeGeneral": "Software"},
+        "schemaVersion": "http://datacite.org/schema/kernel-4",
+        "url": "https://www.example.com",
+    }
+
+
+@pytest.fixture(scope="function")
+def minimal_json46():
+    """Minimal valid JSON for DataCite 4.6."""
     return {
         "doi": "10.1234/foo.bar",
         "creators": [
