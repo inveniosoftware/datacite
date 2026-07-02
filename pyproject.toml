@@ -1,4 +1,79 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+# SPDX-FileCopyrightText: 2015-2016 CERN.
+# SPDX-FileCopyrightText: 2024 California Institute of Technology
+# SPDX-FileCopyrightText: 2026 Graz University of Technology.
+# SPDX-FileCopyrightText: 2026 TU Wien.
+# SPDX-License-Identifier: MIT
 
+[project]
+name = "datacite"
+description = "A Python client for DataCite MDS and REST APIs."
+readme = "README.rst"
+requires-python = ">=3.9"
+license = "BSD-3-Clause"
+authors = [
+  { name = "Invenio Collaboration", email = "info@inveniosoftware.org" },
+]
+keywords = [
+  "datacite",
+  "doi",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "idutils>=1.0.0",
+  "importlib-metadata>=6.11.0",
+  "jsonresolver>=0.5.0",
+  "jsonschema>=3.0.0",
+  "lxml>=4.5.2",
+  "requests>=2.12.2",
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/inveniosoftware/datacite"
+
+[project.optional-dependencies]
+all = [
+  "datacite[tests]",
+]
+docs = [
+  "sphinx>=4.5.0",
+]
+tests = [
+  "datacite[docs]",
+  "mock>=1.3.0",
+  "pytest-black>=0.6.0",
+  "pytest-invenio>=1.4.0",
+  "responses>=0.10.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "datacite/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/datacite",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pydocstyle]
+add_ignore = "D401"
+
+[tool.pytest.ini_options]
+addopts = '--black --isort --pydocstyle --doctest-glob="*.rst" --doctest-modules --cov=datacite --cov-report=term-missing'
+markers = "pw: tests that require a password (will only run with '--runpw' option)"
+norecursedirs = "tests/example"
+testpaths = "tests datacite"
+live_server_scope = "module"
