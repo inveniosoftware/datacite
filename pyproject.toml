@@ -27,7 +27,6 @@ classifiers = [
 ]
 dependencies = [
   "idutils>=1.0.0",
-  "importlib-metadata>=6.11.0",
   "jsonresolver>=0.5.0",
   "jsonschema>=3.0.0",
   "lxml>=4.5.2",
