@@ -118,13 +118,17 @@ class DataCiteRESTClient(object):
             raise DataCiteError.factory(resp.status_code, resp.text)
 
     def put_doi(self, doi, data):
-        """Put a JSON payload to DataCite for an existing DOI."""
+        """Put a JSON payload to DataCite for a DOI.
+
+        DataCite updates the DOI if it exists (200 OK) and creates it
+        otherwise (201 Created), so both are treated as success.
+        """
         headers = {"content-type": "application/vnd.api+json"}
         body = {"data": data}
         request = self._create_request()
         url = "dois/" + doi
         resp = request.put(url, body=json.dumps(body), headers=headers)
-        if resp.status_code == HTTP_OK:
+        if resp.status_code in (HTTP_OK, HTTP_CREATED):
             return resp.json()["data"]["attributes"]
         else:
             raise DataCiteError.factory(resp.status_code, resp.text)
