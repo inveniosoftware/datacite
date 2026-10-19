@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2015, 2016 CERN.
 # SPDX-FileCopyrightText: 2020 Caltech.
 # SPDX-FileCopyrightText: 2021 Graz University of Technology.
+# SPDX-FileCopyrightText: 2026 RCSB PDB.
 # SPDX-License-Identifier: BSD-3-Clause
 
 """Tests for REST API."""
@@ -173,6 +174,29 @@ def test_rest_create_public_mock():
     new_metadata = d.update_doi(doi, metadata)
     assert new_metadata["publisher"] == "Invenio"
     new_metadata = d.update_doi(doi, url=url)
+    assert new_metadata["url"] == url
+
+
+@responses.activate
+def test_rest_put_doi_creates_new_doi_mock():
+    """Test PUT on a DOI that does not exist yet (DataCite answers 201)."""
+    prefix = "10.1234"
+    url = "https://github.com/inveniosoftware/datacite"
+    data = {
+        "data": {
+            "id": prefix + "/1",
+            "attributes": {"publisher": "Invenio", "url": url},
+        }
+    }
+    responses.add(
+        responses.PUT,
+        "{0}dois/{1}/1".format(RESTURL, prefix),
+        json=data,
+        status=201,
+    )
+    d = get_rest(username="mock", password="mock", prefix=prefix)
+    new_metadata = d.update_doi(prefix + "/1", {"publisher": "Invenio"}, url=url)
+    assert new_metadata["publisher"] == "Invenio"
     assert new_metadata["url"] == url
 
 
