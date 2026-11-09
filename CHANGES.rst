@@ -1,6 +1,10 @@
 Changes
 =======
 
+Version v1.4.2 (released 2026-11-09)
+
+- fix(rest): accept 201 Created in put_doi
+
 Version v1.4.1 (released 2026-07-20)
 
 - chore(setup): remove importlib-metadata as dependency
