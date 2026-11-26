@@ -8,7 +8,7 @@
 name = "datacite"
 description = "A Python client for DataCite MDS and REST APIs."
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 license = "BSD-3-Clause"
 authors = [
   { name = "Invenio Collaboration", email = "info@inveniosoftware.org" },
